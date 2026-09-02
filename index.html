@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SOUL BROTH CO. — Southern soul, Japanese bowl. Atlanta food truck</title>
+<meta name="description" content="SOUL BROTH CO. is an Atlanta food truck cooking Southern soul food and Japanese ramen on four wheels. Order pickup, track the truck, download the full menu." />
+<meta name="theme-color" content="#16130F" />
+<link rel="icon" href="assets/favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SOUL BROTH CO. — Southern soul, Japanese bowl." />
+<meta property="og:description" content="Atlanta food truck. Oxtail shoyu, collard gyoza, hot-honey chashu. Order pickup and track the truck." />
+<meta property="og:image" content="assets/og.svg" />
+
+<link rel="preload" href="assets/fonts/rye-r05XGLJT86YzH57tbOo.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="vendor/leaflet.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#menu">Skip to menu</a>
+
+<header class="topbar" id="topbar" hidden>
+  <a class="topbar__mark" href="#top">SOUL BROTH CO.</a>
+  <nav class="topbar__nav" aria-label="Primary">
+    <a href="#menu">Menu</a>
+    <a href="#find">Find us</a>
+    <a class="topbar__cta" href="#order">Order pickup</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="wrap hero__inner">
+      <p class="chit chit--status" id="heroStatus" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="chit__text">Checking the route&hellip;</span>
+      </p>
+
+      <h1 class="hero__mark">Soul&nbsp;Broth&nbsp;Co.</h1>
+      <p class="hero__tag">Southern soul. Japanese bowl.</p>
+      <p class="hero__lede">
+        Oxtail shoyu, collard gyoza, hot-honey chashu &mdash; low-and-slow Southern
+        cooking run through a ramen shop. Cooked on four wheels around Atlanta.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#order">Order pickup</a>
+        <a class="btn btn--ghost" href="menu.pdf" download>
+          Download menu <span class="btn__meta">PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+      <span>Oxtail broth</span><span>&middot;</span><span>Collard gyoza</span><span>&middot;</span>
+      <span>Hot-honey chashu</span><span>&middot;</span><span>Catfish katsu</span><span>&middot;</span>
+      <span>Miso pot likker</span><span>&middot;</span><span>Benne seed</span><span>&middot;</span>
+      <span>Sweet-tea brine</span><span>&middot;</span><span>Chili crisp</span><span>&middot;</span>
+    </div>
+  </div>
+
+  <!-- ===== STORY ===== -->
+  <section class="section story" id="story">
+    <div class="wrap">
+      <p class="chit">Now serving</p>
+      <div class="story__grid">
+        <h2 class="section__title">Two kitchens,<br />one bowl.</h2>
+        <div class="story__body">
+          <p>
+            The broth starts the way a pot of greens does &mdash; oxtail, smoked turkey,
+            aromatics, a whole afternoon. Then it gets a ramen shop's discipline:
+            soy tare measured to the gram, noodles pulled to order, toppings stacked
+            with intent.
+          </p>
+          <p>
+            It's not Southern food dressed up as ramen, or ramen borrowing a few
+            Southern notes. It's one cook's two grandmothers arguing in the same
+            pot, and somehow agreeing.
+          </p>
+          <p class="story__pull">&ldquo;If it doesn't stick to your ribs, we're not sending it out the window.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="section menu" id="menu">
+    <div class="wrap">
+      <div class="menu__head">
+        <div>
+          <p class="chit chit--ink">The menu</p>
+          <h2 class="section__title section__title--ink">What's in the window</h2>
+        </div>
+        <a class="btn btn--stamp" href="menu.pdf" download>
+          Download full menu <span class="btn__meta">PDF</span>
+        </a>
+      </div>
+
+      <div id="menuList" class="menu__list"><!-- rendered from menu-data.js --></div>
+
+      <p class="menu__legend" id="menuLegend"></p>
+    </div>
+  </section>
+
+  <!-- ===== ORDER ===== -->
+  <section class="section order" id="order">
+    <div class="wrap">
+      <p class="chit">Place your order</p>
+      <h2 class="section__title">Skip the line</h2>
+      <p class="order__intro">
+        Build your ticket, pick a time, and pay at the window &mdash; cash or card.
+        Orders hold for 15 minutes past pickup.
+      </p>
+
+      <div class="order__grid">
+        <!-- the ticket / cart -->
+        <div class="ticket" id="ticket" aria-live="polite">
+          <div class="ticket__perf" aria-hidden="true"></div>
+          <p class="ticket__head">Your ticket</p>
+          <div id="ticketItems" class="ticket__items"></div>
+          <p class="ticket__empty" id="ticketEmpty">Nothing on it yet. Add a bowl from the menu.</p>
+          <dl class="ticket__totals" id="ticketTotals" hidden>
+            <div><dt>Subtotal</dt><dd id="tSub">$0.00</dd></div>
+            <div><dt>Tax</dt><dd id="tTax">$0.00</dd></div>
+            <div class="ticket__grand"><dt>Total</dt><dd id="tTotal">$0.00</dd></div>
+          </dl>
+          <div class="ticket__perf ticket__perf--b" aria-hidden="true"></div>
+        </div>
+
+        <!-- pickup details -->
+        <form class="pickup" id="pickupForm" novalidate>
+          <p class="pickup__where">
+            <span class="pickup__label">Pick up at</span>
+            <span id="pickupPlace" class="pickup__place">&mdash;</span>
+          </p>
+
+          <label class="field">
+            <span>Pickup time</span>
+            <select id="pickupTime" name="time" required></select>
+          </label>
+
+          <label class="field">
+            <span>Name</span>
+            <input id="custName" name="name" type="text" autocomplete="name" required placeholder="Who's it for?" />
+          </label>
+
+          <label class="field">
+            <span>Mobile number</span>
+            <input id="custPhone" name="phone" type="tel" autocomplete="tel" required
+                   inputmode="tel" placeholder="(404) 555-0134" />
+          </label>
+
+          <p class="pickup__error" id="formError" role="alert" hidden></p>
+
+          <button class="btn btn--solid btn--block" type="submit" id="placeBtn" disabled>
+            Place order
+          </button>
+          <p class="pickup__fine">No payment now. We'll text when it's up.</p>
+        </form>
+
+        <!-- confirmation (swapped in after submit) -->
+        <div class="confirm" id="confirm" hidden>
+          <p class="confirm__tick" aria-hidden="true">&#10003;</p>
+          <p class="chit chit--ink">Order placed</p>
+          <p class="confirm__num" id="confirmNum">SB-0000</p>
+          <p class="confirm__line" id="confirmLine"></p>
+          <p class="confirm__hint">Show this screen at the window. We'll text you when it's ready.</p>
+          <button class="btn btn--ghost" type="button" id="newOrderBtn">Start a new ticket</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FIND ===== -->
+  <section class="section find" id="find">
+    <div class="wrap">
+      <p class="chit">Where we at</p>
+      <h2 class="section__title">Track the truck</h2>
+
+      <div class="find__grid">
+        <div class="find__mapwrap">
+          <div id="map" class="find__map" role="img" aria-label="Map of Atlanta showing SOUL BROTH CO. route stops"></div>
+          <p class="find__now" id="findNow">Checking the route&hellip;</p>
+        </div>
+
+        <div class="find__schedule">
+          <table class="sched">
+            <caption class="sr-only">Weekly route</caption>
+            <thead>
+              <tr><th scope="col">Day</th><th scope="col">Hours</th><th scope="col">Stop</th></tr>
+            </thead>
+            <tbody id="schedBody"></tbody>
+          </table>
+          <a class="btn btn--ghost btn--block" id="mapsLink" href="#" target="_blank" rel="noopener">
+            Open today's stop in Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATERING ===== -->
+  <section class="section catering" id="catering">
+    <div class="wrap catering__inner">
+      <div>
+        <p class="chit chit--ink">Book the truck</p>
+        <h2 class="section__title section__title--ink">Catering &amp; events</h2>
+        <p class="catering__body">
+          Block parties, office lunches, wedding late-night. We bring the window to you,
+          20 to 300 covers. Tell us the date and we'll send a quote.
+        </p>
+      </div>
+      <form class="catering__form" id="cateringForm" novalidate>
+        <label class="field field--ink">
+          <span>Email</span>
+          <input type="email" name="email" id="cateringEmail" required placeholder="you@company.com" />
+        </label>
+        <label class="field field--ink">
+          <span>Event date</span>
+          <input type="date" name="date" id="cateringDate" />
+        </label>
+        <button class="btn btn--solid" type="submit">Request a quote</button>
+        <p class="catering__ok" id="cateringOk" hidden>Got it &mdash; we'll be in touch within a day.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__mark">Soul Broth Co.</p>
+    <div class="footer__cols">
+      <div>
+        <p class="footer__h">Route</p>
+        <p>Atlanta, GA &middot; Tue&ndash;Sun</p>
+        <p>Follow for day-of changes</p>
+      </div>
+      <div>
+        <p class="footer__h">Follow</p>
+        <p><a href="#" rel="noopener">Instagram</a> &middot; <a href="#" rel="noopener">TikTok</a></p>
+        <p><a href="#order">Order pickup</a> &middot; <a href="menu.pdf" download>Menu PDF</a></p>
+      </div>
+      <div>
+        <p class="footer__h">Say hey</p>
+        <p><a href="mailto:hey@soulbroth.co">hey@soulbroth.co</a></p>
+        <p>(404) 555&ndash;0177</p>
+      </div>
+    </div>
+    <p class="footer__fine">
+      Design mockup &mdash; <span id="year"></span>. Not a real business; prices, phone,
+      and route are illustrative. Map data &copy; OpenStreetMap contributors, tiles by CARTO.
+    </p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="menu-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

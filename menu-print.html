@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SOUL BROTH CO. — Full Menu</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  @page { size: Letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; }
+  :root {
+    --ink:#16130F; --bone:#F2EADA; --ember:#FF5A1F; --broth:#E7A83C; --ash:#6f675b;
+    --display:"Rye","Bookman Old Style",Georgia,serif;
+    --head:"Archivo Black","Arial Black",sans-serif;
+    --body:"Archivo",system-ui,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  html,body { background:#fff; }
+  body { font-family:var(--body); color:var(--ink); }
+  .sheet { width:8.5in; min-height:10.4in; padding:0.6in 0.72in 0.45in; background:var(--bone); overflow:hidden; }
+  .sheet + .sheet { page-break-before: always; }
+
+  header { border-bottom:3px solid var(--ink); padding-bottom:.28in; margin-bottom:.3in; }
+  .mark { font-family:var(--display); font-size:44pt; line-height:.9; }
+  .sub { font-family:var(--head); text-transform:uppercase; font-size:12.5pt; letter-spacing:.02em; color:var(--ember); margin-top:.08in; }
+  .kick { font-family:var(--mono); font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--ash); margin-bottom:.06in; }
+
+  .grid { column-count:2; column-gap:.5in; }
+  .cat { break-inside:avoid; margin-bottom:.2in; }
+  .cat h2 { font-family:var(--head); text-transform:uppercase; font-size:15pt; letter-spacing:-.01em; margin-bottom:.06in; }
+  .note { font-family:var(--mono); font-size:7.5pt; color:var(--ash); margin-bottom:.08in; }
+  .row { padding:.07in 0; border-bottom:.5pt dotted rgba(22,19,15,.4); break-inside:avoid; }
+  .row-top { display:flex; align-items:baseline; gap:.06in; }
+  .nm { font-weight:700; font-size:10pt; }
+  .dots { flex:1; border-bottom:.5pt dotted rgba(22,19,15,.5); transform:translateY(-3pt); }
+  .pr { font-family:var(--mono); font-weight:700; font-size:9.5pt; }
+  .ds { font-size:8.2pt; line-height:1.4; color:rgba(22,19,15,.78); margin-top:.02in; max-width:3in; }
+  .tags i { font-family:var(--mono); font-style:normal; font-size:6pt; font-weight:700; letter-spacing:.08em;
+            border:.5pt solid rgba(22,19,15,.45); padding:0 .04in; margin-left:.04in; }
+
+  footer { margin-top:.3in; border-top:3px solid var(--ink); padding-top:.2in; }
+  .rt { font-family:var(--head); text-transform:uppercase; font-size:11pt; margin-bottom:.1in; }
+  table { width:100%; border-collapse:collapse; font-size:8.4pt; }
+  th { text-align:left; font-family:var(--mono); font-size:7pt; letter-spacing:.12em; text-transform:uppercase;
+       color:var(--ash); border-bottom:1pt solid var(--ink); padding:.04in .06in; }
+  td { padding:.05in .06in; border-bottom:.5pt dotted rgba(22,19,15,.35); vertical-align:top; }
+  td:first-child { font-weight:700; }
+  td:nth-child(2) { font-family:var(--mono); white-space:nowrap; }
+  .fine { font-family:var(--mono); font-size:6.6pt; color:var(--ash); margin-top:.16in; line-height:1.5; }
+  .legend { font-family:var(--mono); font-size:7pt; color:var(--ash); margin-top:.08in; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <p class="kick">—— Atlanta food truck · order at soulbroth.co</p>
+      <div class="mark">Soul Broth Co.</div>
+      <div class="sub">Southern soul. Japanese bowl.</div>
+    </header>
+
+    <div class="grid"><section class="cat"><h2>Bowls</h2><p class="note">Broth built low and slow. Add a soft egg to any bowl for $2.</p><div class="row">
+      <div class="row-top"><span class="nm">Oxtail Shoyu Ramen</span><span class="dots"></span><span class="pr">$18.00</span></div>
+      <div class="ds">12-hour oxtail broth, soy tare, braised collards, soft egg, charred scallion, house chili crisp.</div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Hot-Honey Chashu Ramen</span><span class="dots"></span><span class="pr">$17.00</span></div>
+      <div class="ds">Pork-belly chashu, hot-honey glaze, smoked-tomato broth, pickled okra, crispy shallot.</div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Catfish Katsu Bowl</span><span class="dots"></span><span class="pr">$16.00</span></div>
+      <div class="ds">Cornmeal-panko catfish, steamed rice, napa slaw, comeback aioli, torn nori.</div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Smoked Turkey Tantan</span><span class="dots"></span><span class="pr">$16.00</span></div>
+      <div class="ds">Sesame-peanut broth, smoked turkey, mustard greens, field peas, scallion.</div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Miso Greens Bowl</span><span class="dots"></span><span class="pr">$14.00</span></div>
+      <div class="ds">White-miso pot likker, triple greens, roasted sweet potato, seared tofu, benne seed. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Gochujang Fried Chicken Rice</span><span class="dots"></span><span class="pr">$15.00</span></div>
+      <div class="ds">Sweet-tea-brined thigh, gochujang-sorghum glaze, jasmine rice, quick cucumber pickle.</div>
+    </div></section><section class="cat"><h2>Sides &amp; Soul</h2><div class="row">
+      <div class="row-top"><span class="nm">Collard Gyoza (6)</span><span class="dots"></span><span class="pr">$9.00</span></div>
+      <div class="ds">Pan-fried, smoked-collard and pork filling, sorghum-soy dip.</div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Cornbread Buns (2)</span><span class="dots"></span><span class="pr">$6.00</span></div>
+      <div class="ds">Steamed bao-style cornbread, whipped honey butter. <span class="tags"><i>V</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Mac &amp; Miso</span><span class="dots"></span><span class="pr">$7.00</span></div>
+      <div class="ds">Baked macaroni, miso-cheddar mornay, cracker-crumb crust. <span class="tags"><i>V</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Chili-Crisp Okra</span><span class="dots"></span><span class="pr">$6.00</span></div>
+      <div class="ds">Flash-fried okra, house chili crisp, lime. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Field Pea Salad</span><span class="dots"></span><span class="pr">$5.00</span></div>
+      <div class="ds">Black-eyed peas, sesame vinaigrette, torn herbs. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div></section><section class="cat"><h2>Sweets</h2><div class="row">
+      <div class="row-top"><span class="nm">Sweet Potato Mochi Pie</span><span class="dots"></span><span class="pr">$7.00</span></div>
+      <div class="ds">Chewy mochi crust, sweet-potato custard, torched marshmallow. <span class="tags"><i>V</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Benne Sesame Cookie</span><span class="dots"></span><span class="pr">$3.00</span></div>
+      <div class="ds">Brown-butter, toasted benne seed, flaky salt. <span class="tags"><i>V</i></span></div>
+    </div></section><section class="cat"><h2>Drinks</h2><div class="row">
+      <div class="row-top"><span class="nm">Half &amp; Half</span><span class="dots"></span><span class="pr">$4.00</span></div>
+      <div class="ds">Sweet tea cut with fresh lemonade. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Yuzu Hibiscus Cooler</span><span class="dots"></span><span class="pr">$4.00</span></div>
+      <div class="ds">Tart, floral, barely sweet. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Ramune</span><span class="dots"></span><span class="pr">$4.00</span></div>
+      <div class="ds">The marble-top soda. Ask for today's flavor. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div><div class="row">
+      <div class="row-top"><span class="nm">Chicory Cold Brew</span><span class="dots"></span><span class="pr">$4.00</span></div>
+      <div class="ds">New Orleans-style, over ice. <span class="tags"><i>VG</i><i>GF</i></span></div>
+    </div></section></div>
+
+    <footer>
+      <p class="rt">Weekly route</p>
+      <table>
+        <thead><tr><th>Day</th><th>Hours</th><th>Stop</th></tr></thead>
+        <tbody><tr><td>Monday</td><td>Closed</td><td>—</td></tr><tr><td>Tuesday</td><td>11a–3p</td><td>Ponce City Market, Old Fourth Ward</td></tr><tr><td>Wednesday</td><td>11a–3p</td><td>Tech Square, Midtown</td></tr><tr><td>Thursday</td><td>5p–9p</td><td>Krog Street Market, Beltline Eastside</td></tr><tr><td>Friday</td><td>11a–3p</td><td>Woodruff Park, Downtown</td></tr><tr><td>Saturday</td><td>12p–8p</td><td>Grant Park Market, Grant Park</td></tr><tr><td>Sunday</td><td>12p–5p</td><td>The Works ATL, Upper Westside</td></tr></tbody>
+      </table>
+      <p class="legend">V vegetarian   ·   VG vegan   ·   GF gluten-free   ·   add a soft egg to any bowl $2</p>
+      <p class="fine">Design mockup — not a real business. Prices, route, and contact details are illustrative.
+      Tax (8.9%) added at checkout. Menu changes with the season and the market.</p>
+    </footer>
+  </div>
+</body>
+</html>
