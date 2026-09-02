@@ -224,7 +224,7 @@ h1, h2, h3 { line-height: 1; font-weight: 400; }
 .marquee__track {
   display: flex; gap: 1.5rem; width: max-content; white-space: nowrap;
   font-family: var(--font-mono); font-size: .78rem; letter-spacing: .16em;
-  text-transform: uppercase; color: rgba(242, 234, 218, .55);
+  text-transform: uppercase; color: rgba(242, 234, 218, .72);
   animation: marq 30s linear infinite;
 }
 .marquee:hover .marquee__track { animation-play-state: paused; }
@@ -416,7 +416,7 @@ h1, h2, h3 { line-height: 1; font-weight: 400; }
   border: 1px solid var(--line-strong);
   color: var(--bone); font-size: 1rem;
 }
-.field input::placeholder { color: rgba(154, 145, 130, .7); }
+.field input::placeholder { color: rgba(182, 173, 158, .85); }
 .field select {
   appearance: none; -webkit-appearance: none; padding-right: 2.4em;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23FF5A1F' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
@@ -430,7 +430,7 @@ h1, h2, h3 { line-height: 1; font-weight: 400; }
   border-color: rgba(22, 19, 15, .3);
   color: var(--ink);
 }
-.field--ink input::placeholder { color: rgba(22, 19, 15, .45); }
+.field--ink input::placeholder { color: rgba(22, 19, 15, .62); }
 
 .pickup__error {
   font-family: var(--font-mono); font-size: .8rem; color: var(--ember);
@@ -504,6 +504,14 @@ h1, h2, h3 { line-height: 1; font-weight: 400; }
 
 /* leaflet theming */
 .leaflet-container { font-family: var(--font-body); background: #0d0b08; }
+/* Darken the light OSM raster tiles to sit in the ink palette (tiles only —
+   controls, markers and popups stay untouched). */
+.leaflet-tile-pane {
+  filter: grayscale(1) invert(1) brightness(.88) contrast(1.05) sepia(.2) saturate(.85) hue-rotate(-8deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-fade-anim .leaflet-tile { transition: none !important; }
+}
 .leaflet-bar a {
   background: var(--soy); color: var(--bone);
   border-bottom-color: var(--line);
@@ -565,7 +573,7 @@ h1, h2, h3 { line-height: 1; font-weight: 400; }
 .footer__cols a:hover { color: var(--ember); }
 .footer__fine {
   font-family: var(--font-mono); font-size: .7rem; line-height: 1.6;
-  color: rgba(154, 145, 130, .75); max-width: 74ch; margin-top: 1rem;
+  color: var(--ash); max-width: 74ch; margin-top: 1rem;
 }
 
 /* ---------- toast ---------- */

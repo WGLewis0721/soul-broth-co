@@ -1,0 +1,31 @@
+# Cloudflare Pages / Netlify header rules. Ignored by plain static hosts.
+
+# Content-hashed, never-changing assets — cache hard.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Other assets (icons, og image) — a week, revalidate after.
+/assets/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Generated menu PDF — a day.
+/menu.pdf
+  Cache-Control: public, max-age=86400
+
+# HTML / JS / CSS — always revalidate so deploys land immediately.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Baseline security headers.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
