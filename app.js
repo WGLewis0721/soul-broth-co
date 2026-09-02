@@ -305,6 +305,48 @@
   }
 
   /* ---------- map ---------- */
+  var mapStarted = false;
+
+  function loadLeaflet(cb) {
+    if (typeof L !== "undefined") { cb(); return; }
+    if (!$('link[href="vendor/leaflet.css"]')) {
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "vendor/leaflet.css";
+      document.head.appendChild(css);
+    }
+    var s = document.createElement("script");
+    s.src = "vendor/leaflet.js";
+    s.onload = cb;
+    s.onerror = cb; /* initMap() renders a text fallback when L is missing */
+    document.head.appendChild(s);
+  }
+
+  function startMap() {
+    if (mapStarted) return;
+    mapStarted = true;
+    loadLeaflet(initMap);
+  }
+
+  /* Defer Leaflet (JS + map tiles) until the visitor heads toward the route
+     section — keeps ~150 KB of JS and the tile requests off the initial load. */
+  function deferMap() {
+    var find = $("#find");
+    if (!find || !("IntersectionObserver" in window)) { startMap(); return; }
+
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); startMap(); }
+    }, { rootMargin: "600px 0px" });
+    io.observe(find);
+
+    /* Any engagement means they'll likely scroll to the map soon — pre-warm it. */
+    ["scroll", "pointerdown", "keydown"].forEach(function (evt) {
+      window.addEventListener(evt, startMap, { once: true, passive: true });
+    });
+    /* Last-resort fallback for a tab left open without interacting. */
+    setTimeout(startMap, 10000);
+  }
+
   function initMap() {
     var el = $("#map");
     if (typeof L === "undefined") {
@@ -315,9 +357,9 @@
     }
     var stops = ROUTE.filter(function (e) { return !e.closed && e.lat; });
     var map = L.map(el, { scrollWheelZoom: false, zoomControl: true });
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-      subdomains: "abcd", maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      subdomains: "abc", maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     var pts = [];
@@ -338,7 +380,7 @@
       pts.push([e.lat, e.lng]);
     });
 
-    map.fitBounds(pts, { padding: [40, 40] });
+    map.fitBounds(pts, { padding: [40, 40], animate: !reduceMotion });
     map.on("click", function () { map.scrollWheelZoom.enable(); });
     map.on("mouseout", function () { map.scrollWheelZoom.disable(); });
     setTimeout(function () { map.invalidateSize(); }, 250);
@@ -430,7 +472,7 @@
     initReveals();
     initTopbar();
     initCatering();
-    initMap();
+    deferMap();
 
     document.addEventListener("click", onClick);
     $("#pickupForm").addEventListener("submit", handleSubmit);

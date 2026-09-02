@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#16130F"/>
+  <!-- steam -->
+  <path d="M12 7c-1.6 1.4-1.6 2.8 0 4.2M16 6c-1.6 1.4-1.6 2.8 0 4.2M20 7c-1.6 1.4-1.6 2.8 0 4.2"
+        fill="none" stroke="#E7A83C" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- bowl -->
+  <path d="M5 14h22a11 11 0 0 1-22 0Z" fill="#FF5A1F"/>
+  <path d="M5 14h22" stroke="#F2EADA" stroke-width="2" stroke-linecap="round"/>
+  <!-- chopsticks -->
+  <path d="M22 25 29 10M25 26 30 13" stroke="#F2EADA" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

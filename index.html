@@ -5,18 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SOUL BROTH CO. — Southern soul, Japanese bowl. Atlanta food truck</title>
 <meta name="description" content="SOUL BROTH CO. is an Atlanta food truck cooking Southern soul food and Japanese ramen on four wheels. Order pickup, track the truck, download the full menu." />
+<link rel="canonical" href="https://soulbroth.co/" />
 <meta name="theme-color" content="#16130F" />
+<meta name="color-scheme" content="dark" />
 <link rel="icon" href="assets/favicon.svg" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Soul Broth Co." />
+<meta property="og:url" content="https://soulbroth.co/" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content="SOUL BROTH CO. — Southern soul, Japanese bowl." />
 <meta property="og:description" content="Atlanta food truck. Oxtail shoyu, collard gyoza, hot-honey chashu. Order pickup and track the truck." />
-<meta property="og:image" content="assets/og.svg" />
+<meta property="og:image" content="https://soulbroth.co/assets/og.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Soul Broth Co. — Southern soul, Japanese bowl. Atlanta food truck." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SOUL BROTH CO. — Southern soul, Japanese bowl." />
+<meta name="twitter:description" content="Atlanta food truck. Oxtail shoyu, collard gyoza, hot-honey chashu. Order pickup and track the truck." />
+<meta name="twitter:image" content="https://soulbroth.co/assets/og.png" />
+<meta name="twitter:image:alt" content="Soul Broth Co. — Southern soul, Japanese bowl. Atlanta food truck." />
 
-<link rel="preload" href="assets/fonts/rye-r05XGLJT86YzH57tbOo.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/rye-r05XGLJT86YzEZ7t.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
-<link rel="stylesheet" href="vendor/leaflet.css" />
 <link rel="stylesheet" href="styles.css" />
+<!-- vendor/leaflet.css is injected by app.js alongside leaflet.js when the map loads -->
 </head>
 <body>
 <a class="skip-link" href="#menu">Skip to menu</a>
@@ -187,7 +202,7 @@
 
       <div class="find__grid">
         <div class="find__mapwrap">
-          <div id="map" class="find__map" role="img" aria-label="Map of Atlanta showing SOUL BROTH CO. route stops"></div>
+          <div id="map" class="find__map" role="region" aria-label="Interactive map of SOUL BROTH CO. weekly route stops across Atlanta. The full route is also listed in the schedule table below."></div>
           <p class="find__now" id="findNow">Checking the route&hellip;</p>
         </div>
 
@@ -221,7 +236,7 @@
       <form class="catering__form" id="cateringForm" novalidate>
         <label class="field field--ink">
           <span>Email</span>
-          <input type="email" name="email" id="cateringEmail" required placeholder="you@company.com" />
+          <input type="email" name="email" id="cateringEmail" autocomplete="email" required placeholder="you@company.com" />
         </label>
         <label class="field field--ink">
           <span>Event date</span>
@@ -256,14 +271,14 @@
     </div>
     <p class="footer__fine">
       Design mockup &mdash; <span id="year"></span>. Not a real business; prices, phone,
-      and route are illustrative. Map data &copy; OpenStreetMap contributors, tiles by CARTO.
+      and route are illustrative. Map data &copy; OpenStreetMap contributors.
     </p>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="vendor/leaflet.js"></script>
+<!-- Leaflet is loaded on demand by app.js when the route map scrolls into view -->
 <script src="menu-data.js"></script>
 <script src="app.js"></script>
 </body>
