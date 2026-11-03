@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://soulbroth.co/sitemap.xml
+Disallow: /concepts.html
