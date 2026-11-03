@@ -1,18 +1,24 @@
-(function(){"use strict";
-const variants=[
-{key:"midnight-drop",label:"01 · Midnight Drop",eyebrow:"SOUTHERN COMFORT, AFTER DARK",title:'The plate <em>is the event.</em>',intro:"Southern comfort worth showing up for. Monthly plate releases and pop-up pickup days, announced when they're ready."},
-{key:"sunday-editorial",label:"02 · Sunday Editorial",eyebrow:"A SUNDAY KIND OF FEELING",title:'Made to be <em>remembered.</em>',intro:"Your favorite comfort food has a new ritual. Thoughtfully made plates. Good company. A reason to mark your calendar."},
-{key:"order-ticket",label:"03 · The Order Ticket",eyebrow:"YOUR NEXT GOOD MEAL",title:'Good food. <em>No guesswork.</em>',intro:"The plate. The pickup. The plan. Follow this month's release for menu and event instructions before you make the trip."},
-{key:"golden-hour",label:"04 · Golden Hour",eyebrow:"BIG SOUTHERN COMFORT",title:'COME <em>HUNGRY.</em>',intro:"Generous plates. Bold flavor. Monthly pop-up releases that turn an ordinary meal into something worth talking about."},
-{key:"the-popup",label:"05 · The Pop-Up",eyebrow:"FOLLOW THE NEXT RELEASE",title:'Find your next <em>plate drop.</em>',intro:"One event at a time. Menu, location, pickup window and ordering announcements live where our community gathers."},
-{key:"supper-table",label:"06 · Supper Table",eyebrow:"FROM OUR KITCHEN TO YOUR TABLE",title:'Good food. <em>Worth the wait.</em>',intro:"A little homemade feeling, a lot of flavor. Follow along for the next Haus of Micah supper-style plate release."},
-{key:"feed-to-fork",label:"07 · Feed to Fork",eyebrow:"YOU'VE SEEN THE PLATES",title:'You saw it. <em>Now taste it.</em>',intro:"The food you've been watching. The flavors you've been imagining. Follow Haus of Micah for the next monthly release."}
-];
-const params=new URLSearchParams(location.search), n=Math.min(7,Math.max(1,parseInt(params.get("hero")||"1",10)||1)),variant=variants[n-1],wire=params.get("wire")==="1",review=params.get("review")==="1";
-document.body.className="theme-"+n+(wire?" wireframe":"");
-const title=document.getElementById("hero-title"), intro=document.getElementById("hero-intro"), eyebrow=document.getElementById("eyebrow-text");
-if(title){title.innerHTML=variant.title;intro.textContent=variant.intro;eyebrow.textContent=variant.eyebrow}
-const ribbon=document.getElementById("review-ribbon");
-if(review&&ribbon){ribbon.hidden=false;const select=document.getElementById("concept-select");variants.forEach((v,i)=>{let o=document.createElement("option");o.value=String(i+1);o.textContent=v.label;select.append(o)});select.value=String(n);select.addEventListener("change",()=>location.href="?hero="+encodeURIComponent(select.value)+"&review=1"+(wire?"&wire=1":""));const w=document.getElementById("wire-link");w.href="?hero="+n+"&review=1"+(wire?"":"&wire=1");w.textContent=wire?"Full design":"Wireframe";}
-const dialog=document.getElementById("how-dialog"),how=document.getElementById("how-button");if(dialog&&how){how.addEventListener("click",()=>{if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","")});dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()})}
+/* Haus of Micah · Scroll narrative / concept director. No external JS. */
+(()=>{'use strict';
+ const CONCEPTS=[
+  {name:'Gilded Cinema',hint:'Film-title light, jewel-gold detail',title:['THE PLATE','is the event.'],sub:'A slow-reveal Southern food film.'},
+  {name:'Sunday Archive',hint:'Heritage publication, warm ivory',title:['PULL UP','a chair.'],sub:'An invitation with a little more soul.'},
+  {name:'Drop Culture',hint:'Bold release poster, high appetite',title:['THE DROP','is delicious.'],sub:'A monthly release worth the noise.'},
+  {name:'Maison Micah',hint:'Architectural, intimate dining atelier',title:['GOOD FOOD','is an art.'],sub:'The plate treated like a signature.'},
+  {name:'The Food Film',hint:'Cinematic film frames and restraint',title:['THIS IS','what comfort looks like.'],sub:'Let the food do the talking.'}
+ ];
+ const track=document.getElementById('scroll-track');if(!track)return;
+ const body=document.body,chapters=[...document.querySelectorAll('.chapter')],steps=[...document.querySelectorAll('.step')],count=document.getElementById('chapter-count'),line=document.getElementById('progress-line'),switchToggle=document.getElementById('switch-toggle'),switchPanel=document.getElementById('switch-panel'),switchClose=document.getElementById('switch-close'),switchList=document.getElementById('switch-list'),switchIndex=document.querySelector('.switch-index'),cardCta=document.getElementById('card-cta'),title=document.querySelector('.chapter-0 .headline-first'),subtitle=document.querySelector('.chapter-0 .lead-headline em');
+ const qs=new URLSearchParams(location.search);let concept=Math.max(1,Math.min(5,Number(qs.get('concept'))||1)),active=-1,progress=0,frame=0;const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ function switchConcept(next){concept=next;body.className='concept-'+concept;title.textContent=CONCEPTS[next-1].title[0];subtitle.textContent=CONCEPTS[next-1].title[1];cardCta.href='pay.html?concept='+concept;switchIndex.textContent=String(concept).padStart(2,'0')+' / 05';[...switchList.querySelectorAll('button')].forEach((b,i)=>{b.classList.toggle('active',i===next-1);b.setAttribute('aria-pressed',i===next-1?'true':'false')});const url=new URL(location.href);url.searchParams.set('concept',String(concept));try{history.replaceState({},'',url.pathname+url.search+url.hash)}catch(e){/* embedded design reviewers may use an opaque origin */}}
+ CONCEPTS.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='switch-choice';b.innerHTML='<span class="id">0'+(i+1)+'</span><span><strong>'+c.name+'</strong><small>'+c.hint+'</small></span><span class="arrow">↗</span>';b.addEventListener('click',()=>{switchConcept(i+1);closePanel()});switchList.append(b)});
+ function closePanel(){switchPanel.hidden=true;switchToggle.setAttribute('aria-expanded','false')}
+ function togglePanel(){switchPanel.hidden=!switchPanel.hidden;switchToggle.setAttribute('aria-expanded',String(!switchPanel.hidden));if(!switchPanel.hidden)switchClose.focus()}
+ switchToggle.addEventListener('click',togglePanel);switchClose.addEventListener('click',()=>{closePanel();switchToggle.focus()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!switchPanel.hidden){closePanel();switchToggle.focus()}if(!switchPanel.hidden&&e.key>='1'&&e.key<='5'){switchConcept(Number(e.key));closePanel()}});
+ function scrollToBeat(i){if(reduce.matches){chapters[i].scrollIntoView({behavior:'auto'})}else{const h=Math.max(1,track.offsetHeight-innerHeight);const y=track.getBoundingClientRect().top+scrollY+h*(i/4);scrollTo({top:y,behavior:'smooth'})}}
+ steps.forEach((b,i)=>b.addEventListener('click',()=>scrollToBeat(i)));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();scrollToBeat(Number(b.dataset.go))}));
+ function update(){frame=0;if(reduce.matches){chapters.forEach(c=>{c.classList.add('current');c.removeAttribute('aria-hidden')});return}const rect=track.getBoundingClientRect();const distance=Math.max(1,track.offsetHeight-innerHeight);progress=Math.max(0,Math.min(1,-rect.top/distance));const index=Math.max(0,Math.min(4,Math.round(progress*4)));if(index!==active){active=index;chapters.forEach((c,i)=>{const on=i===index;c.classList.toggle('current',on);c.setAttribute('aria-hidden',on?'false':'true');c.querySelectorAll('a').forEach(a=>{a.tabIndex=on?0:-1})});steps.forEach((b,i)=>{b.classList.toggle('active',i===index);if(i===index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});count.textContent=String(index+1).padStart(2,'0')};line.style.height=(progress*100).toFixed(1)+'%';document.querySelector('.stage-scroll').style.opacity=progress>.9?'.2':'1'}
+ function request(){if(!frame)frame=requestAnimationFrame(update)}
+ addEventListener('scroll',request,{passive:true});addEventListener('resize',request,{passive:true});reduce.addEventListener('change',request);
+ switchConcept(concept);update();
 })();

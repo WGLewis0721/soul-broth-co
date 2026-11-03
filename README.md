@@ -1,56 +1,37 @@
-# Haus of Micah — The Plate Is the Event.
+# Haus of Micah | The Plate Is the Event
 
-A single-page cinematic Southern comfort-food experience, built to turn social interest in monthly plate drops into anticipation for each pop-up pickup. Five distinct, fully responsive visual concepts share the same content and workflow.
+High-fidelity, mobile-first **concept preview** for a monthly Southern-comfort plate-drop and pop-up pickup business in North Alabama. Replaces the old Soul Broth Co. demo homepage in `WGLewis0721/soul-broth-co`; prior source remains in Git history. Official supplied brand board is the only visual source of truth.
 
-**Live design preview:** https://haus-of-micah-concepts.vercel.app/  
-**Five-concept review:** https://haus-of-micah-concepts.vercel.app/concepts.html  
-**Sample pickup card:** https://haus-of-micah-concepts.vercel.app/pay.html
+## Explore
 
-This is a **promotional design concept**, not an operational restaurant checkout. Payments, real inventory, pickups, QR verification, messaging, live menus, sale dates and confirmed location are *not* connected or invented. Users are sent to the owner's verified Instagram account for current announcements.
+`/` defaults to Gilded Cinema; `/?concept=2` etc opens alternative directions. Switch concepts in the top-right of the single scrolling experience; the switcher preserves scroll position. The five designs are distinct spatial and typographic treatments, not just palette swaps.
 
-## Experience and features
+| # | Concept | Distinct visual treatment |
+| -- | -- | -- |
+| 1 | Gilded Cinema | Warm midnight, arch-framed macro plate, Bodoni title-card typography |
+| 2 | Sunday Archive | Cream editorial publication, offset photograph, Cormorant text |
+| 3 | Drop Culture | Burnt-orange release poster, circular food hero, heavyweight condensed type |
+| 4 | Maison Micah | Architectural collard-green atelier, framed food and elegant serif |
+| 5 | The Food Film | Restrained black cinema with panoramic film composition |
 
-- One five-beat, scroll-driven culinary story. A fixed hero stage progresses through **Arrival → Craving → Craft → Handoff → Invitation**, using real stills from the client's own Instagram screen recordings.
-- A live concept switcher maintains scroll position and current chapter while changing typography, framing, color treatment, food composition, and overall atmosphere.
-- Five art directions: 01 Southern Chiaroscuro, 02 Golden Seal, 03 Sunday Chronicle, 04 After Hours, 05 The Handoff.
-- Dedicated /pay.html is a **no-charge design preview**, where a visitor can personalize and download a sample pickup pass with a location field explicitly stating “Announced for each event.” Never a paid order or valid pickup ticket.
-- /concepts.html is a private review gallery with links to all five live designs, not intended as the eventual customer's navigation.
-- Reduced Motion presents all five chapters in normal scroll and reading order without pinned choreography. Uses semantic HTML with one h1, visible focus, and live rather than rasterized text. No third-party UI framework is needed.
+Each concept has five scroll beats (experience → food → monthly release → pop-up handoff → invitation). The final action links to the separate `/pay.html?concept=N` customer-card preview (and to the verified `@hausofmicah` Instagram page).
 
-## Paths
+## Payment status
 
-```
-index.html                         One-page, five-chapter experience
-styles.css                         Visual system, five theme compositions, responsiveness
-experience.js                      Scroll chapter controller, switcher, preview pass export
-concepts.html                      Five-concept review gallery
-pay.html                           Separate order-page/pickup-card prototype
-assets/haus-icon.svg               Small placeholder icon; not official identity master
-docs/concepts/haus-of-micah/
-  PROMOTION_SPEC_V2.md             Requirements-to-UX and future order flow
-  UI_UX_AUDIT_V2.md                Tested behavior and outstanding quality gates
-  RESEARCH_AND_CREATIVE.md         Research & creative rationale
-  ASSET_PROVENANCE.md              User footage, logo and hosted asset references
-  BRAND_PRODUCT_SPEC.md            Earlier broad product roadmap
-  BRAND_TOKENS.json                Color reference values
-docs/reference/                    Copied source web and UX documents from owner repositories
-```
+**The card page is a concept, not a payment processor.** It can personalize a sample card, save it as PNG, and share it. It explicitly marks the card `NOT PAID` and `NOT VALID FOR PICKUP`; the user is not charged and no personal data is transmitted to a backend. Menu, inventory, actual pickup address, release time, and merchant integration must be approved and connected before accepting orders. Never claim that the card is a paid confirmation based on client-side clicks. All such commerce functions remain unshipped.
 
-## Use
+## Files
 
-Open a static local server at repo root:
-```bash
-python3 -m http.server 8000
-```
-Explore `http://localhost:8000/?concept=1` through `?concept=5`, `/concepts.html`, and `/pay.html?concept=1`.
+`index.html`, `styles.css`, `app.js` = the one-page five-skin scroll experience.
+`pay.html`, `pay.css`, `pay.js` = separate branded card preview and native share / PNG export.
+`assets/*.webp` = still crops from client-provided video recordings. `assets/official-logo.png` = extracted image of supplied logo (not a newly approved redesign).
+`docs/RESEARCH.md`, `docs/REQUIREMENTS_MAP.md`, `docs/UX_AUDIT.md` = evidence and validation record.
 
-## Brand source of truth
+Run via any static HTTP server (`python -m http.server 8080`); no framework / build step. External Google Fonts are used with local fallback. Self-hosting licensed font files is a production-hardening task.
 
-The **exact original Haus of Micah Southern Gold brand board provided by the owner**, not the simplified SVG drafted earlier, is the authority. Colors: Roux `#261913`, Gold `#DCA63D`, Cream `#F3E8D5`, Collard `#384A33`, Glaze `#A94929`. Keep the recognizable house, gold spatula, and script. A screenshot-derived crop is used only for this preview and needs a proper clean logo master before client production.
+## Known limitations
 
-## Production limitations
-
-This repository was previously Soul Broth Co. and its original contents remain in Git history. Old `menu-data.js`, generated menu PDFs and food-truck assets are legacy and are **not** Haus of Micah's menu. No checkout/payments, customer database, staff scanning or SMS are shipped. Real operation requires approved event data, secure payment integration, server-verified orders and operator pickup actions.
-
-The Vercel project is `haus-of-micah-concepts`. All preview pages are noindexed while they contain unverified demo event information. Client presentation is appropriate; public customer ordering is not.
-
+- Actual order page / payment webhook / server-side capacity enforcement / QR code verification are not implemented; this is a design proof.
+- Official precise drop date, address, menu and price were not supplied; no fictitious commercial facts are displayed.
+- The saved sample card contains no ticket / QR proof, by design.
+- Current screenshots were browser-tested with mocked external font network, not real-device iPhone QA. Refer to `docs/UX_AUDIT.md`.
