@@ -1,60 +1,56 @@
-# DESIGN.md — Haus of Micah
-> The existing Soul Broth Co. public site has been replaced by the Haus of Micah **hero-only design preview**. Git history retains the original. The current root site's source of truth is `index.html`, `styles.css`, and `app.js`; concepts and operating specifications live under `docs/concepts/haus-of-micah/`.
-> Important: **No operational ordering, payment, pickup scanning, SMS, inventory, or subscription has shipped.** All such features are specified for future implementation and require owner approval.
+# DESIGN.md | Haus of Micah Digital Restaurant Experience
 
-## Brand expression
-**The plate is the event.** Southern comfort food is the hero. The brand is indulgent and abundant, with cinematic closeups, dark roux tones, warm editorial cream, precise gold touches, and a signature serif/calligraphy rhythm.
+**Project:** A premium one-page, scroll-driven plate-drop website with a separate sample customer-card page, five editorial concepts, and a live design-review switcher.  
+**Status:** Preview. Do not present payment/order/pickup as implemented.  
+**Visual authority:** The owner's **exact original Southern Gold brand board** supplied in ChatGPT. The later simplified SVG is not an official replacement.
 
-### Tokens
-| Name | Color | Role |
-|---|---|---|
-| Roux | `#261913` | Main cinematic background |
-| Gold | `#DCA63D` | Primary CTA and meaningful accent |
-| Cream | `#F3E8D5` | Main foreground and warm-paper alternative |
-| Collard | `#384A33` | Event-led visual treatment |
-| Glaze | `#A94929` | Food/heat secondary accent |
+## Positioning and style
 
-Type: editorial serif headline (Fraunces), interface sans (DM Sans), signature-style brand lettering. The current website's compact SVG submark is a **temporary concept approximation** of the provided logo, not a claim of an approved logo redesign.
+**The Plate Is the Event.** An Instagram-led Southern comfort-food brand where every monthly plate sale is its own announcement, craving, and pop-up occasion. Content language is warm, assured, generous, and concise, never artificial luxury, fake scarcity, fabricated awards, or fake order success.
 
-## Information architecture
-The root `/` serves **one hero only**. Default concept is `01 Midnight Drop`.
-The review index is `/concepts.html` (marked noindex). Query variables:
-- `?hero=1` … `?hero=7`: display a distinct landing page hero composition.
-- `?hero=1&wire=1&review=1`: corresponding low-fi wireframe.
-- `?hero=1&review=1`: the hero with a reviewer selector.
-These are review experiences, not a seven-option menu for customers. Normal visitors see one hero without a reviewer selector.
+## Color tokens
+| Name | Hex | Role |
+| --- | --- | --- |
+| Roux | `#261913` | Editorial darkness, food spotlight |
+| Gold | `#DCA63D` | Hero contrast, action, small brand highlights |
+| Cream | `#F3E8D5` | Warm light surfaces, body text |
+| Collard | `#384A33` | Organic evening/event atmosphere |
+| Glaze | `#A94929` | Culinary warmth, selective highlights |
 
-## Seven distinct hero approaches
-1. Midnight Drop: dark cinematic asymmetric split, oversized serif text and food photo.
-2. Sunday Editorial: cream editorial composition with photo framed like a publication cover.
-3. Order Ticket: utility-first visual concept, paper handoff ticket overlay and clear status.
-4. Golden Hour: burnt glaze/amber typography poster and circular close-up.
-5. The Pop-Up: collard-green event composition and logistics callout.
-6. Supper Table: centered intimate food portrait and invitation-style headline.
-7. Feed to Fork: social-led food collage and historically observed follower count, clearly labeled.
+Food photography comes from the client's two social screen recordings. Use real source images after approval, not synthetic illustration of unverified plates. Motion is slow camera-depth, crossfades and purposeful scroll progression with a complete Reduce Motion alternative. Never place unreadable type on the moving food.
 
-All use **current status**, not fabricated live sale countdowns. Until a verified customer checkout is connected the action directs to the official Instagram page. A secondary "How It Works" opens a functioning dialog.
+## Art directions (five alternatives, not just re-colors)
 
-## Food and photo integrity
-Hero food photo is **illustrative commercial-use Unsplash material** and is explicitly identified as such in the hero and its alt text. It should be replaced with approved client-original stills from the attached videos before client signoff. Do not imply stock or AI illustrations portray actual Haus menu items.
+1. **Southern Chiaroscuro**: Instrument Serif, roux, soft oval/film-lit photo, golden action, deep negative space.
+2. **Golden Seal**: Bodoni Moda, cream gallery field, plated dish as a collectible artwork, ceremonial framing.
+3. **Sunday Chronicle**: Fraunces, newspaper-style editorial balance, overlapping photography and more intimate story.
+4. **After Hours**: Anton uppercase + Instrument Serif italic, full-bleed night-food poster with tight dramatic scrim.
+5. **The Handoff**: Bodoni Moda, collard-green event imagery, collectible pickup-ticket framing and clear logistics.
 
-## Web design and UX principles
-- One h1, one visually primary CTA, semantic dialog, keyboard access, visible focus, responsive layout.
-- Live text rather than lettering baked into food photos; accessible reduced-motion fallback.
-- 44px or larger touch controls; 4.5:1 body contrast intended and test on actual screenshots.
-- Site does not use fake cart, fake dates, fake prices or fake confirmations.
-- The seven creative directions keep identical functional semantics; they differ in composition, not workflow.
-- Validate 320, 390, 820, 1024 and 1440 px; manual focus and screen-reader review owed.
+Shared controls are intentionally stable: accessible main navigation, 5-step scroll structure, final invitation action, and a genuine link to current Instagram posts. The design switcher is for client review, not default future customer operation.
 
-## Client workflows to build after the concept is selected
-Next monthly drop state → preorder cart → pickup-window capacity → real payment → receipt/QR backup code → operator pickup scan/check-in → repeat customer notifications. The full state machine, data entities, constraints, and acceptance checks are in the [brand/product spec](docs/concepts/haus-of-micah/BRAND_PRODUCT_SPEC.md). Adopt the copied reference docs as UX research only, not as inherited brand rules.
+## Structure
 
-## Source references
-- [Haus of Micah brand and product spec](docs/concepts/haus-of-micah/BRAND_PRODUCT_SPEC.md)
-- [Haus of Micah applied UX guidelines](docs/concepts/haus-of-micah/UX_WEB_GUIDELINES.md)
-- [Reference and licensing ledger](docs/concepts/haus-of-micah/REFERENCES.md)
-- [Seven hero briefs](docs/concepts/haus-of-micah/hero/README.md)
-- [Copied web + UX source docs](docs/reference/)
+`/`: One scroll experience with a pinned stage and **five** sequential chapters in a single `main`.  
+`/concepts.html`: Five-variant public-safe but noindexed review gallery.  
+`/pay.html`: A separate no-charge **sample** pickup card page using the same visual grammar. Personalized PNG explicitly bears SAMPLE, NOT PAID, NO QR, NO RESERVATION. The address is not known; only North Alabama is supported by provided profile.
+`experience.js`: rAF-driven sticky scroll index, query-param concept, focus-contained modal drawer, preview-card download.
+`styles.css`: layout, type, variants, motion, responsive media queries.
 
-## Deployment integrity
-This is a **concept website replacement** in the repo. Any domain or GitHub Pages deployment timing depends on the repository's existing hosting workflow and was not verified from a production checkout. Live commerce remains disabled.
+## UX engineering rules
+
+- 5-second comprehension: what food, how monthly drops work, where to find the real announcement.
+- One strongest next action for each chapter. No fake active preorder or invented menu/venue.
+- Explicit, readable food-product/photo labeling, screen reader text and focus.
+- Mobile touch controls 44px minimum as design target, 16px form input text, structural layout 320/390/820/1024/1440px.
+- Native scroll, no wheel hijack. Reduce Motion removes sticky pinning and reveals all content in document order.
+- Link to future pay page; never simulate a completed order as actual paid status.
+- Visual performance targets Web Vitals LCP p75 <=2.5s, INP <=200ms, CLS <=0.1; not asserted until measured.
+- Stage has one active beat at a time; on Reduce Motion all beats visible without requiring animation.
+- Source client's full original logo and higher-quality food source imagery before commercial launch.
+
+## Governance
+
+Start with `docs/concepts/haus-of-micah/PROMOTION_SPEC_V2.md`, `UI_UX_AUDIT_V2.md`, `RESEARCH_AND_CREATIVE.md`, `ASSET_PROVENANCE.md` and the copied foundational UX docs under `docs/reference/`. No other restaurant/product's identity rules override this board. Root `README.md` explains deployment and privacy boundaries.
+
+**Release gate:** client confirms menu, price, pickup date/window, full street address, allergen requirements, provider settings, permitted customer contact, cancellation/refund terms, photo rights, and real webhook/order system. Once those exist and pass testing, a real production release can replace demo mode. Until then keep noindex and demo labels.
