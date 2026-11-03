@@ -5,7 +5,7 @@ The new version addresses the owner's rejection of five nearly-identical design 
 ## Governing identity
 - Preserve logo anatomy (roof, gold spatula, script signature, smoke, heart) from the official brand board. The header displays the client-identity artwork embedded from that board; final logo-master replacement needs owner approval.
 - Colors: Roux #261913, Gold #DCA63D, Cream #F3E8D5, Collard #384A33, Glaze #A94929. Concepts vary the *balance* of these colors, not the brand itself.
-- Photographs are real cropped client video stills in assets/wings.webp, assets/braised.webp, assets/comfort.webp, assets/slow-cooked.webp, assets/mac-and-glaze.webp. These are user-provided but still require original media export and commercial-use confirmation before marketing.
+- Photographs are real cropped client video stills in assets/food/wings.webp, assets/food/braised.webp, assets/food/comfort.webp, assets/food/slow-cooked.webp, assets/food/mac-and-glaze.webp. These are user-provided but still require original media export and commercial-use confirmation before marketing.
 - Fonts selected for role: Barlow Condensed for energy/poster, Fraunces for editorial, Instrument Serif for intimate script-adjacent headlines, DM Sans for reliable interface labels. Font delivery uses Google Fonts pending self-hosting and loading/FOIT validation. No downloaded font files are distributed.
 
 ## Five differentiated concepts

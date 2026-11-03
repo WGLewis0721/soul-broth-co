@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "project": "Haus of Micah",
+  "updated": "2026-11-03",
+  "canonicalRoot": "assets/",
+  "authoritativeBrandBoard": "assets/brand/official-brand-board.jpg",
+  "runtime": {
+    "monthlyMenu": "monthly-menu.js",
+    "turntableController": "plate-motion.js",
+    "turntableStyles": "plate-motion.css",
+    "activeStill": "assets/turntable/plate-angle-center.webp"
+  },
+  "categories": {
+    "brand": "Official brand board, logos, marks, home-screen icons and design tokens",
+    "food": "Client-supplied video stills and early promotional food composition",
+    "turntable": "Five optimized, generated photographic perspectives used for the 20-second 3D-like animation",
+    "ui": "Independent SVG artwork and interface-support icons",
+    "social": "Share images and legacy web previews",
+    "fonts": "Historical, local web font assets and CSS"
+  },
+  "files": [
+    {
+      "path": "assets/brand/apple-touch-icon.png",
+      "sizeBytes": 5453,
+      "gitBlobSha": "946c943d7f65f4860491fcf8c4f3b2e87608be52",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/brand/apple-touch-icon.svg",
+      "sizeBytes": 608,
+      "gitBlobSha": "37eeec56e462f23f0960ef95621f4d0022c2a50a",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/brand/brand-logo-light.png",
+      "sizeBytes": 83041,
+      "gitBlobSha": "64918b4cdf45c0b35d699b3dc467d00f4742cfd0",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/brand/concept-brand-board.svg",
+      "sizeBytes": 5152,
+      "gitBlobSha": "e5d2804f35d72da3d38fbc75f666366105160216",
+      "origin": "Historical derivative brand-board reference",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/brand/favicon.svg",
+      "sizeBytes": 468,
+      "gitBlobSha": "b48e71b4636110510e8e40a320f44ca46effac98",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/brand/haus-icon.svg",
+      "sizeBytes": 508,
+      "gitBlobSha": "9096a31d43db0ed9242c019a725dbbc0de923eb7",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/brand/logo-cutout.png",
+      "sizeBytes": 427741,
+      "gitBlobSha": "a16e79d51b3052d1bdc83fec4e0f258bfc75b047",
+      "origin": "Project brand mark / derived presentation asset",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/brand/official-brand-board.jpg",
+      "sizeBytes": 715044,
+      "gitBlobSha": "3e22eef09145bd29e86768f8996620c977842ec7",
+      "origin": "Client-supplied official brand board",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/brand/tokens.json",
+      "sizeBytes": 867,
+      "gitBlobSha": "02b69592d7bd7d868ff3db6e6d4aba91b80af984",
+      "origin": "Project design tokens",
+      "kind": "data"
+    },
+    {
+      "path": "assets/fonts/archivo-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2",
+      "sizeBytes": 34928,
+      "gitBlobSha": "716d4abd199a236dc4b9e112f63429b9b47ce911",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/archivo-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLySOxK-vA.woff2",
+      "sizeBytes": 13240,
+      "gitBlobSha": "0149781109337267534009e313b0f56c1932a483",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/archivo-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLyTOxK-vA.woff2",
+      "sizeBytes": 32608,
+      "gitBlobSha": "2e544c2f2ce173d4aeb6daafcb51c9feaedbc067",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/archivoblack-HTxqL289NzCGg4MzN6KJ7eW6CYKF_i7y.woff2",
+      "sizeBytes": 14332,
+      "gitBlobSha": "85cf1745ce2eec0f34648881d448de91d490abbb",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/archivoblack-HTxqL289NzCGg4MzN6KJ7eW6CYyF_g.woff2",
+      "sizeBytes": 18604,
+      "gitBlobSha": "a88b0b5352960c400c46ee17180d0d8f5c0d0db9",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/fonts.css",
+      "sizeBytes": 8911,
+      "gitBlobSha": "d729846303f4f746cd2ee068a18c7470d8213177",
+      "kind": "stylesheet",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/rye-r05XGLJT86YzEZ7t.woff2",
+      "sizeBytes": 41416,
+      "gitBlobSha": "d88a0f5a4fd76c38c03f4cbae667b95f38f4bd41",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/rye-r05XGLJT86YzH57tbOo.woff2",
+      "sizeBytes": 8944,
+      "gitBlobSha": "d5591ef9289a0f84cfc752acf50e93248df2a083",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dMIFZifjKcF5UAWdDRaPpZUFqaHjyV.woff2",
+      "sizeBytes": 7332,
+      "gitBlobSha": "7ddc67d691571057003061768abb138f876643ee",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dMIFZifjKcF5UAWdDRaPpZUFuaHjyV.woff2",
+      "sizeBytes": 15808,
+      "gitBlobSha": "d7a1592b4dc13d760773ee1f64faae141ce64f57",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dMIFZifjKcF5UAWdDRaPpZUFWaHg.woff2",
+      "sizeBytes": 16724,
+      "gitBlobSha": "6563bad69c80c737252e98378763276116c17a3a",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dPIFZifjKcF5UAWdDRYE58RWq7.woff2",
+      "sizeBytes": 7272,
+      "gitBlobSha": "f4c014c0eb8661072e0482a720635e9f11619878",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dPIFZifjKcF5UAWdDRYE98RWq7.woff2",
+      "sizeBytes": 15832,
+      "gitBlobSha": "171ca1a2b25620fe58768cd80354f92750670571",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/fonts/spacemono-i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2",
+      "sizeBytes": 16520,
+      "gitBlobSha": "2752f605c1ece3797d3285191f5ffebe3c2873e1",
+      "kind": "font",
+      "origin": "Existing project font archive; licensing/usage should be checked"
+    },
+    {
+      "path": "assets/food/braised.webp",
+      "sizeBytes": 166830,
+      "gitBlobSha": "34c328e7a8cb1c173c2f8d358e19db7f7741b7e1",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/food/comfort.webp",
+      "sizeBytes": 94706,
+      "gitBlobSha": "6874c065cd90ad04e4e805243c581788752da5da",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/food/hero-plate-clean.webp",
+      "sizeBytes": 260416,
+      "gitBlobSha": "7b9611e3d7afdb4a2be785d0f1fcf4e602fd47c5",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/food/mac-and-glaze.webp",
+      "sizeBytes": 118596,
+      "gitBlobSha": "a91df3d0032003104916b1a9066d3287eea33d6a",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/food/slow-cooked.webp",
+      "sizeBytes": 196700,
+      "gitBlobSha": "b114ff6af47a71343b7a3f08bf19c555a7a9b6b3",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/food/wings.webp",
+      "sizeBytes": 111420,
+      "gitBlobSha": "be2ccddb886017de84bddc0458bdb7920a489da6",
+      "origin": "Client-provided social-video still or early edited concept",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/social/og.png",
+      "sizeBytes": 128325,
+      "gitBlobSha": "9280767653fe8ad268f08f9a585ded1fabe3dadc",
+      "origin": "Project social-preview asset",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/social/og.svg",
+      "sizeBytes": 1065,
+      "gitBlobSha": "38f20d4098bc1410eabd1cd190dd239b806dbd6b",
+      "origin": "Project social-preview asset",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/social/preview.jpg",
+      "sizeBytes": 103344,
+      "gitBlobSha": "610aff1be5f2ff82ba12fcb622379b1c59832746",
+      "origin": "Project social-preview asset",
+      "kind": "raster"
+    },
+    {
+      "path": "assets/turntable/plate-angle-center.webp",
+      "sizeBytes": 269204,
+      "gitBlobSha": "76ae175055e2e301d3733fc5b07d82e344f126ab",
+      "origin": "AI-generated photorealistic concept; not actual client menu",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/turntable/plate-angle-left12.webp",
+      "sizeBytes": 224836,
+      "gitBlobSha": "12b46dbc198109382339266ee7845495298ac1a1",
+      "origin": "AI-generated photorealistic concept; not actual client menu",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/turntable/plate-angle-left22.webp",
+      "sizeBytes": 237010,
+      "gitBlobSha": "a2e3de7a93010066b36a5d3962554c57e800dcd0",
+      "origin": "AI-generated photorealistic concept; not actual client menu",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/turntable/plate-angle-right12.webp",
+      "sizeBytes": 216412,
+      "gitBlobSha": "0bbacf8c45f4ea177299eb0eabbc5938c5fa913a",
+      "origin": "AI-generated photorealistic concept; not actual client menu",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/turntable/plate-angle-right22.webp",
+      "sizeBytes": 227314,
+      "gitBlobSha": "b71469f41d5273663c2613ee29bfc02f729ce6f3",
+      "origin": "AI-generated photorealistic concept; not actual client menu",
+      "kind": "photo"
+    },
+    {
+      "path": "assets/ui/cart-bag.svg",
+      "sizeBytes": 320,
+      "gitBlobSha": "3e53b1056aaff2e35a16d86132f3a29902e72a18",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/cloche.svg",
+      "sizeBytes": 416,
+      "gitBlobSha": "f409ddea10134b322a64bfcb33ab3da1b3fd89f6",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/collard.svg",
+      "sizeBytes": 625,
+      "gitBlobSha": "b17be58dcf03425f131a249e93031758fac637a3",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/gold-swoosh.svg",
+      "sizeBytes": 267,
+      "gitBlobSha": "26ec3023499827ff32459f416e3fed4bc68a8dd1",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/macaroni.svg",
+      "sizeBytes": 900,
+      "gitBlobSha": "31fa771986ad80a5edf6cc026b3a19a08b028455",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/ornament-sprig.svg",
+      "sizeBytes": 496,
+      "gitBlobSha": "afcc6d3da93a2f4cc91265f47ea70255414fc066",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/pickup-calendar.svg",
+      "sizeBytes": 350,
+      "gitBlobSha": "b407be5d249971f8380c51377efe5dfd1080ee5e",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/pickup-code.svg",
+      "sizeBytes": 410,
+      "gitBlobSha": "d609310258e271cb06c5130178be02e09be8d44b",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/pin.svg",
+      "sizeBytes": 297,
+      "gitBlobSha": "e30c2db5dec3a8beb0b18e5316b9828a9ef526be",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/sauce-drip.svg",
+      "sizeBytes": 647,
+      "gitBlobSha": "2581ae202ffdaf57663c17dc9af848b53fce31f7",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    },
+    {
+      "path": "assets/ui/sparkle.svg",
+      "sizeBytes": 228,
+      "gitBlobSha": "8e7da42ae72181e0ac8bf5bc584ce4eb9c1be659",
+      "origin": "Project vector illustration",
+      "kind": "vector"
+    }
+  ]
+}

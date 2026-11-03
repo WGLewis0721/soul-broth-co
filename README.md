@@ -1,37 +1,33 @@
-# Haus of Micah | The Plate Is the Event
+# Haus of Micah — Digital Restaurant Concept
 
-High-fidelity, mobile-first **concept preview** for a monthly Southern-comfort plate-drop and pop-up pickup business in North Alabama. Replaces the old Soul Broth Co. demo homepage in `WGLewis0721/soul-broth-co`; prior source remains in Git history. Official supplied brand board is the only visual source of truth.
+**The Plate Is the Event.** An original, responsive Southern-comfort restaurant concept for monthly plate drops and pop-up pickups. The public site is a visual and order-flow **preview**, not a payment or reservation processor.
 
-## Explore
+- **Live preview:** https://haus-of-micah.vercel.app/
+- **GitHub:** https://github.com/WGLewis0721/soul-broth-co
+- **Original brand board:** [assets/brand/official-brand-board.jpg](assets/brand/official-brand-board.jpg)
+- **Canonical visual asset directory:** [assets/README.md](assets/README.md) · [manifest.json](assets/manifest.json)
 
-`/` defaults to Gilded Cinema; `/?concept=2` etc opens alternative directions. Switch concepts in the top-right of the single scrolling experience; the switcher preserves scroll position. The five designs are distinct spatial and typographic treatments, not just palette swaps.
+## What the current site does
+A food-first hero displays five high-resolution views of the plated sample in an accessible, 20-second left-to-right photographic turn. The animation pauses on demand, stops offscreen, and becomes a still under Reduce Motion, Save-Data or image load failures. It is a **3D-like photographic illusion**, not a 360° mesh.
 
-| # | Concept | Distinct visual treatment |
-| -- | -- | -- |
-| 1 | Gilded Cinema | Warm midnight, arch-framed macro plate, Bodoni title-card typography |
-| 2 | Sunday Archive | Cream editorial publication, offset photograph, Cormorant text |
-| 3 | Drop Culture | Burnt-orange release poster, circular food hero, heavyweight condensed type |
-| 4 | Maison Micah | Architectural collard-green atelier, framed food and elegant serif |
-| 5 | The Food Film | Restrained black cinema with panoramic film composition |
+The Plate of the Month section has a live HTML list of included dishes, quantity control, pickup-window selection and the minimal draft information of name and phone, with optional email and note. The separate `pay.html` previews the draft order and a personalized downloadable **UNPAID / SAMPLE** pickup card.
 
-Each concept has five scroll beats (experience → food → monthly release → pop-up handoff → invitation). The final action links to the separate `/pay.html?concept=N` customer-card preview (and to the verified `@hausofmicah` Instagram page).
+**Stripe is not connected:** no purchases, reservations, inventory deductions, real paid cards or customer notifications occur. All prices, menu items and pickup times are placeholders unless explicitly confirmed by the client and a verified server-backed payment/order system is deployed.
 
-## Payment status
+## Start here
+| Purpose | Source |
+| --- | --- |
+| All imagery, icons, logos, font files and motion frames | [`assets/`](assets/README.md) |
+| Canonical file inventory and provenance classifications | [`assets/manifest.json`](assets/manifest.json) |
+| Current month's plate, image and turntable view sequence | [`monthly-menu.js`](monthly-menu.js) |
+| Turntable behavior and styles | `plate-motion.js`, `plate-motion.css` |
+| Website and customer-card page | `index.html`, `app.js`, `pay.html`, `pay.js` |
+| Open-surface layout and site styling | `styles.css`, `surface-system.css`, `pay.css` |
+| Product design and UI/UX expectations | [`DESIGN.md`](DESIGN.md) |
+| Original research, design references and audit | [`docs/`](docs/ASSET_INDEX.md) |
+| Asset rights/origin | [`docs/concepts/haus-of-micah/ASSET_PROVENANCE.md`](docs/concepts/haus-of-micah/ASSET_PROVENANCE.md) |
 
-**The card page is a concept, not a payment processor.** It can personalize a sample card, save it as PNG, and share it. It explicitly marks the card `NOT PAID` and `NOT VALID FOR PICKUP`; the user is not charged and no personal data is transmitted to a backend. Menu, inventory, actual pickup address, release time, and merchant integration must be approved and connected before accepting orders. Never claim that the card is a paid confirmation based on client-side clicks. All such commerce functions remain unshipped.
+## Developer setup
+Run `python -m http.server 8080`, then visit `http://localhost:8080/`. No framework build is required. Keep all artwork in `assets/`, never add another duplicate brand-board image under `docs/`. Use the instructions in [the asset library](assets/README.md) for monthly replacements.
 
-## Files
-
-`index.html`, `styles.css`, `app.js` = the one-page five-skin scroll experience.
-`pay.html`, `pay.css`, `pay.js` = separate branded card preview and native share / PNG export.
-`assets/*.webp` = still crops from client-provided video recordings. `assets/official-logo.png` = extracted image of supplied logo (not a newly approved redesign).
-`docs/RESEARCH.md`, `docs/REQUIREMENTS_MAP.md`, `docs/UX_AUDIT.md` = evidence and validation record.
-
-Run via any static HTTP server (`python -m http.server 8080`); no framework / build step. External Google Fonts are used with local fallback. Self-hosting licensed font files is a production-hardening task.
-
-## Known limitations
-
-- Actual order page / payment webhook / server-side capacity enforcement / QR code verification are not implemented; this is a design proof.
-- Official precise drop date, address, menu and price were not supplied; no fictitious commercial facts are displayed.
-- The saved sample card contains no ticket / QR proof, by design.
-- Current screenshots were browser-tested with mocked external font network, not real-device iPhone QA. Refer to `docs/UX_AUDIT.md`.
+The former Soul Broth Co. mockup and older design explorations remain recoverable through Git history. Root legacy scripts (`menu-print.html`, `menu.pdf`, `build-menu-pdf.js`, `menu-data.js`) belong to that prior prototype, not the active Haus of Micah ordering flow.

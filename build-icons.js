@@ -5,8 +5,8 @@
    Needs:  Google Chrome (set CHROME env var to override the path).
 
    Outputs:
-     assets/og.png              1200x630  — Open Graph / Twitter card image
-     assets/apple-touch-icon.png 180x180  — iOS home-screen icon
+     assets/social/og.png        1200x630  — Open Graph / Twitter card image
+     assets/brand/apple-touch-icon.png  180x180  — iOS home-screen icon
 */
 "use strict";
 const path = require("path");
@@ -16,8 +16,8 @@ const chrome = process.env.CHROME ||
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
 const jobs = [
-  { src: "assets/og.svg", out: "assets/og.png", w: 1200, h: 630 },
-  { src: "assets/apple-touch-icon.svg", out: "assets/apple-touch-icon.png", w: 180, h: 180 },
+  { src: "assets/social/og.svg", out: "assets/social/og.png", w: 1200, h: 630 },
+  { src: "assets/brand/apple-touch-icon.svg", out: "assets/brand/apple-touch-icon.png", w: 180, h: 180 },
 ];
 
 jobs.forEach((j) => {

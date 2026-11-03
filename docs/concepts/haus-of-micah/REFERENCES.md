@@ -1,15 +1,14 @@
 # Research, reference and licensing ledger
-This directory houses the **Haus of Micah** concept within the separate **Soul Broth Co.** mockup repository. The owner asked to copy/fork design research, not overwrite the existing website. Imported documents are snapshots retained as context; the [Haus spec](BRAND_PRODUCT_SPEC.md) is the concept authority.
+This repository now serves the **Haus of Micah** active design preview; Soul Broth Co. remains historical Git content. The research documents are archival context. Imported documents are snapshots retained as context; the [Haus spec](BRAND_PRODUCT_SPEC.md) is the concept authority.
 
 ## Original user-provided references
 1. Existing Haus of Micah house / gold spatula / signature logo (user-provided screenshot).
 2. Instagram grid and profile captures, showing 59.1K followers at screenshot time, 125 posts, several thousand-view video thumbnails.
 3. Two user-provided Instagram screen recordings (31.0s and 19.2s): creamy macaroni, fried chicken, greens, glossy meats, layered corn-bread bowls, plated supper.
-4. Chat-generated Haus of Micah brand board, creative direction **Southern Gold**, dated Nov 2 2026. The local image file is not a production logo master and does not authorize fabricated food photography or placeholder prices.
+4. **Official client-supplied Haus of Micah brand board:** [view here](../../../assets/brand/official-brand-board.jpg). This is the visual authority; the companion [concept SVG](../../../assets/brand/concept-brand-board.svg) is archival only. Neither makes invented menu items, prices or generated food imagery factual.
 
 ## Existing repo boundaries
-- [Soul Broth Co. root design](../../../DESIGN.md): *Bold street diner* with mock food-truck routing. It is a separate brand.
-- [Soul Broth Co. README](../../../README.md): explicitly a design mockup and non-transactional cart. Do not reuse fake confirmation to imply Haus paid orders.
+- [Current project design authority](../../../DESIGN.md) describes the Haus of Micah website. Previous Soul Broth Co. materials remain in Git history and are not active site specifications.
 
 ## Copied source documents
 | Stored reference | Original source | Rule |
@@ -29,3 +28,7 @@ This directory houses the **Haus of Micah** concept within the separate **Soul B
 
 ## Rights + integrity
 Sources are attributed for research. The concept board may depict illustrative food from image generation; final commercial website must use licensed client food media. All menu/price/drop/date/location and sales data stay placeholders until client approval. Source docs are not automatically inherited rules.
+
+
+## Asset location
+All production and reference image/vector files, logos, motion frames, social artwork and font files live beneath [the asset library](../../../assets/README.md). The complete inventory is in [manifest.json](../../../assets/manifest.json). Historical design documentation stays under `docs/`.
