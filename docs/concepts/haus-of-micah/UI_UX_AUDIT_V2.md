@@ -9,10 +9,10 @@ Browsed the live Vercel deployment in Playwright:
 - 390: clicked chapter Next. State moved to Chapter 02 / The Craving.
 - `pay.html?concept=5`: input name "Alex Sample", created sample card; messaging affirmed no money or order created.
 - Downloaded PNG `haus-of-micah-sample-pass.png`; browser reported no download failure.
-- Reduced Motion at 390: all five chapters are visible, `aria-hidden=true` zero, pinning removed.
-- Initial 320 result: **36px horizontal overflow**, traced to long uppercase preview notice; corrected by shortening/truncating at narrow widths and hiding brand wordmark under 360px. Subsequent rerun is required.
-- Original 390, 820, 1024, 1440 results: **0 px overflow**.
-- Automated keyboard/a11y API and visible text against photo pixel contrast are not equivalent to a full manual accessibility audit.
+- Reduced Motion at 390: all five chapters are visible, `aria-hidden=true` zero, pinning removed and no horizontal overflow.
+- Initial 320 result: **36px horizontal overflow**, traced to the preview banner; fixed by truncating it and hiding the narrow-screen wordmark. **Rerun on deployed commit confirmed 0px overflow at 320px.**
+- Verified on the latest deployed site: 320, 390, 820, 1024 and 1440px all **0 px horizontal overflow**, 1 page H1, and no reported JavaScript page errors. Five concepts checked separately at 390 and 1440px: all loaded the correct client food photo and kept 44–45px chapter buttons.
+- Automated keyboard/a11y API and visible text against photo pixel contrast are not equivalent to a full manual accessibility audit. Source photo rendering for themes 2–5 was independently rechecked after load with all photos reaching naturalWidth=1000.
 - Headless browser output does not validate iOS Safari GPU frame rate or actual customer ordering.
 
 ## Seven fundamentals
