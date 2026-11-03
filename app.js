@@ -1,24 +1,24 @@
-/* Haus of Micah · Scroll narrative / concept director. No external JS. */
+/* Haus of Micah: no external data exchange. Order intent lives in sessionStorage until payment is enabled. */
 (()=>{'use strict';
- const CONCEPTS=[
-  {name:'Gilded Cinema',hint:'Film-title light, jewel-gold detail',title:['THE PLATE','is the event.'],sub:'A slow-reveal Southern food film.'},
-  {name:'Sunday Archive',hint:'Heritage publication, warm ivory',title:['PULL UP','a chair.'],sub:'An invitation with a little more soul.'},
-  {name:'Drop Culture',hint:'Bold release poster, high appetite',title:['THE DROP','is delicious.'],sub:'A monthly release worth the noise.'},
-  {name:'Maison Micah',hint:'Architectural, intimate dining atelier',title:['GOOD FOOD','is an art.'],sub:'The plate treated like a signature.'},
-  {name:'The Food Film',hint:'Cinematic film frames and restraint',title:['THIS IS','what comfort looks like.'],sub:'Let the food do the talking.'}
- ];
- const track=document.getElementById('scroll-track');if(!track)return;
- const body=document.body,chapters=[...document.querySelectorAll('.chapter')],steps=[...document.querySelectorAll('.step')],count=document.getElementById('chapter-count'),line=document.getElementById('progress-line'),switchToggle=document.getElementById('switch-toggle'),switchPanel=document.getElementById('switch-panel'),switchClose=document.getElementById('switch-close'),switchList=document.getElementById('switch-list'),switchIndex=document.querySelector('.switch-index'),cardCta=document.getElementById('card-cta'),title=document.querySelector('.chapter-0 .headline-first'),subtitle=document.querySelector('.chapter-0 .lead-headline em');
- const qs=new URLSearchParams(location.search);let concept=Math.max(1,Math.min(5,Number(qs.get('concept'))||1)),active=-1,progress=0,frame=0;const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- function switchConcept(next){concept=next;body.className='concept-'+concept;title.textContent=CONCEPTS[next-1].title[0];subtitle.textContent=CONCEPTS[next-1].title[1];cardCta.href='pay.html?concept='+concept;switchIndex.textContent=String(concept).padStart(2,'0')+' / 05';[...switchList.querySelectorAll('button')].forEach((b,i)=>{b.classList.toggle('active',i===next-1);b.setAttribute('aria-pressed',i===next-1?'true':'false')});const url=new URL(location.href);url.searchParams.set('concept',String(concept));try{history.replaceState({},'',url.pathname+url.search+url.hash)}catch(e){/* embedded design reviewers may use an opaque origin */}}
- CONCEPTS.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='switch-choice';b.innerHTML='<span class="id">0'+(i+1)+'</span><span><strong>'+c.name+'</strong><small>'+c.hint+'</small></span><span class="arrow">↗</span>';b.addEventListener('click',()=>{switchConcept(i+1);closePanel()});switchList.append(b)});
- function closePanel(){switchPanel.hidden=true;switchToggle.setAttribute('aria-expanded','false')}
- function togglePanel(){switchPanel.hidden=!switchPanel.hidden;switchToggle.setAttribute('aria-expanded',String(!switchPanel.hidden));if(!switchPanel.hidden)switchClose.focus()}
- switchToggle.addEventListener('click',togglePanel);switchClose.addEventListener('click',()=>{closePanel();switchToggle.focus()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!switchPanel.hidden){closePanel();switchToggle.focus()}if(!switchPanel.hidden&&e.key>='1'&&e.key<='5'){switchConcept(Number(e.key));closePanel()}});
- function scrollToBeat(i){if(reduce.matches){chapters[i].scrollIntoView({behavior:'auto'})}else{const h=Math.max(1,track.offsetHeight-innerHeight);const y=track.getBoundingClientRect().top+scrollY+h*(i/4);scrollTo({top:y,behavior:'smooth'})}}
- steps.forEach((b,i)=>b.addEventListener('click',()=>scrollToBeat(i)));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();scrollToBeat(Number(b.dataset.go))}));
- function update(){frame=0;if(reduce.matches){chapters.forEach(c=>{c.classList.add('current');c.removeAttribute('aria-hidden')});return}const rect=track.getBoundingClientRect();const distance=Math.max(1,track.offsetHeight-innerHeight);progress=Math.max(0,Math.min(1,-rect.top/distance));const index=Math.max(0,Math.min(4,Math.round(progress*4)));if(index!==active){active=index;chapters.forEach((c,i)=>{const on=i===index;c.classList.toggle('current',on);c.setAttribute('aria-hidden',on?'false':'true');c.querySelectorAll('a').forEach(a=>{a.tabIndex=on?0:-1})});steps.forEach((b,i)=>{b.classList.toggle('active',i===index);if(i===index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});count.textContent=String(index+1).padStart(2,'0')};line.style.height=(progress*100).toFixed(1)+'%';document.querySelector('.stage-scroll').style.opacity=progress>.9?'.2':'1'}
- function request(){if(!frame)frame=requestAnimationFrame(update)}
- addEventListener('scroll',request,{passive:true});addEventListener('resize',request,{passive:true});reduce.addEventListener('change',request);
- switchConcept(concept);update();
+const $=(s,root=document)=>root.querySelector(s), $$=(s,root=document)=>[...root.querySelectorAll(s)];
+const KEY='haus-micah-order-preview-v2',PRICE=28;
+const notify=(message)=>{const t=$('#toast');if(!t)return;t.textContent=message;t.classList.add('show');clearTimeout(notify.timer);notify.timer=setTimeout(()=>t.classList.remove('show'),2800)};
+const menu=$('#menu-toggle'), nav=$('#nav');
+if(menu&&nav){function close(){nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu')}menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';nav.classList.toggle('is-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Open menu')});nav.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})}
+const form=$('#quick-order');
+if(form){let quantity=1;
+const setQty=q=>{quantity=Math.max(1,Math.min(12,q));$('#quantity').value=quantity;$('#qty-display').textContent=quantity;$('#qty-minus').disabled=quantity===1;$('#qty-plus').disabled=quantity===12;$('#order-total').textContent='$'+(quantity*PRICE).toFixed(2);$('#order-breakdown').textContent=`${quantity} ${quantity===1?'plate':'plates'} × $${PRICE} sample price`};
+$('#qty-minus').addEventListener('click',()=>setQty(quantity-1));$('#qty-plus').addEventListener('click',()=>setQty(quantity+1));
+function err(id,msg){const input=$('#order-'+id),out=$('#'+id+'-error');input.setAttribute('aria-invalid',String(!!msg));out.textContent=msg}
+$$('#order-name,#order-phone').forEach(el=>el.addEventListener('input',()=>err(el.id.slice(6),'')));
+form.addEventListener('submit',event=>{
+ event.preventDefault();const name=$('#order-name').value.trim().replace(/\s+/g,' '), phone=$('#order-phone').value.trim(),digits=phone.replace(/\D/g,''),email=$('#order-email').value.trim(),note=$('#order-note').value.trim(), pickup=$('input[name="pickup"]:checked')?.value;
+ err('name',name.length<2?'Enter your name for pickup.':'');err('phone',digits.length<10||digits.length>15?'Enter a valid phone number.':'');
+ if(name.length<2||digits.length<10||digits.length>15){$('#'+(name.length<2?'order-name':'order-phone')).focus();return}
+ if(email&&!$('#order-email').checkValidity()){notify('Check the optional email address.');$('#order-email').focus();return}
+ const draft={version:2,status:'sample_unpaid',item:{id:'monthly-plate',name:'Haus Comfort Plate',samplePrice:PRICE},quantity,pickupWindow:pickup,name,phone,email,note,createdAt:new Date().toISOString(),eventDate:null,eventLocation:null};
+ try{sessionStorage.setItem(KEY,JSON.stringify(draft));window.location.assign('pay.html?source=monthly-drop')}catch{notify('Could not open the preview. Check your browser settings.');}
+});}
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced&&'IntersectionObserver'in window){document.body.classList.add('js-motion');const io=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target)}},{threshold:.02,rootMargin:'0px 0px -8% 0px'});$$('[data-reveal]').forEach(el=>io.observe(el))}
 })();
