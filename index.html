@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="monthly-menu.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -48,12 +49,12 @@
       <span class="eyebrow">H A U S &nbsp; O F &nbsp; M I C A H</span>
       <h1 id="hero-title">The Plate Is <span>the Event.</span></h1>
       <img class="hero-underline" src="assets/gold-swoosh.svg" alt="" aria-hidden="true">
-      <p>Southern comfort monthly plate drops and pop-up pickup. Bold flavors, generous plates, and a whole experience.</p>
+      <p>Check this month’s plate. Choose your quantity and pickup time, then enter your name and phone. Ordering opens when the next drop is announced.</p>
       <div class="hero-ctas">
         <a class="btn btn-gold btn-lg" href="#plate-of-month"><img src="assets/cart-bag.svg" alt="" aria-hidden="true"> Start Your Plate <span class="arrow">↗</span></a>
         <a class="btn btn-outline btn-lg" href="#how">How Pickup Works <span class="arrow">→</span></a>
       </div>
-      <span class="hero-caption">A MONTHLY RELEASE. A MEAL WORTH THE TRIP.</span>
+      <span class="hero-caption">MONTHLY MENU · POP-UP PICKUP · ORDER DETAILS IN ONE PLACE</span>
     </div>
     <div class="hero-art" aria-label="Cinematic illustration of crispy wings, macaroni, greens and candied yams on a dinner plate">
       <div class="plate-aura"></div>
@@ -68,27 +69,38 @@
   <section class="process-outer" id="how" aria-labelledby="how-title">
     <div class="process-inner" data-reveal>
       <div class="process-label"><h2 id="how-title">HOW IT<br>WORKS</h2><img src="assets/gold-swoosh.svg" alt="" aria-hidden="true"></div>
-      <div class="process-step"><div class="step-icon"><img src="assets/cloche.svg" alt="" aria-hidden="true"></div><div><h3><span>01.</span> Choose a plate</h3><p>Explore this month's featured Southern comfort dishes.</p></div></div>
+      <div class="process-step"><div class="step-icon"><img src="assets/cloche.svg" alt="" aria-hidden="true"></div><div><h3><span>01.</span> Choose a plate</h3><p>See what's included in this month's plate.</p></div></div>
       <div class="process-chevron" aria-hidden="true">›</div>
-      <div class="process-step"><div class="step-icon"><img src="assets/pickup-calendar.svg" alt="" aria-hidden="true"></div><div><h3><span>02.</span> Pick a pickup window</h3><p>Choose a confirmed time at the next pop-up.</p></div></div>
+      <div class="process-step"><div class="step-icon"><img src="assets/pickup-calendar.svg" alt="" aria-hidden="true"></div><div><h3><span>02.</span> Pick a pickup window</h3><p>Select a quantity and pickup window.</p></div></div>
       <div class="process-chevron" aria-hidden="true">›</div>
-      <div class="process-step"><div class="step-icon"><img src="assets/pickup-code.svg" alt="" aria-hidden="true"></div><div><h3><span>03.</span> Get your pickup card</h3><p>Paid orders will get a scannable pickup confirmation.</p></div></div>
+      <div class="process-step"><div class="step-icon"><img src="assets/pickup-code.svg" alt="" aria-hidden="true"></div><div><h3><span>03.</span> Get your pickup card</h3><p>Enter your name and phone, then pay when ordering opens.</p></div></div>
     </div>
   </section>
 
   <section class="drop-section order-section" id="plate-of-month" aria-labelledby="drop-title">
-    <div class="section-heading" data-reveal><div class="heading-rule"></div><span class="eyebrow dark">01 / THE MONTHLY DROP</span><h2 id="drop-title">One plate. <em>All the love.</em></h2><p>One featured pickup experience, made easy to reserve when a drop opens. This is a fully interactive <strong>ordering demo</strong>; no orders or payments are collected.</p></div>
+    <div class="section-heading" data-reveal><div class="heading-rule"></div><span class="eyebrow dark">PLATE OF THE MONTH</span><h2 id="drop-title">Order this <em>month’s plate.</em></h2><p>Review what’s included, choose quantity and pickup time, then enter your name and phone. <strong>Preview only — orders and payments are not live.</strong></p></div>
     <div class="order-workspace" data-reveal>
       <div class="featured-dish">
-        <div class="dish-photo"><img src="assets/hero-plate-clean.webp" alt="Illustrative plate of crispy wings, creamy macaroni, greens and candied yams" width="1536" height="1024" loading="lazy"><div class="dish-photo-badge">THE FEATURED PLATE</div></div>
-        <div class="dish-blurb"><span class="micro">THE PLATE OF THE MONTH · SAMPLE</span><h3>Haus Comfort Plate</h3><p>Crispy seasoned wings, golden macaroni, slow-cooked collards, and candied yams. The actual monthly menu and price will be confirmed before sales open.</p><div class="dish-facts"><span><img src="assets/cloche.svg" alt="" aria-hidden="true"> Made for the moment</span><span><img src="assets/pin.svg" alt="" aria-hidden="true"> Pop-up pickup only</span></div></div>
+        <div class="dish-photo"><img id="monthly-plate-photo" src="assets/hero-plate-clean.webp" alt="Sample monthly plate with wings, macaroni, greens and candied yams" width="1361" height="1024" loading="lazy"><div class="dish-photo-badge">PLATE OF THE MONTH</div></div>
+        <div class="dish-blurb">
+          <span class="micro">THIS MONTH’S PLATE · SAMPLE</span>
+          <h3 id="monthly-plate-name">Haus Comfort Plate</h3>
+          <div class="plate-includes">
+            <h4 id="plate-includes-title">Plate includes</h4>
+            <ul id="monthly-plate-items" aria-labelledby="plate-includes-title">
+              <li>Crispy seasoned wings</li><li>Macaroni &amp; cheese</li><li>Slow-cooked collard greens</li><li>Candied yams</li>
+            </ul>
+          </div>
+          <p class="monthly-menu-note">Sample menu. Plate contents and price change with each monthly drop.</p>
+          <div class="dish-facts"><span><img src="assets/pin.svg" alt="" aria-hidden="true"> Pop-up pickup only</span></div>
+        </div>
       </div>
       <div class="order-panel" id="order-panel">
-        <div class="order-head"><div><span class="micro">02 / THE QUICK ORDER</span><h3>Make it yours.</h3></div><span class="order-demo">DEMO ONLY</span></div>
+        <div class="order-head"><div><span class="micro">ORDER DETAILS</span><h3>Choose your pickup.</h3></div><span class="order-demo">DEMO ONLY</span></div>
         <form id="quick-order" novalidate>
-          <div class="form-row quantity-row"><div><label id="quantity-label" for="quantity">How many plates?</label><span class="field-hint">Start with one. Change anytime.</span></div><div class="qty-stepper" role="group" aria-labelledby="quantity-label"><button type="button" id="qty-minus" aria-label="Remove one plate" disabled>−</button><output id="qty-display" for="qty-minus qty-plus">1</output><input type="hidden" id="quantity" name="quantity" value="1"><button type="button" id="qty-plus" aria-label="Add one plate">+</button></div></div>
+          <div class="form-row quantity-row"><div><label id="quantity-label" for="quantity">How many plates?</label><span class="field-hint">Select quantity.</span></div><div class="qty-stepper" role="group" aria-labelledby="quantity-label"><button type="button" id="qty-minus" aria-label="Remove one plate" disabled>−</button><output id="qty-display" for="qty-minus qty-plus">1</output><input type="hidden" id="quantity" name="quantity" value="1"><button type="button" id="qty-plus" aria-label="Add one plate">+</button></div></div>
           <fieldset class="pickup-windows"><legend>Choose a pickup window</legend><p class="field-hint">Example windows for demonstrating the flow. Event date, address and capacity are not yet available.</p><div class="window-chips" id="window-chips"><label><input type="radio" name="pickup" value="12:00–12:30 PM" checked><span>12:00–12:30</span></label><label><input type="radio" name="pickup" value="12:30–1:00 PM"><span>12:30–1:00</span></label><label><input type="radio" name="pickup" value="1:00–1:30 PM"><span>1:00–1:30</span></label></div></fieldset>
-          <div class="contact-title"><strong>Who's picking up?</strong><span class="field-hint">Only two required fields. No account needed.</span></div>
+          <div class="contact-title"><strong>Who's picking up?</strong><span class="field-hint">Name and phone are required.</span></div>
           <div class="contact-fields"><div><label for="order-name">Full name <span aria-hidden="true">*</span></label><input type="text" name="name" id="order-name" placeholder="Full name" autocomplete="name" maxlength="80" required aria-describedby="name-error"><span class="field-error" id="name-error" aria-live="polite"></span></div><div><label for="order-phone">Mobile number <span aria-hidden="true">*</span></label><input type="tel" name="phone" id="order-phone" placeholder="(555) 555-1234" autocomplete="tel" inputmode="tel" maxlength="32" required aria-describedby="phone-error"><span class="field-error" id="phone-error" aria-live="polite"></span></div></div>
           <details class="extra-details"><summary>Add a note or email <span>Optional</span></summary><div class="extra-inner"><label for="order-email">Email for a receipt <span>(Stripe can collect this at checkout later)</span></label><input type="email" id="order-email" name="email" autocomplete="email" inputmode="email" maxlength="160" placeholder="you@example.com"><label for="order-note">Pickup note</label><textarea id="order-note" name="note" rows="2" maxlength="180" placeholder="Anything the kitchen should know?"></textarea><p class="field-hint">Allergies require confirmation directly with the business; notes are not a guarantee.</p></div></details>
           <div class="order-checkout"><div><span>Sample subtotal</span><strong id="order-total">$28.00</strong><small id="order-breakdown">1 plate × $28 sample price</small></div><button type="submit" class="btn btn-gold order-submit" id="order-submit">Continue to payment preview <span aria-hidden="true">↗</span></button></div>
@@ -97,7 +109,7 @@
       </div>
     </div>
   </section>
-  <section class="archive-section" id="drop" aria-labelledby="archive-title"><div class="archive-heading"><span class="micro">FROM THE HAUS</span><h2 id="archive-title">The food speaks <em>for itself.</em></h2><p>A glimpse of the flavors behind the monthly drops. These are concept dishes, not an active menu.</p></div><div class="archive-grid"><figure><img src="assets/braised.webp" alt="Illustrative glazed beef with mac and greens" loading="lazy"><figcaption>Braised & glazed</figcaption></figure><figure><img src="assets/wings.webp" alt="Illustrative fried wings and sides" loading="lazy"><figcaption>The wing plate</figcaption></figure><figure><img src="assets/slow-cooked.webp" alt="Illustrative pot roast" loading="lazy"><figcaption>Slow-cooked comfort</figcaption></figure><figure><img src="assets/mac-and-glaze.webp" alt="Illustrative macaroni plate" loading="lazy"><figcaption>The golden side</figcaption></figure></div></section>
+  <section class="archive-section" id="drop" aria-labelledby="archive-title"><div class="archive-heading"><span class="micro">PAST PLATES · PHOTO GALLERY</span><h2 id="archive-title">Past plate <em>examples.</em></h2><p>The current monthly menu is listed above.</p></div><div class="archive-grid"><figure><img src="assets/braised.webp" alt="Illustrative glazed beef with mac and greens" loading="lazy"><figcaption>Braised & glazed</figcaption></figure><figure><img src="assets/wings.webp" alt="Illustrative fried wings and sides" loading="lazy"><figcaption>The wing plate</figcaption></figure><figure><img src="assets/slow-cooked.webp" alt="Illustrative pot roast" loading="lazy"><figcaption>Slow-cooked comfort</figcaption></figure><figure><img src="assets/mac-and-glaze.webp" alt="Illustrative macaroni plate" loading="lazy"><figcaption>The golden side</figcaption></figure></div></section>
   <section class="story-section" id="story" aria-labelledby="story-title"><div class="story-text" data-reveal><span class="eyebrow">THE SOUL BEHIND THE PLATE</span><h2 id="story-title">Good food has a way of <em>bringing us together.</em></h2><p>It’s a plate you talk about on the drive home. A familiar flavor with a little extra soul. And a monthly moment made to share.</p><a class="text-link" href="https://www.instagram.com/hausofmicah/" target="_blank" rel="noopener noreferrer">MEET THE HAUS ON INSTAGRAM <span>↗</span></a></div><div class="story-image" data-reveal><img src="assets/slow-cooked.webp" alt="Actual Haus of Micah food still showing braised beef and vegetables" loading="lazy" width="1024" height="1024"><div class="story-notation">MADE TO BE REMEMBERED <span>↗</span></div></div><img src="assets/ornament-sprig.svg" class="story-sprig" alt="" aria-hidden="true"></section>
 
   <section class="pickup-section" id="pickup" aria-labelledby="pickup-title"><div class="pickup-deco" aria-hidden="true"><img src="assets/collard.svg" alt=""></div><div class="pickup-inner" data-reveal><div class="pickup-text"><span class="eyebrow dark">MORE THAN A CONFIRMATION</span><h2 id="pickup-title">Your plate.<br><em>Your card.</em></h2><p>A polished pickup card that puts the order and collection details in one place. Preview what customers will receive once real checkout is enabled.</p><a class="btn btn-gold" href="#plate-of-month">Preview Your Card <span>↗</span></a><span class="small-note">SAMPLE ONLY · NOT A VALID ORDER</span></div><div class="pickup-card-preview"><div class="card-topline"><img src="assets/logo-cutout.png" alt="Haus of Micah" width="160" height="126"><div class="card-chip">PICKUP CARD<br><small>DESIGN PREVIEW</small></div></div><div class="card-rule"></div><div class="preview-card-content"><div><span class="card-kicker">MONTHLY PLATE DROP</span><strong>GOOD FOOD.<br>GOOD COMPANY.</strong></div><div class="card-qr" aria-hidden="true"><img src="assets/pickup-code.svg" alt=""><span>SAMPLE</span></div></div><div class="card-meta"><span><small>WHEN</small>TO BE ANNOUNCED</span><span><small>WHERE</small>NORTH ALABAMA · TBA</span></div><div class="card-bottom">NOT VALID FOR PICKUP · NO PAYMENT MADE</div></div></div></section>
