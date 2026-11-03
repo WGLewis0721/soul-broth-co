@@ -1,100 +1,42 @@
-# Soul Broth Co.
+# Haus of Micah — Digital Restaurant Experience
+**The Plate Is the Event.**
 
-Marketing site for **Soul Broth Co.**, an Atlanta food truck cooking Southern
-soul food through a ramen-shop lens — oxtail shoyu, collard gyoza, hot-honey
-chashu. Single-page site: menu, pickup ordering, weekly route map, downloadable
-menu PDF.
+The public website in this repository has been changed from the former Soul Broth Co. mockup to a **Haus of Micah hero-only concept experience**. The prior implementation is preserved in Git history, but no longer appears as the root homepage.
 
-> **This is a design mockup.** Not a real business. Prices, phone number, email,
-> and the weekly route are illustrative. Map coordinates are real Atlanta
-> locations so the map reads true.
+## Visit / review
+- `index.html` or `/`: selected hero concept, Midnight Drop.
+- `concepts.html`: review all seven hero options.
+- `?hero=1` … `?hero=7`: directly view a hero variant.
+- `?hero=1&review=1`: switch between hero designs.
+- `?hero=1&wire=1&review=1`: inspect a matching low-fidelity wireframe.
 
-## Stack
+## Features in this revision
+- Seven distinct cinematic/editorial hero layouts, mobile responsive.
+- Full and stripped-down low-fidelity modes.
+- Official Instagram link to current real-world drop announcements.
+- Accessible "How It Works" dialog explaining preorder and pickup concept.
+- Brand tokens, UX laws guidance, specifications, reference library and acceptance requirements.
 
-- Vanilla HTML / CSS / JS — no framework, no bundler, no build step for the site itself
-- [Leaflet](https://leafletjs.com/) (vendored in `vendor/`) for the route map — OpenStreetMap raster tiles, darkened to the palette with a CSS filter. Loaded on demand (see below).
-- Self-hosted fonts in `assets/fonts/`: Rye (display), Archivo Black (headings), Archivo (body), Space Mono (kitchen-ticket detail)
-- `build-menu-pdf.js` — Node script that regenerates the print menu + PDF from the menu data (needs system Chrome)
+**No payment processing, live ordering, inventory, signup, pickup verification or SMS is operating.** Those tools are specified, not shipped. The demo does not collect customer information. The hero's food photo is illustrative, not actual client food. Replace it with approved owned imagery before production use.
+
+## Source organization
+- `index.html`: hero-only semantic markup and meta.
+- `styles.css`: brand tokens and seven structural variations, wireframes, responsive/reduced-motion treatment.
+- `app.js`: hero query selector, review links and "How It Works" dialog.
+- `concepts.html`: review gallery.
+- `assets/haus-icon.svg`: temporary concept icon.
+- `docs/concepts/haus-of-micah/BRAND_PRODUCT_SPEC.md`: business/product spec.
+- `docs/concepts/haus-of-micah/UX_WEB_GUIDELINES.md`: applied laws/fundamentals.
+- `docs/concepts/haus-of-micah/REFERENCES.md`: source/provenance ledger.
+- `docs/reference/ux/` and `docs/reference/web/`: source snapshots from the owner's design repositories.
 
 ## Run locally
-
-Any static file server from the project root:
-
 ```bash
 python -m http.server 8000
-# or: npx serve .
+# open http://localhost:8000/
+# and http://localhost:8000/concepts.html
 ```
+No build step required. Google Fonts and illustrative Unsplash hero photo load externally for this concept; a production-ready implementation should self-host approved assets and cache responsibly.
 
-Then open <http://localhost:8000>. Opening `index.html` directly over `file://`
-mostly works but the `menu.pdf` download and the Leaflet tiles behave better over
-HTTP.
-
-## Project structure
-
-```
-index.html            Page markup — hero, story, menu, order, find, catering, footer
-styles.css            Design tokens + all styles (ink / bone / ember palette)
-app.js                Menu render, pickup cart, weekly-route status, lazy Leaflet map, motion
-menu-data.js          SINGLE SOURCE OF TRUTH — menu items, prices, dietary tags, weekly route
-DESIGN.md             Design system of record (direction, tokens, type, signature)
-build-menu-pdf.js     Regenerates menu-print.html + menu.pdf from menu-data.js
-build-icons.js        Rasterizes assets/og.svg + apple-touch-icon.svg into the PNGs
-menu-print.html       Generated print layout (do not hand-edit)
-menu.pdf              Generated downloadable menu (do not hand-edit)
-robots.txt            Allow all + sitemap pointer
-sitemap.xml           Single-URL sitemap
-.nojekyll             Serve dotfiles/underscore paths verbatim on GitHub Pages
-assets/
-  favicon.svg
-  apple-touch-icon.svg / .png   iOS home-screen icon (PNG is generated)
-  og.svg / og.png               Social share image (PNG 1200×630 is generated)
-  fonts/                        woff2 files + fonts.css
-vendor/
-  leaflet.js
-  leaflet.css
-```
-
-## Editing the menu or route
-
-`menu-data.js` drives both the live page and the PDF. After changing it,
-regenerate the PDF so the two stay in sync:
-
-```bash
-node build-menu-pdf.js          # uses Google Chrome; set CHROME=/path/to/chrome to override
-```
-
-The social + touch-icon PNGs are likewise generated from SVG source:
-
-```bash
-node build-icons.js             # writes assets/og.png and assets/apple-touch-icon.png
-```
-
-Route hours in `menu-data.js` are 24-hour decimals (`11.5` = 11:30). `day` is
-`0` = Sunday through `6` = Saturday. `app.js` uses these to show the live
-"open now / next stop" status and to drop the map pin on today's location.
-
-## Cart
-
-The pickup ticket persists in `localStorage` under `sbc_cart_v1` (quantities
-clamped 0–20, unknown item ids dropped on load). No backend — order submission is
-a front-end confirmation only.
-
-## Accessibility & performance
-
-- Skip link, semantic landmarks, `:focus-visible` outlines, `aria-live` regions on the ticket / status / toast, `sr-only` table caption; route also given in full in the schedule table, not map-only
-- Text/UI contrast meets WCAG 2.2 AA
-- `prefers-reduced-motion` respected (marquee, steam, map fly-to, tile fade)
-- Hero LCP font (Rye latin subset) preloaded; fonts are `woff2` only with `font-display: swap`
-- Leaflet (JS + CSS) and the map tiles load only when the route section nears the viewport — off the initial load
-- No external CSS/JS/analytics — Leaflet and all fonts are self-hosted; the only third-party requests are OpenStreetMap tiles, after the map loads
-- Full `<head>` social metadata (Open Graph + Twitter, `assets/og.png` 1200×630), `canonical`, `robots.txt`, `sitemap.xml`
-
-## Deploy
-
-Static host — publish the repo root as-is. No build command, no environment
-variables. Works on Cloudflare Pages, Netlify, GitHub Pages, or any bucket.
-
-- `_headers` sets cache + basic security headers on Cloudflare Pages / Netlify
-  (ignored elsewhere). `.nojekyll` keeps GitHub Pages from hiding dotfiles.
-- If the production domain is not `soulbroth.co`, update the absolute URLs in
-  `<head>` (`canonical`, `og:url`, `og:image`), `robots.txt`, and `sitemap.xml`.
+## Historical contents
+`menu-data.js`, `menu.pdf`, `menu-print.html`, `build-menu-pdf.js`, `vendor/` and older brand assets are unused remnants of the previous Soul Broth Co. mockup. They are not part of Haus of Micah and must not be used as its real menu, route, price, or ordering system. Remove or archive them before a production client launch.
