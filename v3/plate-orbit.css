@@ -96,3 +96,27 @@
   }
   .hero-v2 .hero-media[data-v3-orbit] .plate-motion-button{display:none!important}
 }
+
+
+/* REGRESSION FIX 2026-11-03
+   The retired V2 hero ::before still painted a blurred food photograph
+   beneath the real plate, appearing as a ghost/duplicate. Disable it. */
+.hero-v2::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+}
+.hero-v2 .hero-media::after{
+  content:none!important;
+  display:none!important;
+}
+.hero-v2 .hero-media .plate-halo{
+  opacity:.28;
+  filter:blur(30px);
+  transform:scale(.82);
+  pointer-events:none;
+}
+.hero-v2 .hero-media .v3-orbit-stage{z-index:4}
+.hero-v2 .hero-media .v3-orbit-plate{
+  filter:drop-shadow(0 28px 30px rgba(1,17,8,.62)) contrast(1.06) saturate(1.05);
+}

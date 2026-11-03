@@ -201,3 +201,96 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .library-preview .hero-layout{min-height:520px}
 .library-preview .hero-copy h1{font-size:clamp(3.8rem,6.4vw,6rem)}
 @media(max-width:650px){.library-preview .hero-copy h1{font-size:clamp(3.2rem,13vw,5rem)}.library-preview .hero-layout{min-height:0}}
+
+
+/* REGRESSION FIX 2026-11-03
+   The prior editorial V2 stylesheet supplied a photographic, dark ::before
+   overlay that survived when V3 switched the Request surface to warm white.
+   Reset the legacy pseudo-element completely; never let it obscure real UI. */
+.request-section{
+  background:#F8FAF4;
+  color:#173D2C;
+  isolation:isolate;
+}
+.request-section::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+}
+.request-section .request-intro{
+  color:#173D2C;
+}
+.request-section .request-intro h2{
+  color:#123D2A;
+  font-size:clamp(3.7rem,5.4vw,6.9rem);
+  line-height:1.01;
+  letter-spacing:-.055em;
+  text-wrap:balance;
+  margin:24px 0 22px;
+}
+.request-section .request-intro h2 em{
+  color:#276949;
+}
+.request-section .request-editorial-label{
+  color:#995E2B;
+  font-size:clamp(1.7rem,2.65vw,3.2rem);
+  line-height:1.08;
+  margin:24px 0;
+  transform:rotate(-2deg);
+}
+.request-section .request-intro>p{
+  color:#385D49;
+  font-size:clamp(1rem,1.2vw,1.1rem);
+  line-height:1.65;
+  margin-top:20px;
+  max-width:480px;
+}
+.request-section .request-benefits>div{
+  color:#254B38;
+}
+.request-section .request-form{
+  background:linear-gradient(148deg,#EDF3EB 0%,#F4F7F0 100%);
+  border:0;
+  border-radius:22px;
+  box-shadow:none;
+  color:#153A2B;
+  padding:clamp(23px,3vw,44px);
+}
+.request-section .form-kicker{color:#86511F!important}
+.request-section .form-field label,
+.request-section .form-label,
+.request-section .area-fieldset legend{
+  color:#183E2C;
+}
+.request-section .form-field input,
+.request-section .form-field select,
+.request-section .form-field textarea{
+  color:#173D2C;
+  border-bottom-color:#829B86;
+  background:transparent;
+}
+.request-section .area-fieldset p,
+.request-section .optional-fields summary,
+.request-section .optional-fields summary span,
+.request-section .request-ack,
+.request-section .form-footer{
+  color:#385B47;
+}
+.request-section .area-choices span{background:#DCE8DC;color:#173F2C}
+.request-section .area-choices input:checked+span{background:#22563D;color:#fff}
+.request-section .request-form .v2-button-gold{color:#183A2A}
+@media(max-width:650px){
+  .request-section .request-intro h2{
+    font-size:clamp(3.05rem,11.3vw,4.9rem);
+    line-height:1.02;
+    margin:18px 0;
+  }
+  .request-section .request-editorial-label{
+    font-size:clamp(1.6rem,7vw,2.6rem);
+    margin:18px 0;
+  }
+  .request-section .request-form{
+    padding:24px 18px;
+    border-radius:18px;
+  }
+}
