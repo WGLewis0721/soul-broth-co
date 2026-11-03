@@ -8,6 +8,19 @@ if(menu&&nav){function close(){nav.classList.remove('is-open');menu.setAttribute
 const form=$('#quick-order');
 if(form){let quantity=1;
 const setQty=q=>{quantity=Math.max(1,Math.min(12,q));$('#quantity').value=quantity;$('#qty-display').textContent=quantity;$('#qty-minus').disabled=quantity===1;$('#qty-plus').disabled=quantity===12;$('#order-total').textContent='$'+(quantity*PRICE).toFixed(2);$('#order-breakdown').textContent=`${quantity} ${quantity===1?'plate':'plates'} × $${PRICE} sample price`};
+// Returning from the payment preview should not force another form-fill.
+try{
+  const previous=JSON.parse(sessionStorage.getItem(KEY)||'null');
+  if(previous&&previous.version===2){
+    setQty(Number(previous.quantity)||1);
+    $('#order-name').value=String(previous.name||'');
+    $('#order-phone').value=String(previous.phone||'');
+    $('#order-email').value=String(previous.email||'');
+    $('#order-note').value=String(previous.note||'');
+    const radio=$('input[name="pickup"]').find(el=>el.value===previous.pickupWindow);
+    if(radio)radio.checked=true;
+  }
+}catch{}
 $('#qty-minus').addEventListener('click',()=>setQty(quantity-1));$('#qty-plus').addEventListener('click',()=>setQty(quantity+1));
 function err(id,msg){const input=$('#order-'+id),out=$('#'+id+'-error');input.setAttribute('aria-invalid',String(!!msg));out.textContent=msg}
 $$('#order-name,#order-phone').forEach(el=>el.addEventListener('input',()=>err(el.id.slice(6),'')));

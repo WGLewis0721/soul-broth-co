@@ -11,7 +11,7 @@
  function saveBlob(blob,filename){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
  const btn=$('#export-card');btn.addEventListener('click',async()=>{btn.disabled=true;$('#export-status').textContent='Creating your preview image…';try{
  const W=1000,H=1520,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.fillStyle='#261913';ctx.fillRect(0,0,W,H);
- const img=new Image();img.src='assets/comfort.webp';await img.decode();const aspect=img.width/img.height;const cropH=400;ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH);
+ const img=new Image();img.src='assets/hero-plate-clean.webp';await img.decode();const aspect=img.width/img.height;const cropH=400;ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH);
  const grad=ctx.createLinearGradient(0,180,0,465);grad.addColorStop(0,'rgba(38,25,19,0)');grad.addColorStop(1,'#261913');ctx.fillStyle=grad;ctx.fillRect(0,180,W,285);
  ctx.fillStyle='#DCA63D';ctx.font='800 24px system-ui';ctx.fillText('HAUS OF MICAH / DESIGN PREVIEW',62,120);
  ctx.fillStyle='#F3E8D5';ctx.font='italic 76px Georgia,serif';ctx.fillText('Your plate is',60,515);ctx.fillStyle='#DCA63D';ctx.fillText('the event.',60,600);
