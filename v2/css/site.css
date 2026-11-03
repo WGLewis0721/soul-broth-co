@@ -19,3 +19,18 @@
 @media(max-width:650px){.v2-shell{width:min(calc(100% - 36px),var(--hm-max))}.v2-section{padding-block:68px}.v2-section h2{font-size:clamp(2.8rem,11.7vw,4.4rem)}.nav-contact{padding:11px;font-size:.67rem}.brand-lockup{width:90px}.brand-lockup img{height:56px}.header-line{gap:10px}.hero-layout{display:flex;flex-direction:column;min-height:0}.hero-copy{padding:41px 0 10px}.hero-copy h1{font-size:clamp(4.1rem,14.6vw,6rem);margin:21px 0}.hero-lead{font-size:1rem}.hero-actions{gap:9px}.hero-media{min-height:0;width:100%;height:min(93vw,410px);transform:none;display:flex;align-items:center;justify-content:center}.hero-plate-poster,.hero-media .plate-motion-stack{max-width:420px;width:100%;height:100%;object-fit:contain}.hero-media .plate-motion-stack{inset:0}.hero-caption{justify-content:center;font-size:.61rem;gap:5px 10px}.hero-caption span+span:before{margin-right:8px}.drop-layout,.request-layout,.pickup-layout,.faq-layout,.contact-layout,.join-layout{display:flex;flex-direction:column;gap:25px}.drop-heading h2{font-size:clamp(3.2rem,12vw,5rem)}.drop-image{order:2;max-width:440px;align-self:center}.drop-details{order:3}.drop-details h3{font-size:2.7rem}.drop-details .v2-button{width:100%;justify-content:space-between}.steps-line{grid-template-columns:repeat(2,minmax(0,1fr));gap:21px}.steps-line li:not(:last-child):after{display:none}.steps-line .ico{width:36px;height:36px}.steps-line h3{font-size:1.3rem}.steps-line p{font-size:.8rem}.request-intro h2{font-size:clamp(3.1rem,12vw,4.6rem)}.request-form{padding:21px 17px;width:100%}.request-benefits{display:none}.area-choices{gap:6px}.area-choices span{font-size:.76rem}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.gallery-grid figure:last-child{grid-column:1/-1}.gallery-grid img{height:230px}.gallery-grid figure:last-child img{height:210px}.gallery-bottom{flex-direction:column;align-items:start}.join-section{padding:65px 0}.join-layout h2{font-size:4rem}.v2-footer .v2-shell{font-size:.64rem}.icon-demos{grid-template-columns:repeat(3,1fr)}.library-preview{padding:15px 8px}.library-entry{padding:22px 5px}.library-preview .hero-copy h1{font-size:3.8rem}.library-preview .hero-layout{min-height:0}}
 @media(max-width:370px){.hero-copy h1{font-size:3.65rem}.hero-actions .v2-button{font-size:.76rem;padding-inline:16px}.nav-contact{font-size:.6rem}.hero-caption{font-size:.55rem}.area-choices span{font-size:.7rem;padding:8px 10px}.v2-shell{width:calc(100% - 28px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.plate-motion-stack{display:none!important}.hero-media[data-motion-ready=true] .hero-plate-poster{opacity:1}.plate-motion-button{display:none!important}}
+
+
+/* V2 hero rhythm correction: align the first story beat directly below navigation.
+ * Retains the original food artwork scale, turntable motion, and touch targets. */
+@media (min-width:861px){
+  .hero-layout{align-items:start}
+  .hero-copy{padding:40px 0 38px}
+}
+@media (min-width:651px) and (max-width:860px){
+  .hero-layout{align-items:start}
+  .hero-copy{padding:28px 0 32px}
+}
+@media (max-width:650px){
+  .hero-copy{padding-top:18px}
+}
