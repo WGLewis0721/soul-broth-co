@@ -32,3 +32,9 @@ The historical filenames and paths remain recoverable from Git history. This mig
 
 ## Website V2 update (2026-11-03)
 The **original approved brand board** remains [`brand/official-brand-board.jpg`](brand/official-brand-board.jpg). The new [editable V2 workflow board](v2/boards/brand-board-v2.svg) explains approval-before-payment, without changing the owner's original visual identity. The [V2 icon sprite](v2/ui/icons.svg) supplies reusable vector icons. The hero continues to reuse the original five photographic perspectives under `turntable/` and real user-provided stills under `food/`; no duplicate image sets were introduced. The live page is `../index.html` and [component gallery](../v2/components.html). The V2 Markdown authority is [`../docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md`](../docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md).
+
+
+## V3 design direction
+- [Forest Film / V3 palette board](v3/forest-film-board.svg) is an **application guide**, not a replacement for the client-supplied official board.
+- Source CSS and design specification: [V3 art direction](../v3/art-direction.css) and [V3 product spec](../docs/concepts/haus-of-micah/WEBSITE_V3_FOREST_SPEC.md).
+- Site retains old food and icon assets; do not copy artwork into the new folder unless a genuinely new asset is authored.

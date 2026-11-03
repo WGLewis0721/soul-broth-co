@@ -189,3 +189,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 @media(prefers-reduced-motion:reduce){
  .v3-enhanced [data-v3-reveal]{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* V3 design showroom: use the production art direction, not the retired brown V2 demo skin */
+.library-body{background:#F9F9F2;color:#183E2D}
+.library-header{background:radial-gradient(ellipse at 85% 40%,#397451 0%,#174633 48%,#082B22 100%);color:#FAFBF2}
+.library-header .micro{color:#EFCB75}.library-header h1{font:500 clamp(4.8rem,8.8vw,9.2rem)/.83 var(--v3-serif)}
+.library-header h1 em{color:#D5EAD0}.library-back{color:#EAB95B}
+.library-entry{background:#F9F9F2}.library-entry-label{color:#214D34}.library-entry-label strong{color:#1C4F35}
+.library-preview{background:#EDF3EA}.library-intro{color:#355C42}
+.library-preview .hero-v2{background:radial-gradient(ellipse at 68% 42%,#397753 0%,#163C2B 45%,#082B22)}
+.library-preview .hero-layout{min-height:520px}
+.library-preview .hero-copy h1{font-size:clamp(3.8rem,6.4vw,6rem)}
+@media(max-width:650px){.library-preview .hero-copy h1{font-size:clamp(3.2rem,13vw,5rem)}.library-preview .hero-layout{min-height:0}}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
+<title id="title">Haus of Micah — Forest Film V3 design direction</title>
+<desc id="desc">Forest green 60 percent, warm white 30 percent, gold-orange 5 percent and brown 5 percent. Editorial food-film style with approval-first preorder workflow.</desc>
+<defs>
+<radialGradient id="forest"><stop stop-color="#31684D"/><stop offset=".62" stop-color="#103A2C"/><stop offset="1" stop-color="#082B22"/></radialGradient>
+<linearGradient id="gold"><stop stop-color="#F8CF78"/><stop offset="1" stop-color="#CE7A30"/></linearGradient>
+</defs>
+<rect width="1440" height="960" fill="#F9F9F2"/>
+<rect width="1440" height="605" fill="url(#forest)"/>
+<circle cx="1217" cy="235" r="375" fill="none" stroke="#B4D1B1" stroke-opacity=".23" stroke-width="2"/>
+<circle cx="1217" cy="235" r="309" fill="none" stroke="#B4D1B1" stroke-opacity=".23" stroke-width="2"/>
+<text x="88" y="79" fill="#F5F8ED" font-family="Georgia,serif" font-size="39" letter-spacing="9">HAUS OF MICAH</text>
+<text x="90" y="121" fill="#E6B454" font-family="Arial,sans-serif" font-size="15" letter-spacing="5">FOREST FILM  /  DIGITAL FOOD DROP  /  V3</text>
+<text x="82" y="327" fill="#FAFAF4" font-family="Georgia,serif" font-size="166" letter-spacing="-11">The Plate</text>
+<text x="82" y="466" fill="#FAFAF4" font-family="Georgia,serif" font-style="italic" font-size="173" letter-spacing="-13">Is the Event.</text>
+<path d="M92 500 C286 479 440 528 697 496" stroke="url(#gold)" stroke-width="8" fill="none" stroke-linecap="round"/>
+<text x="91" y="562" fill="#D9E8D3" font-family="Arial,sans-serif" letter-spacing="3" font-size="17">A ONE-WOMAN KITCHEN  ·  A MONTHLY RITUAL  ·  A PLATE WORTH WAITING FOR</text>
+<text x="89" y="666" font-family="Georgia,serif" font-size="52" fill="#143C2D">Color as an experience.</text>
+<g font-family="Arial,sans-serif" font-size="16" fill="#1E3E2D">
+<rect x="87" y="704" width="650" height="82" rx="5" fill="#103A2C"/><text x="94" y="811">60% · FOREST #103A2C</text>
+<rect x="751" y="704" width="320" height="82" rx="5" fill="#F9F9F2" stroke="#C5D2C2"/><text x="751" y="811">30% · WARM WHITE #F9F9F2</text>
+<rect x="1085" y="704" width="142" height="82" rx="5" fill="#EDB54D"/><text x="1084" y="811">5% · GOLD</text>
+<rect x="1242" y="704" width="111" height="82" rx="5" fill="#70452F"/><text x="1240" y="811">5% · ROUX</text>
+</g>
+<path d="M85 847 H1355" stroke="#CCD8C6"/>
+<text x="89" y="887" fill="#174432" font-size="25" font-family="Georgia,serif">REQUEST</text><text x="311" y="887" fill="#A36B2B" font-size="22">→</text>
+<text x="385" y="887" fill="#174432" font-size="25" font-family="Georgia,serif">APPROVE</text><text x="602" y="887" fill="#A36B2B" font-size="22">→</text>
+<text x="675" y="887" fill="#174432" font-size="25" font-family="Georgia,serif">PAY BY TEXT</text><text x="934" y="887" fill="#A36B2B" font-size="22">→</text>
+<text x="1003" y="887" fill="#174432" font-size="25" font-family="Georgia,serif">PICKUP</text>
+<text x="88" y="931" fill="#6C7D6A" font-family="Arial,sans-serif" font-size="14">CLIENT LOGO PRESERVED · ORIGINAL BRAND BOARD REMAINS AUTHORITATIVE · THIS BOARD IS A WEBSITE PALETTE/ART-DIRECTION GUIDE</text>
+</svg>
