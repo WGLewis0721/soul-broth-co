@@ -1,0 +1,98 @@
+/* Haus of Micah — Open Surface System
+   Boundaries are communicated by space, rhythm, color and typography.
+   Keep explicit focus indication and unmistakable interactive states. */
+:root{--open-paper:#f7eddf;--open-shadow:0 24px 54px rgba(61,34,20,.13)}
+
+/* A single continuous field, not a stack of outlined boxes. */
+.nav-shell{border-bottom:0;box-shadow:0 11px 35px rgba(21,10,6,.12)}
+.hero{border-bottom:0}
+.process-outer{background:linear-gradient(180deg,#f3e4cd 0%,#f7eddf 90%);padding:32px 4% 28px}
+.process-inner{transform:none;max-width:1390px;margin:0 auto;min-height:0;padding:26px 10px;background:transparent;border:0;border-radius:0;box-shadow:none;gap:clamp(13px,2vw,26px)}
+.process-label{border:0;padding-right:0}
+.step-icon{background:transparent;border-radius:0;width:58px;height:58px}
+.step-icon img{width:54px;height:54px}
+.process-chevron{color:#b98737;opacity:.73}
+
+/* Product presentation: the photo establishes the edge; the text floats freely. */
+.drop-section{background:radial-gradient(ellipse at 79% 0,#fffaf0 0%,#f6eddf 62%,#f1e3d0 100%)}
+.featured-dish{background:transparent;border:0;box-shadow:none;border-radius:0;overflow:visible}
+.dish-photo{overflow:hidden;border-radius:25px 25px 16px 16px;box-shadow:var(--open-shadow)}
+.dish-blurb{padding:30px 4px 10px}
+.plate-includes{background:transparent;border:0;box-shadow:none;border-radius:0;padding:0;margin:24px 0 0}
+.plate-includes h4{color:#8c521b;margin-bottom:15px}
+.plate-includes ul{gap:13px 20px}
+.plate-includes li{color:#342319;line-height:1.48}
+.plate-includes li:before{background:#be8531}
+.dish-facts span{background:transparent;border:0;padding:5px 0;color:#735036}
+
+/* Ordering should read as a clear sequence, not a form trapped in a card. */
+.order-panel{background:transparent;border:0;border-radius:0;box-shadow:none;padding:4px 3px 22px;color:#2c2018}
+.order-head{margin-bottom:26px}
+.order-demo{border:0;background:transparent;color:#9a662d;padding:8px 0}
+.form-row{border:0;padding:18px 0 25px}
+.pickup-windows{border:0;padding:16px 0 18px}
+.qty-stepper{border:0;background:#e9dac6;box-shadow:none}
+.window-chips span{border:0;border-radius:13px;background:#ebdfd0;min-height:52px;transition:background .2s,box-shadow .2s,transform .2s}
+.window-chips label:hover span{background:#e3d0b8}
+.window-chips input:checked+span{background:#2e1c15;color:#fff1d6;border:0;box-shadow:inset 0 -4px #dca63d,0 7px 16px rgba(53,30,19,.13)}
+.window-chips input:focus-visible+span{outline:3px solid #ad661b;outline-offset:3px}
+.contact-fields input,.extra-inner input,.extra-inner textarea{background:rgba(255,250,243,.55);border:0;border-bottom:2px solid #bdac94;border-radius:0;box-shadow:none;padding-inline:7px}
+.contact-fields input:focus-visible,.extra-inner input:focus-visible,.extra-inner textarea:focus-visible{border-bottom-color:#8a501f;outline:2px solid #ad661b;outline-offset:2px;box-shadow:none}
+.contact-fields input[aria-invalid=true]{border-bottom-color:#b33125}
+.extra-details{border:0}
+.extra-details summary{color:#65432d}
+.order-checkout{padding-top:25px}
+
+/* Readable categories via imagery and caption, never a framed tile. */
+.archive-grid figure{background:transparent;border:0;border-radius:0;overflow:visible}
+.archive-grid figure img{border-radius:19px;box-shadow:0 13px 28px rgba(55,31,18,.12)}
+.archive-grid figcaption{padding:17px 2px 0}
+.food-card{border:0;box-shadow:none;background:transparent;border-radius:0}
+.food-card:hover{box-shadow:none}
+
+/* Editorial story and the real physical pickup card need no ornamental frames. */
+.story-image{border:0;box-shadow:0 24px 45px #58361b1f;border-radius:180px 22px 22px 22px}
+.pickup-card-preview{border:0;outline:0;outline-offset:0;border-radius:19px;box-shadow:0 29px 65px #26150d4d}
+.card-meta span{border:0;padding-top:11px}
+.basket-bar{border:0;box-shadow:0 17px 50px #160b0780}
+.toast{border:0;box-shadow:0 12px 32px #27140c33}
+
+/* Buttons speak through fill, typographic weight, and motion — not strokes. */
+.btn{border:0}
+.btn-gold{border:0;box-shadow:0 11px 26px rgba(66,37,10,.2)}
+.btn-outline{background:transparent;border:0;border-radius:0;box-shadow:none;padding-inline:8px;min-height:50px;text-decoration:underline;text-decoration-color:#dca63d;text-decoration-thickness:2px;text-underline-offset:9px}
+.btn-outline:hover{background:transparent;text-decoration-color:#f3e8d5}
+.mobile-menu{border:0;background:rgba(255,255,255,.09)}
+.nav-links{border:0;box-shadow:0 22px 50px #0b0306aa}
+
+/* The separate checkout preview follows the same open composition. */
+.bag-panel,.card-panel{border:0;background:transparent;border-radius:0;box-shadow:none;padding:8px 0}
+.pay-columns{gap:clamp(24px,4vw,60px)}
+.order-preview-row{border:0;background:transparent;border-radius:0;padding:2px 0}
+.stripe-box{border:0;border-radius:17px;background:#eadbc5;padding:21px 23px}
+.stripe-box button{border:0}
+.sample-card{border:0;border-radius:18px;box-shadow:0 24px 52px #29180e4d}
+.totals{border:0;margin-top:23px}
+.pickup-rows p{border:0;padding:8px 0}
+.sample-watermark{border:0}
+
+@media(max-width:980px){
+  .process-inner{padding:23px 0}
+  .order-panel{padding:14px 5px 16px}
+  .pay-columns{gap:44px}
+}
+@media(max-width:650px){
+  .process-outer{padding:14px 20px 30px}
+  .process-inner{padding:25px 0;gap:17px}
+  .process-label{border:0;padding:0}
+  .dish-blurb{padding:26px 5px 0}
+  .plate-includes{padding:0}
+  .dish-photo{border-radius:20px}
+  .order-workspace{gap:35px}
+  .order-panel{padding:0 5px 15px}
+  .order-head{margin-bottom:20px}
+  .pickup-windows{padding:18px 0}
+  .archive-grid figure img{border-radius:13px}
+  .pay-columns{gap:38px}
+  .bag-panel,.card-panel{padding:0}
+}
