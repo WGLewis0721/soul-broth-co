@@ -8,7 +8,9 @@
     "monthlyMenu": "monthly-menu.js",
     "turntableController": "plate-motion.js",
     "turntableStyles": "plate-motion.css",
-    "activeStill": "assets/turntable/plate-angle-center.webp"
+    "activeStill": "assets/turntable/plate-angle-center.webp",
+    "activeSite": "index.html",
+    "componentGallery": "v2/components.html"
   },
   "categories": {
     "brand": "Official brand board, logos, marks, home-screen icons and design tokens",
@@ -16,7 +18,8 @@
     "turntable": "Five optimized, generated photographic perspectives used for the 20-second 3D-like animation",
     "ui": "Independent SVG artwork and interface-support icons",
     "social": "Share images and legacy web previews",
-    "fonts": "Historical, local web font assets and CSS"
+    "fonts": "Historical, local web font assets and CSS",
+    "v2": "V2 workflow brand board and reusable SVG component symbols; original brand board is unchanged"
   },
   "files": [
     {
@@ -354,6 +357,20 @@
       "gitBlobSha": "8e7da42ae72181e0ac8bf5bc584ce4eb9c1be659",
       "origin": "Project vector illustration",
       "kind": "vector"
+    },
+    {
+      "path": "assets/v2/boards/brand-board-v2.svg",
+      "sizeBytes": 2104,
+      "gitBlobSha": "95af7a2c00a67b9ef22f09764d999a7c477da245",
+      "kind": "vector",
+      "origin": "V2 workflow brand-board interpretation; original client board still authoritative"
+    },
+    {
+      "path": "assets/v2/ui/icons.svg",
+      "sizeBytes": 1630,
+      "gitBlobSha": "3be517e38ad94e47bc709a49b922ecb805e4ea0e",
+      "kind": "vector",
+      "origin": "Original V2 functional icon sprite; individual reusable vector symbols"
     }
   ]
 }

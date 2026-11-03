@@ -28,3 +28,7 @@
 Do not add new graphics under `docs/` or the project root. References, specs and research stay in `docs/`; images, icons, artwork, brand boards, font files and animated perspective frames stay under `assets/`. Legacy Soul Broth Co. menu/PDF tools at the repository root are **not part of the active Haus of Micah asset library** and should not be used as production food or pricing.
 
 The historical filenames and paths remain recoverable from Git history. This migration removes duplicate/stale production paths from the active tree.
+
+
+## Website V2 update (2026-11-03)
+The **original approved brand board** remains [`brand/official-brand-board.jpg`](brand/official-brand-board.jpg). The new [editable V2 workflow board](v2/boards/brand-board-v2.svg) explains approval-before-payment, without changing the owner's original visual identity. The [V2 icon sprite](v2/ui/icons.svg) supplies reusable vector icons. The hero continues to reuse the original five photographic perspectives under `turntable/` and real user-provided stills under `food/`; no duplicate image sets were introduced. The live page is `../index.html` and [component gallery](../v2/components.html). The V2 Markdown authority is [`../docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md`](../docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md).

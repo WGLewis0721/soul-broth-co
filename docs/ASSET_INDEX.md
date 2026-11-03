@@ -13,3 +13,8 @@
 - [Design system and UX foundations](../DESIGN.md)
 
 **Current behavior:** the hero plate moves left → center → right → center → left in a roughly 20-second loop with a pause/resume action, intersection/visibility handling and reduced-motion fallback. No Stripe payment is enabled. Changes to files must keep the current menu configuration and client approval rules intact.
+
+## V2 workflow board and components
+- [Editable workflow-specific brand board](../assets/v2/boards/brand-board-v2.svg) — derived direction only; the [original board](../assets/brand/official-brand-board.jpg) remains identity authority.
+- [V2 icon sprite](../assets/v2/ui/icons.svg) and [14 individual component examples](../v2/components.html).
+- [Website V2 product/UX specification](concepts/haus-of-micah/WEBSITE_V2_SPEC.md).
