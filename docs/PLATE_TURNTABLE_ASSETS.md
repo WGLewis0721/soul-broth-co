@@ -33,3 +33,9 @@ Photo is the hierarchy; no clip art fighting for attention (aesthetic-usability 
 | Right 22° | `assets/turntable/plate-angle-right22.webp` |
 
 The five pictures approximate a physical turn by crossfading. They are not a real 3D mesh or licensed photographs of a currently offered product.
+
+## Active production implementation — November 3, 2026
+
+**The five-image slideshow described above is retired on the production homepage.** The current Forest Film hero uses one high-resolution plate image and a continuous 14-second CSS 3D-perspective tilt, without any crossfades or frame swaps. Source: [plate orbit implementation](../v3/plate-orbit.css), [motion controller](../v3/plate-orbit.js), and [current behavior specification](PLATE_MOTION_V3.md).
+
+The old angle-view assets are retained in the repository for archive/provenance and historic demos. The active loop is a 2.5D photograph animation, not a filmed plate or a complete 3D mesh. Pause, reduced-motion, save-data, offscreen pause and no-JavaScript still are supported.
