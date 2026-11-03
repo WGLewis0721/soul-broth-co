@@ -1,0 +1,98 @@
+/*
+ * Haus of Micah · Forest Film V3 · Continuous Admiration Turn
+ * One photographic source, one continuously interpolated 3D CSS transform.
+ * No angle-frame swapping, crossfades, raster animation sprite, or 360° mesh claim.
+ */
+.hero-v2 .hero-media[data-v3-orbit]{
+  perspective:1350px;
+}
+.hero-v2 .hero-media .v3-orbit-stage{
+  position:relative;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  width:min(100%,960px);
+  height:auto;
+  aspect-ratio:1;
+  perspective:1350px;
+  isolation:isolate;
+  overflow:visible;
+  pointer-events:none;
+}
+.hero-v2 .v3-orbit-body{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform:translate3d(0,0,0) rotateX(3deg) rotateY(0deg);
+  transform-origin:50% 54%;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  z-index:2;
+}
+.hero-v2 .hero-media .v3-orbit-plate{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  opacity:1!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+  animation:none!important;
+  filter:drop-shadow(0 30px 27px rgba(1,22,11,.40));
+  backface-visibility:hidden;
+}
+.hero-v2 .v3-orbit-shadow{
+  position:absolute;
+  z-index:1;
+  width:70%;
+  height:11%;
+  left:15%;
+  bottom:12%;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(1,20,9,.64),rgba(2,30,13,.25) 45%,transparent 73%);
+  filter:blur(24px);
+  transform:translate3d(0,0,0) scale(1);
+}
+.hero-v2 .v3-orbit-stage.is-orbit-enabled .v3-orbit-body{
+  will-change:transform;
+  animation:haus-admire-plate 14s cubic-bezier(.46,0,.54,1) infinite;
+}
+.hero-v2 .v3-orbit-stage.is-orbit-enabled .v3-orbit-shadow{
+  animation:haus-admire-shadow 14s cubic-bezier(.46,0,.54,1) infinite;
+}
+.hero-v2 .v3-orbit-stage.is-orbit-paused .v3-orbit-body,
+.hero-v2 .v3-orbit-stage.is-orbit-paused .v3-orbit-shadow{
+  animation-play-state:paused;
+  will-change:auto;
+}
+@keyframes haus-admire-plate{
+  0%,100%{
+    transform:translate3d(-1.1%,.7%,0) rotateX(5deg) rotateY(-13deg) rotateZ(-3.5deg) scale(.977);
+  }
+  50%{
+    transform:translate3d(1.1%,-.9%,0) rotateX(3deg) rotateY(13deg) rotateZ(3.5deg) scale(1.018);
+  }
+}
+@keyframes haus-admire-shadow{
+  0%,100%{transform:translate3d(5%,0,0) scale(.94);opacity:.76}
+  50%{transform:translate3d(-5%,0,0) scale(1.02);opacity:.98}
+}
+.hero-v2 .hero-media[data-v3-orbit] .plate-motion-button[hidden]{
+  display:none!important;
+}
+@media(max-width:650px){
+  .hero-v2 .hero-media .v3-orbit-stage{width:min(100%,470px);height:auto;aspect-ratio:1}
+  .hero-v2 .v3-orbit-shadow{bottom:10%;filter:blur(17px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-v2 .v3-orbit-body,.hero-v2 .v3-orbit-shadow{
+    animation:none!important;
+    transform:none!important;
+    will-change:auto!important;
+  }
+  .hero-v2 .hero-media[data-v3-orbit] .plate-motion-button{display:none!important}
+}
