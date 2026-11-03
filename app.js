@@ -7,7 +7,7 @@ const PRICE=Number.isFinite(MONTHLY.samplePrice)&&MONTHLY.samplePrice>=0?MONTHLY
 const plateTitle=$('#monthly-plate-name');if(plateTitle)plateTitle.textContent=MONTHLY.name;
 const list=$('#monthly-plate-items');
 if(list){list.replaceChildren();for(const item of MONTHLY.includes||[]){if(typeof item!=='string'||!item.trim())continue;const li=document.createElement('li');li.textContent=item;list.append(li)}if(!list.childElementCount){const li=document.createElement('li');li.textContent='Menu details to be announced';list.append(li)}}
-for(const img of [$('#monthly-plate-photo'),$('.hero-plate')]){if(img&&MONTHLY.image){img.src=MONTHLY.image;img.alt=MONTHLY.imageAlt||MONTHLY.name}}
+for(const img of [$('#monthly-plate-photo')]){if(img&&MONTHLY.image){img.src=MONTHLY.image;img.alt=MONTHLY.imageAlt||MONTHLY.name}}
 const slots=$('#window-chips');
 if(slots&&Array.isArray(MONTHLY.pickupWindows)&&MONTHLY.pickupWindows.length){slots.replaceChildren();for(const [i,slot] of MONTHLY.pickupWindows.entries()){if(!slot||typeof slot.value!=='string')continue;const l=document.createElement('label'),input=document.createElement('input'),span=document.createElement('span');input.type='radio';input.name='pickup';input.value=slot.value;if(i===0)input.checked=true;span.textContent=slot.label||slot.value;l.append(input,span);slots.append(l)}}
 

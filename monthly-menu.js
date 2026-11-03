@@ -10,8 +10,15 @@ window.HAUS_MONTHLY_PLATE=Object.freeze({
   "Slow-cooked collard greens",
   "Candied yams"
  ],
- image:"assets/hero-plate-clean.webp",
- imageAlt:"Sample Southern comfort plate with wings, macaroni, collard greens and candied yams",
+ image:"assets/plate-angle-center.webp",
+ imageAlt:"Illustrative Southern comfort plate with wings, macaroni, collard greens and candied yams",
+ turntableViews:[
+  "assets/plate-angle-left22.webp",
+  "assets/plate-angle-left12.webp",
+  "assets/plate-angle-center.webp",
+  "assets/plate-angle-right12.webp",
+  "assets/plate-angle-right22.webp"
+ ],
  samplePrice:28,
  pickupWindows:[
   {value:"12:00–12:30 PM",label:"12:00–12:30"},

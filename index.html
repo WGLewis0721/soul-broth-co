@@ -8,17 +8,19 @@
   <meta property="og:title" content="Haus of Micah — The Plate Is the Event">
   <meta property="og:description" content="Southern comfort worth showing up for. Monthly plate drops and pop-up pickup.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/hero-plate-clean.webp">
+  <meta property="og:image" content="assets/plate-angle-center.webp">
   <title>Haus of Micah | The Plate Is the Event.</title>
   <link rel="icon" href="assets/haus-icon.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/hero-plate-clean.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/plate-angle-center.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="surface-system.css">
+  <link rel="stylesheet" href="plate-motion.css">
   <script src="monthly-menu.js" defer></script>
   <script src="app.js" defer></script>
+  <script src="plate-motion.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,9 +45,6 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-grain" aria-hidden="true"></div>
     <div class="hero-glow" aria-hidden="true"></div>
-    <img class="floating-food floating-mac" src="assets/macaroni.svg" alt="" aria-hidden="true">
-    <img class="floating-food floating-collard" src="assets/collard.svg" alt="" aria-hidden="true">
-    <img class="floating-food floating-sprig" src="assets/ornament-sprig.svg" alt="" aria-hidden="true">
     <div class="hero-copy" data-reveal>
       <span class="eyebrow">H A U S &nbsp; O F &nbsp; M I C A H</span>
       <h1 id="hero-title">The Plate Is <span>the Event.</span></h1>
@@ -57,12 +56,14 @@
       </div>
       <span class="hero-caption">MONTHLY MENU · POP-UP PICKUP · ORDER DETAILS IN ONE PLACE</span>
     </div>
-    <div class="hero-art" aria-label="Cinematic illustration of crispy wings, macaroni, greens and candied yams on a dinner plate">
-      <div class="plate-aura"></div>
-      <div class="plate-rotator" aria-hidden="true"><img class="hero-plate" src="assets/hero-plate-clean.webp" alt="Illustrative plate with crispy wings, macaroni and cheese, collard greens and candied yams" width="1361" height="1024" fetchpriority="high"></div>
-      <div class="plate-vignette" aria-hidden="true"></div>
-      <img class="floating-food floating-sauce" src="assets/sauce-drip.svg" alt="" aria-hidden="true">
-      <div class="hero-art-index" aria-hidden="true"><span>NO. 001</span><span>HOUSE SPECIALTY</span></div>
+    <div class="hero-art hero-art-refined">
+      <div class="plate-aura" aria-hidden="true"></div>
+      <div class="plate-rotator plate-turntable" data-plate-turntable data-ready="false" role="img" aria-label="Illustrative Southern comfort plate turning slowly between five viewpoints: wings, macaroni and cheese, collards, and candied yams">
+        <img class="plate-poster" src="assets/plate-angle-center.webp" alt="" width="960" height="960" fetchpriority="high" decoding="async">
+        <div class="plate-angle-stack" aria-hidden="true"></div>
+      </div>
+      <div class="plate-art-shadow" aria-hidden="true"></div>
+      <button id="plate-motion-toggle" type="button" class="plate-motion-toggle" aria-pressed="false" aria-label="Pause plate animation" hidden><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
     </div>
     <div class="hero-bottomline" aria-hidden="true"><span>SCROLL TO DISCOVER THE EXPERIENCE</span><span class="scroll-line"></span></div>
   </section>
@@ -82,7 +83,7 @@
     <div class="section-heading" data-reveal><div class="heading-rule"></div><span class="eyebrow dark">PLATE OF THE MONTH</span><h2 id="drop-title">Order this <em>month’s plate.</em></h2><p>Review what’s included, choose quantity and pickup time, then enter your name and phone. <strong>Preview only — orders and payments are not live.</strong></p></div>
     <div class="order-workspace" data-reveal>
       <div class="featured-dish">
-        <div class="dish-photo"><img id="monthly-plate-photo" src="assets/hero-plate-clean.webp" alt="Sample monthly plate with wings, macaroni, greens and candied yams" width="1361" height="1024" loading="lazy"><div class="dish-photo-badge">PLATE OF THE MONTH</div></div>
+        <div class="dish-photo"><img id="monthly-plate-photo" src="assets/plate-angle-center.webp" alt="Sample monthly plate with wings, macaroni, greens and candied yams" width="1361" height="1024" loading="lazy"><div class="dish-photo-badge">PLATE OF THE MONTH</div></div>
         <div class="dish-blurb">
           <span class="micro">THIS MONTH’S PLATE · SAMPLE</span>
           <h3 id="monthly-plate-name">Haus Comfort Plate</h3>

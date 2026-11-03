@@ -1,0 +1,94 @@
+/* HAUS OF MICAH — photographic turntable + restrained vector art direction.
+ * Five artist-rendered viewpoints imply a small physical turn; there is no fictitious 360 model.
+ * Pause / reduced-motion and save-data fall back to the static hero still.
+ */
+.hero-art-refined{perspective:1300px;overflow:visible;isolation:isolate}
+.hero-art-refined .plate-aura{inset:18% 12% 12%;background:radial-gradient(ellipse,#ba702f42,transparent 68%);filter:blur(42px)}
+.hero-art-refined .plate-turntable{
+  position:relative;width:min(95%,700px);height:auto;aspect-ratio:1;
+  display:block;transform-style:preserve-3d;transform-origin:50% 52%;
+  animation:none;will-change:auto;z-index:2;
+}
+.plate-poster,.plate-angle-stack,.plate-view{position:absolute;inset:0;width:100%;height:100%}
+.plate-poster,.plate-view{
+  display:block;object-fit:contain;max-width:none;pointer-events:none;
+  mask-image:none;-webkit-mask-image:none;border:0;border-radius:0;
+  filter:drop-shadow(0 28px 24px #14090575)
+}
+.plate-poster{opacity:1;transition:opacity .36s ease}
+.plate-angle-stack{opacity:0;transition:opacity .36s ease;pointer-events:none}
+.plate-turntable[data-ready="true"] .plate-poster{opacity:0}
+.plate-turntable[data-ready="true"] .plate-angle-stack{opacity:1}
+.plate-view{
+  opacity:0;will-change:opacity;
+  animation-duration:20s;animation-timing-function:linear;animation-iteration-count:infinite;
+  animation-delay:-4.5s
+}
+.plate-view-0{animation-name:plate-view-left22}
+.plate-view-1{animation-name:plate-view-left12}
+.plate-view-2{animation-name:plate-view-center}
+.plate-view-3{animation-name:plate-view-right12}
+.plate-view-4{animation-name:plate-view-right22}
+@keyframes plate-view-left22{0%,8%{opacity:1}12%,88%{opacity:0}92%,100%{opacity:1}}
+@keyframes plate-view-left12{0%,8%{opacity:0}12%,18%{opacity:1}22%,78%{opacity:0}82%,88%{opacity:1}92%,100%{opacity:0}}
+@keyframes plate-view-center{0%,18%{opacity:0}22%,28%{opacity:1}32%,68%{opacity:0}72%,78%{opacity:1}82%,100%{opacity:0}}
+@keyframes plate-view-right12{0%,28%{opacity:0}32%,38%{opacity:1}42%,58%{opacity:0}62%,68%{opacity:1}72%,100%{opacity:0}}
+@keyframes plate-view-right22{0%,38%{opacity:0}42%,58%{opacity:1}62%,100%{opacity:0}}
+.plate-turntable[data-ready="true"]{
+  animation:plate-organic-turn 20s ease-in-out -4.5s infinite;
+  will-change:transform;
+}
+@keyframes plate-organic-turn{
+  0%,100%{transform:perspective(1300px) rotateX(4deg) rotateY(-7deg) rotateZ(-7deg) translateY(8px) scale(.985)}
+  22%,78%{transform:perspective(1300px) rotateX(2deg) rotateY(0deg) rotateZ(0deg) translateY(0) scale(1.025)}
+  50%{transform:perspective(1300px) rotateX(4deg) rotateY(7deg) rotateZ(7deg) translateY(8px) scale(.985)}
+}
+.plate-art-shadow{
+  position:absolute;bottom:5%;left:15%;width:72%;height:13%;border-radius:50%;
+  background:radial-gradient(ellipse,#0b050470 5%,#27110950 35%,transparent 75%);
+  filter:blur(19px);z-index:1;pointer-events:none;
+}
+.plate-motion-toggle[hidden]{display:none!important}
+.plate-motion-toggle{
+  position:absolute;left:5%;bottom:8%;z-index:4;display:inline-flex;align-items:center;gap:8px;
+  min-height:44px;padding:11px 15px;border:0;border-radius:999px;
+  background:#25150dd9;color:#fff1d5;box-shadow:0 8px 24px #160a0677;
+  backdrop-filter:blur(8px);font:700 11px/1.2 'DM Sans',system-ui,sans-serif;
+  letter-spacing:.05em;cursor:pointer;transition:background .2s;
+}
+.plate-motion-toggle:hover{background:#3c261bcf}
+.plate-motion-toggle:focus-visible{outline:3px solid #efb954;outline-offset:3px}
+.motion-icon{position:relative;display:inline-block;width:11px;height:13px;flex:none}
+.motion-icon:before,.motion-icon:after{content:'';position:absolute;top:1px;bottom:1px;width:3px;border-radius:1px;background:#eeb852}
+.motion-icon:before{left:1px}.motion-icon:after{right:1px}
+.plate-motion-toggle[aria-pressed="true"] .motion-icon:before{top:0;bottom:auto;left:1px;width:0;height:0;background:transparent;border-left:10px solid #eeb852;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.plate-motion-toggle[aria-pressed="true"] .motion-icon:after{display:none}
+.plate-turntable.is-paused,.plate-turntable.is-paused .plate-view,
+.plate-turntable.is-away,.plate-turntable.is-away .plate-view,
+.plate-turntable.is-hidden,.plate-turntable.is-hidden .plate-view{animation-play-state:paused!important}
+.hero-art:hover .plate-turntable[data-ready="true"]:not(.is-paused):not(.is-away):not(.is-hidden),
+.hero-art:hover .plate-turntable[data-ready="true"]:not(.is-paused):not(.is-away):not(.is-hidden) .plate-view{animation-play-state:running!important}
+.hero-art-refined .hero-art-index{display:none}
+/* Product asset: soft museum lighting, not an illustration trapped in a photograph-shaped card. */
+.dish-photo{background:radial-gradient(ellipse at 51% 48%,#ecd0a7 0%,#f7eddf 60%,#f1e0c5 100%)}
+.dish-photo img{object-fit:contain!important;object-position:center!important;padding:4px 8px 0;filter:drop-shadow(0 12px 20px #4b2c1d29)}
+.dish-photo-badge{z-index:2}
+/* Remove leftover vector food stickers; allow the plated food itself to do the selling. */
+.floating-food{display:none!important}
+@media(max-width:900px){
+ .hero-art-refined{margin-right:0}
+ .hero-art-refined .plate-turntable{width:min(98%,600px)}
+ .plate-motion-toggle{left:2%;bottom:7%}
+}
+@media(max-width:650px){
+ .hero-art-refined{height:clamp(285px,83vw,470px);min-height:265px;max-height:none;margin:12px -12px 0}
+ .hero-art-refined .plate-turntable{width:min(92vw,440px);height:auto;aspect-ratio:1}
+ .hero-art-refined .hero-art-index{right:4%;bottom:8%;font-size:8px}
+ .plate-motion-toggle{left:4%;bottom:5%;padding:10px 13px;font-size:10px}
+ .plate-art-shadow{bottom:8%;filter:blur(14px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .plate-turntable,.plate-turntable .plate-view{animation:none!important;transform:none!important}
+ .plate-angle-stack{display:none!important}.plate-poster{opacity:1!important;transition:none!important}
+ .plate-motion-toggle{display:none!important}
+}

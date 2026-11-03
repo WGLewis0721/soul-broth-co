@@ -1,14 +1,14 @@
 /* Local customer card mock. Real Stripe checkout and fulfillment webhooks NOT CONNECTED. */
 (()=>{'use strict';
  const KEY='haus-micah-order-preview-v2', $=s=>document.querySelector(s);
- const MENU=window.HAUS_MONTHLY_PLATE||{name:'Haus Comfort Plate',includes:[],samplePrice:28,image:'assets/hero-plate-clean.webp'};
+ const MENU=window.HAUS_MONTHLY_PLATE||{name:'Haus Comfort Plate',includes:[],samplePrice:28,image:'assets/plate-angle-center.webp'};
  let draft;try{draft=JSON.parse(sessionStorage.getItem(KEY)||'null')}catch{};
  if(!draft||draft.version!==2||!Number.isInteger(draft.quantity)||draft.quantity<1||draft.quantity>12)draft={version:2,quantity:1,name:'Guest preview',phone:'',pickupWindow:'12:00–12:30 PM',note:''};
  const name=String(draft.name||'Guest preview').slice(0,80),qty=draft.quantity,slot=String(draft.pickupWindow||'To be announced'), phone=String(draft.phone||'—').slice(0,32);
  const plateName=String(draft.item?.name||MENU.name).slice(0,90),price=Number.isFinite(draft.item?.samplePrice)?draft.item.samplePrice:MENU.samplePrice;
  const items=$('#checkout-plate-items');if(items&&Array.isArray(MENU.includes)){items.replaceChildren();for(const entry of MENU.includes){const li=document.createElement('li');li.textContent=entry;items.append(li)}}
  const bagTitle=$('.order-preview-row strong');if(bagTitle)bagTitle.textContent=plateName;
- const bagImg=$('.order-preview-row img');if(bagImg){bagImg.src=MENU.image||'assets/hero-plate-clean.webp';bagImg.alt=plateName+' preview image'}
+ const bagImg=$('.order-preview-row img');if(bagImg){bagImg.src=MENU.image||'assets/plate-angle-center.webp';bagImg.alt=plateName+' preview image'}
 
  $('#bag-quantity').textContent=`${qty} ${qty===1?'plate':'plates'} · sample`;$('#pay-subtotal').textContent='
  $('#summary-name').textContent=name;$('#summary-phone').textContent=phone;$('#summary-slot').textContent=slot;
@@ -17,7 +17,7 @@
  function saveBlob(blob,filename){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
  const btn=$('#export-card');btn.addEventListener('click',async()=>{btn.disabled=true;$('#export-status').textContent='Creating your preview image…';try{
  const W=1000,H=1520,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.fillStyle='#261913';ctx.fillRect(0,0,W,H);
- const img=new Image();img.src=MENU.image||'assets/hero-plate-clean.webp';let ready=false;try{await img.decode();ready=true}catch{};const cropH=400;if(ready){ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH)}else{const fallback=ctx.createLinearGradient(0,0,W,cropH);fallback.addColorStop(0,'#56301b');fallback.addColorStop(1,'#1a100e');ctx.fillStyle=fallback;ctx.fillRect(0,0,W,cropH)};
+ const img=new Image();img.src=MENU.image||'assets/plate-angle-center.webp';let ready=false;try{await img.decode();ready=true}catch{};const cropH=400;if(ready){ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH)}else{const fallback=ctx.createLinearGradient(0,0,W,cropH);fallback.addColorStop(0,'#56301b');fallback.addColorStop(1,'#1a100e');ctx.fillStyle=fallback;ctx.fillRect(0,0,W,cropH)};
  const grad=ctx.createLinearGradient(0,180,0,465);grad.addColorStop(0,'rgba(38,25,19,0)');grad.addColorStop(1,'#261913');ctx.fillStyle=grad;ctx.fillRect(0,180,W,285);
  ctx.fillStyle='#DCA63D';ctx.font='800 24px system-ui';ctx.fillText('HAUS OF MICAH / DESIGN PREVIEW',62,120);
  ctx.fillStyle='#F3E8D5';ctx.font='italic 76px Georgia,serif';ctx.fillText('Your plate is',60,515);ctx.fillStyle='#DCA63D';ctx.fillText('the event.',60,600);
@@ -34,7 +34,7 @@
  function saveBlob(blob,filename){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
  const btn=$('#export-card');btn.addEventListener('click',async()=>{btn.disabled=true;$('#export-status').textContent='Creating your preview image…';try{
  const W=1000,H=1520,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.fillStyle='#261913';ctx.fillRect(0,0,W,H);
- const img=new Image();img.src='assets/hero-plate-clean.webp';let ready=false;try{await img.decode();ready=true}catch{};const cropH=400;if(ready){ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH)}else{const fallback=ctx.createLinearGradient(0,0,W,cropH);fallback.addColorStop(0,'#56301b');fallback.addColorStop(1,'#1a100e');ctx.fillStyle=fallback;ctx.fillRect(0,0,W,cropH)};
+ const img=new Image();img.src='assets/plate-angle-center.webp';let ready=false;try{await img.decode();ready=true}catch{};const cropH=400;if(ready){ctx.drawImage(img,0,(img.height-img.width/2.5)/2,img.width,Math.min(img.height,img.width/2.5),0,0,W,cropH)}else{const fallback=ctx.createLinearGradient(0,0,W,cropH);fallback.addColorStop(0,'#56301b');fallback.addColorStop(1,'#1a100e');ctx.fillStyle=fallback;ctx.fillRect(0,0,W,cropH)};
  const grad=ctx.createLinearGradient(0,180,0,465);grad.addColorStop(0,'rgba(38,25,19,0)');grad.addColorStop(1,'#261913');ctx.fillStyle=grad;ctx.fillRect(0,180,W,285);
  ctx.fillStyle='#DCA63D';ctx.font='800 24px system-ui';ctx.fillText('HAUS OF MICAH / DESIGN PREVIEW',62,120);
  ctx.fillStyle='#F3E8D5';ctx.font='italic 76px Georgia,serif';ctx.fillText('Your plate is',60,515);ctx.fillStyle='#DCA63D';ctx.fillText('the event.',60,600);
