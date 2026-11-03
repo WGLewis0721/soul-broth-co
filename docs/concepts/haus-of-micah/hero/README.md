@@ -1,19 +1,35 @@
-# Seven Haus of Micah hero directions
-**Scope:** one responsive above-the-fold hero per direction, each with a paired low-fidelity wireframe. No secondary sections, checkout implementation or live ordering.
+# Haus of Micah — Seven unique hero concepts and wireframes
+**Status:** concept, hero-only; not checkout or operational restaurant content.
 
-| # | Name | Distinct composition | Intended conversion goal | Hero photo role |
-| --- | --- | --- | --- | --- |
-| 01 | Midnight Drop | Oversized dark editorial left, large offset plated-food photo on right | Launch curiosity → alerts / order state | Vertical cinematic product portrait |
-| 02 | Sunday Editorial | Cream masthead + editorial white-space and overlapping plate visual | Brand trust | Food as publication cover |
-| 03 | Order Ticket | Kitchen-chit/receipt utility on paper with food crop | Pickup clarity | Food proof paired with transactional cues |
-| 04 | Golden Hour | Amber/roux asymmetrical split, expressive large type | Fast menu recognition | Rich vibrant food punch |
-| 05 | The Pop-Up | Event date/venue first, map-like rule and food evidence | Reduce pickup confusion | Documentary street/event photo crop |
-| 06 | Supper Table | Atmospheric centered food circle and serif invitation | Comfort, craft, intimacy | Overhead table photo |
-| 07 | Feed to Fork | Social-style layered photo triptych, verified historic reach label | Social referral conversion | Real reels / plate collage |
+All seven are implemented as responsive compositions from the common semantic HTML in the repo root. These are **seven alternative landing-page heroes**, not seven sections in one page.
 
-**Copy states:** before sale use "Get drop alerts" / "Date announcing soon". After client publishes a verified paid preorder, use "Order this month's plate". Sold-out uses "Join next-drop alerts". False live inventory and made-up event dates are prohibited.
+| # | Direction | Distinct structural approach | HTML review | Wireframe |
+|---|---|---|---|---|
+| 01 | Midnight Drop | Full-height dark editorial split; plate photo framed at right | [View](../../../../index.html?hero=1&review=1) | [Wire](../../../../index.html?hero=1&wire=1&review=1) |
+| 02 | Sunday Editorial | Cream publication spread, large serif and offset photograph | [View](../../../../index.html?hero=2&review=1) | [Wire](../../../../index.html?hero=2&wire=1&review=1) |
+| 03 | Order Ticket | Hero photo behind detailed pickup/receipt-style ticket | [View](../../../../index.html?hero=3&review=1) | [Wire](../../../../index.html?hero=3&wire=1&review=1) |
+| 04 | Golden Hour | Saturated rust/amber poster with circular food shot | [View](../../../../index.html?hero=4&review=1) | [Wire](../../../../index.html?hero=4&wire=1&review=1) |
+| 05 | The Pop-Up | Event-forward collard palette with arched photography | [View](../../../../index.html?hero=5&review=1) | [Wire](../../../../index.html?hero=5&wire=1&review=1) |
+| 06 | Supper Table | Large centered round photograph with editorial overlay | [View](../../../../index.html?hero=6&review=1) | [Wire](../../../../index.html?hero=6&wire=1&review=1) |
+| 07 | Feed to Fork | Editorial food collage plus dated social proof | [View](../../../../index.html?hero=7&review=1) | [Wire](../../../../index.html?hero=7&wire=1&review=1) |
 
-**Layout acceptance:** one obvious CTA, no duplicate header CTA, h1+live text, 44px hit targets, foreground contrast; mobile 390×844 and desktop 1440×900; motion off and slow-network poster.
-**Review:** choose structurally, not by palette alone. The seven alternatives intentionally test different hierarchy and conversion paths.
+Full index for reviewers: [concepts.html](../../../../concepts.html).
 
-See [the spec](../BRAND_PRODUCT_SPEC.md), [the applied UX guide](../UX_WEB_GUIDELINES.md), and [source ledger](../REFERENCES.md). The previews are concept images; not a working website.
+## Consistent flow constraints
+- Hero shows product, monthly release model, status, official source of upcoming drop information, and one genuine CTA.
+- Current CTA is "See the Latest Drop", which opens the client's public Instagram account. No live ordering is falsely claimed.
+- Process dialog describes the proposed future ordering/pickup experience and explicitly says website checkout has not yet launched.
+- Stock counts, countdowns, money, pickup dates, actual venue locations, order confirmations are NOT invented.
+- Source client social follower count 59.1K is shown only in #7 with captured-screen provenance.
+- Food stills in locally rendered static presentation boards come from the uploaded client video captures, with Instagram chrome excluded from crop. Website currently uses clearly labeled illustrative image until approved production assets are delivered.
+
+## Design methodology
+The alternative layouts test different UX emphases (appetite, hospitality, operational clarity, energy, event details, intimacy, social trust) while preserving common actions. Compare visual hierarchy and legibility without assuming any research heuristic guarantees conversion.
+Use mobile 390×844 and desktop 1440×900. Review at 320, 820, 1024px, 200% zoom, Reduce Motion, keyboard, and screen-reader access. Real previews must be tested after assets are hosted.
+
+## Output inventory
+- 7 high fidelity hero-only PNG mockups rendered using actual user-provided video stills.
+- 7 low fidelity structure-matched wireframe PNGs.
+- 1 consolidated contact sheet, 1 ZIP of 14 images, and a 7-page PDF hero proof were generated as conversation artifacts. These raster proofs are not yet committed as binary images to GitHub; the interactive HTML/CSS implementations **are** committed.
+
+References: [product spec](../BRAND_PRODUCT_SPEC.md) · [UX web guide](../UX_WEB_GUIDELINES.md) · [provenance](../REFERENCES.md).
