@@ -1,0 +1,43 @@
+{
+  "name": "Haus of Micah",
+  "status": "concept",
+  "version": "1.0.0",
+  "date": "2026-11-02",
+  "colors": {
+    "roux": "#261913",
+    "gold": "#DCA63D",
+    "cream": "#F3E8D5",
+    "collard": "#384A33",
+    "glaze": "#A94929"
+  },
+  "typography": {
+    "brand": "existing script signature",
+    "headline": "editorial serif (candidate Fraunces)",
+    "ui": "legible sans (candidate Manrope)"
+  },
+  "sizing": {
+    "touchTargetMinPx": 44,
+    "bodyMinPx": 16,
+    "maxContentWidthPx": 1200
+  },
+  "states": [
+    "unscheduled",
+    "announced",
+    "open",
+    "low-inventory",
+    "sold-out",
+    "closed",
+    "canceled",
+    "pending-payment",
+    "confirmed",
+    "collected"
+  ],
+  "requirements": [
+    "no fake checkout",
+    "no fake scarcity",
+    "WCAG 2.2 AA",
+    "guest checkout",
+    "reduced-motion",
+    "payment confirmation from backend"
+  ]
+}
