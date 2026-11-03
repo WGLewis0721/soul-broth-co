@@ -1,4 +1,4 @@
-# Haus of Micah — Digital Restaurant Concept
+> **V2 available for review:** [Website V2](v2/index.html) · [13 component library](v2/components.html) · [V2 spec](docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md). This review preview is separate from the current root website and does not process orders.\n\n# Haus of Micah — Digital Restaurant Concept
 
 **The Plate Is the Event.** An original, responsive Southern-comfort restaurant concept for monthly plate drops and pop-up pickups. The public site is a visual and order-flow **preview**, not a payment or reservation processor.
 

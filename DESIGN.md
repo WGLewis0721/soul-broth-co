@@ -1,4 +1,4 @@
-# Haus of Micah — Current Design System
+> **V2 design update:** the original brand board remains authoritative. The proposed approval-first social food-drop experience, component suite and exact UX acceptance gates are documented in [Website V2 Spec](docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md) and [Component Catalog](docs/concepts/haus-of-micah/WEBSITE_V2_COMPONENT_CATALOG.md). Live homepage unchanged; V2 preview at [v2/](v2/).\n\n# Haus of Micah — Current Design System
 
 **Status:** production-hosted *concept* website; Stripe and actual orders inactive. **Identity authority:** [official client brand board](assets/brand/official-brand-board.jpg). **File system authority:** [assets manifest](assets/manifest.json) and [asset README](assets/README.md).
 

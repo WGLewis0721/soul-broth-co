@@ -1,4 +1,4 @@
-# Haus of Micah | Digital Restaurant Experience
+> **UPDATE — November 3, 2026:** This file is the historical V1 concept. The current, approval-first and one-woman-operator requirements live in [WEBSITE_V2_SPEC.md](WEBSITE_V2_SPEC.md). V1's instant-checkout language is superseded: submit request → owner approval → payment instructions by text → verified payment → designated pickup. V2 source components are in [`v2/`](../../../v2/). The root site has not been replaced.\n\n# Haus of Micah | Digital Restaurant Experience
 ## Brand + Product Specification v1.0
 **Date:** 2026-11-02
 **Status:** CONCEPT ONLY. Requires client confirmation before implementation.
