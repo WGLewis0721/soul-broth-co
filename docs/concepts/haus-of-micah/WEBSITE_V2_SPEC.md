@@ -1,105 +1,35 @@
-# Haus of Micah — Website V2 Specification
-**Version:** 2.0 design and implementation handoff · **Date:** 2026-11-03 · **Status:** V2 concept/components preview, NOT live customer ordering.
-**Identity authority:** [Original client-supplied brand board](../../../assets/brand/official-brand-board.jpg); the V2 board and generated concept are proposed refinements, not permission to overwrite her logo. **Existing production:** root `/` remains the earlier preview; new V2 is isolated in `/v2/`.
-
-## 1. What this business actually is
-Haus of Micah is a **social-first, chef-led Southern comfort food-drop business**, operated personally by one woman. Customers discover plates through Instagram and other socials. The business releases menus (for example Thursday Southern Soul Waffle Box or a pineapple bowl), collects **order requests**, manually reviews availability, sends payment instructions **only after approval**, and coordinates event-specific pop-up pickup by text. It is **not** an always-open restaurant, delivery service, automated instant checkout, or subscription box.
-
-Published example service areas: Decatur, Madison, Huntsville (not guaranteed pickup addresses). Thursday pickup on one source form began around/after 6pm, with details communicated about two hours ahead; **never extrapolate that rule to every drop**. Phone used in client-provided post: +1 938-291-9999. Hours may vary while food is being prepared.
-
-**Customer journey:** discover → view published drop → select plate/quantity/customizations → submit request → manual approval/decline → approved customer receives payment instructions by text → actual payment is verified → assigned pickup details texted → collection.
-
-**Business priority:** minimize repetitive calls and messages for a one-person kitchen without removing her authority over availability, payment instructions, or pickup timing.
-
-## 2. Visual direction — Southern Gold V2
-**Tagline:** The Plate Is the Event. Character: indulgent food photography, hospitable confidence, direct instructions before persuasion, open surfaces, generous whitespace, a sense of a limited hand-crafted release without artificial scarcity.
-
-| Token | HEX | Role |
-|---|---|---|
-| Roux | `#261913` | deep backdrop, foreground |
-| Gold | `#DCA63D` | exclusive primary action and select brand highlights |
-| Cream | `#F3E8D5` | warm reading surfaces |
-| Collard | `#384A33` | secondary organic accent |
-| Glaze | `#A94929` | restrained food-associated accent |
-
-Fonts: **existing approved Micah script only** for signature moments; a refined editorial serif for headlines (e.g. Georgia/Fraunces, licensing permitting); readable UI sans for controls, prices, explanatory text (e.g. DM Sans or system sans). Body 16px minimum; no decorative scripts on input labels, warnings or order status. Gold usage follows visual hierarchy, not a predetermined quota. Typography and photography create implied groupings; decorative border boxes are prohibited except controls requiring visible boundaries.
-
-Photo direction: real client food when approved, rich color and believable texture; close elevated ¾ framing, warm directional light, restrained vignette, avoid heavy fake food shine. Use separately authored SVG icons and real text for meaningful UI. Existing five-view hero turntable is a **generated multi-image illusion**, not a physical 3D mesh or depiction of the current menu. Use a still on Save-Data/Reduced Motion/load failure. Do not animate anything that conceals ordering.
-
-## 3. One-page IA and mobile priority
-1. **Header/navigation:** logo; current drop, how it works, request, pickup, FAQ; Instagram remains the authoritative public announcement link.
-2. **Hero:** one H1, one next-step CTA based on real drop state, clear 'approval-first' explanation, prominent food still/turntable.
-3. **Current drop:** dish name, itemized list, photos, price **only after client approval**, pickup area when verified, availability state and request CTA.
-4. **How it works:** Request → Review → Payment by text → Pickup. Never imply submitting the form reserves a plate.
-5. **Request form:** name, mobile phone, chosen plate, quantity, preferred area; optional email/note hidden by default; required acknowledgment.
-6. **Real photo gallery / social proof:** sourced from owned media, permissioned verified testimonials only; no AI-invented reviews.
-7. **Pickup communication:** confirmed event date/time and pickup rules where known; exact pickup location disclosed in official text per owner.
-8. **FAQ:** manual approval, payment timing, pickup text timing, changing/canceling requests, contact delays.
-9. **Next-drop CTA:** approved Instagram link; marketing SMS signup only if genuinely consented and technically connected.
-
-Desktop art direction: split cinematic hero, open pale editorial drop section, unboxed process, compact request form, filmstrip gallery, warm dark pickup/info band. Mobile: vertically stacked 390px; complete first-scroll comprehension; no horizontal carousels required to discover ordering. Screen sizing tested at 320/390/768/1024/1440.
-
-## 4. Information hierarchy and interaction
-- **Instructions first:** "Choose a plate → enter your info → send request. Wait for approval before paying." Avoid flowery explanation in the task path.
-- Dish description is a semantic `ul`, not a paragraph of ingredients. Menus change, so component expects an arbitrary-length array of strings, not a hardcoded four-part meal.
-- One primary CTA per state. Use `Request this drop` only if the real form sends requests; demo uses `Preview a request`.
-- User types a minimum of **full name and mobile phone**; email optional where business does not need it. Never fabricate delivery methods. Pickup area is a preference, not a promised pickup location.
-- Quantity stepper 1–12 in the visual demo; real limits are server configured per published drop.
-- **Approval does not mean paid**. Avoid "Your plate is locked in" at approval stage. Confirmation card issuance follows payment verification.
-- No fake countdown, scarcity labels, dates, prices, quotes, ratings, QR codes, pickup addresses, or fake approval messages labeled as real.
-
-## 5. State model — source of truth
-```
-drop: draft | announced | accepting_requests | paused | sold_out | closed | canceled
-request: draft | submitted | under_review | approved | declined | expired
-payment: not_requested | instructions_sent | pending | verified | failed | refunded
-pickup: unassigned | details_sent | ready | collected | exception
-```
-Operator owns publish and approve/decline actions; each change is auditable. Marketing opt-in is separate from transactional pickup texts. Real payment link requires secure provider integration, server-side authoritative pricing, and webhook verification. Stripe remains a placeholder; the V2 demonstration **does not transmit any customer information**. No order is created in the demo.
-
-## 6. Reusable component inventory
-One of each is implemented as an individually inspectable HTML fragment under [`v2/components/`](../../../v2/components/) and assembled into [`v2/index.html`](../../../v2/index.html): navigation; hero/turntable; current drop; process steps; request form/quantity/area; gallery; pickup guidance; FAQ; next-drop CTA; order status; sample pickup card; button states; SVG icon system. Visit [`v2/components.html`](../../../v2/components.html) to inspect them separately.
-
-Each component has one semantic/functional responsibility and must support idle, focus, selected, pending, invalid, empty, and relevant status states. Do not use rasterized mockup text as UI controls. The visual boards are **design evidence**, not a substitute for editable production components.
-
-## 7. UX fundamentals → design decisions
-| Fundamental or law | Mandatory interface mapping | How to review |
-|---|---|---|
-| Unity | identical label, button, field, icon and status grammar | compare 13 components |
-| Balance | food leads, steps and request path remain visible | screenshot at 390/1440 |
-| Hierarchy + Von Restorff | one dominant CTA for current state | five-second task test |
-| Contrast | live readable text with stable backdrop | WCAG 2.2 AA contrast/focus |
-| Emphasis | reserve gold fill for primary action | count competing gold buttons |
-| Scale + Fitts | targets >=44px, stable tap spacing | DOM bounding boxes |
-| Repetition | shared tokens, 8pt spacing and naming | stylesheet/lint audit |
-| Hick | no competing full menu if one current drop | count first-view choices |
-| Jakob | familiar fields, native radio/select/accordion | no tutorial task |
-| Gestalt | plate with contents and real price; status next to action | visual + DOM grouping |
-| Tesler / progressive disclosure | optional email/note in `details`; complex owner workflow stays backstage | minimal required field count |
-| Doherty | instant quantity update, honest feedback, no success until server says so | click/latency test |
-| Aesthetic–Usability | high-res hero and polite scroll motion never block tasks | Reduce Motion test |
-| Peak-End | request acknowledgment says **awaiting approval**, not confirmed/paid | exact language audit |
-
-## 8. Motion and asset rules
-- Existing hero multi-angle plate motion is available; do not assume rendered boards' five different images are actual deployable 3D frames.
-- Recommended cinematic feel: approximately 20 seconds left ↔ right with pause control. Support `prefers-reduced-motion`, battery/data saver, hidden document, out-of-viewport pauses, and a still.
-- Micro-interactions 150–250ms; entrance/reveal only if no information is hidden without JS. No scroll-jacking, autoplay sound or mandatory introductions.
-- All canonical imagery, font resources and SVGs live under [`assets/`](../../../assets/README.md). V2 concept boards and derivative optimizations, if included, are under `assets/v2/`; separately labeled *generated reference* and never represented as real client plates.
-
-## 9. Success criteria and release gates
-- Five-second test: users can say what is offered, whether requests are open, and what comes after submission.
-- Request draft takes no account setup, and no more than two required typed fields.
-- Screen widths 320, 390, 768, 1024, 1440: no overflow; readable focus/labels; no page errors.
-- Keyboard/VoiceOver, 200% text zoom, reduced motion, missing images, and slow networks reviewed.
-- Real commerce gated by client-approved menu/date/price, capacity controls, secure backend, payment verification, privacy and messaging policy.
-- Owner can review a request queue, approve/decline, and produce a pickup roster **only after those server functions are actually implemented**.
-
-## 10. Reference genealogy
-- Closest model: Lillie's Soulful Plate (small Southern plate releases); Fonky Bakes (preorder request plus later payment); Chicken's Kitchen (social-first Southern plate demand).
-- Visual/product direction: PopUp Bagels for hero and confidence; Tanur Bakery for restrained imagery; Hotplate for food-drop state and operator workflow. **These are sources of ideas, not authorization to copy logos, images or trade dress.**
-- UX source docs: [Spread](../../reference/ux/SPREAD_FOUNDATIONAL_UX_SOURCE.md), [Studigo](../../reference/ux/STUDIGO_FOUNDATIONAL_UX_SOURCE.md), [Applied UX reference](UX_WEB_GUIDELINES.md).
-
-## 11. V2 images supplied in conversation
-Four generated boards: (1) **Brand Board V2** (new identity/business model); (2) **Website V2 Concept** (one-page desktop+mobile); (3) **Website V2 Spec Sheet** (IA/UX/tokens); (4) **V2 Components & Assets** (component samples). Their prices, dates, addresses, testimonials, invented product imagery, sample credentials and "approved" badge are **illustrative visual examples**, not operational data. The original official brand board remains identity authority.
-
-For implementation details, component contracts and QA see [V2 Component Catalog](WEBSITE_V2_COMPONENT_CATALOG.md) and [V2 UX Acceptance Matrix](WEBSITE_V2_UX_CHECKLIST.md).
+# HAUS OF MICAH — WEBSITE V2 BRAND + PRODUCT SPECIFICATION
+**Status:** Deployed design demonstration; operator approval/payment/SMS backend not connected. **Authority:** Supersedes older V1 assumptions of instant checkout or instant paid pickup cards. **Updated:** 2026-11-03.
+## Brand source of truth
+- Original client brand board: [official-brand-board.jpg](../../../assets/brand/official-brand-board.jpg). Retain house silhouette, gold spatula, Micah signature, warm Southern hospitality.
+- V2 editable direction: [V2 brand board SVG](../../../assets/v2/boards/brand-board-v2.svg); this summarizes workflow, not a replacement for the original board.
+- Colors: Roux #261913, Gold #DCA63D, Cream #F3E8D5, Collard #384A33, Glaze #A94929. Fraunces editorial headings, DM Sans operational UI; signature script only when approved.
+- Open-surface hierarchy (no decorative card borders); tonal groupings, photography and spacing define sections. Real outlines remain for keyboard focus and errors.
+## Actual business model
+Haus of Micah is a **one-woman, social-first, Southern soul-food food-drop operation**. Preorder requests are for a specific, changing menu, not an always-open restaurant. Instagram has announced pineapple bowls and Thursday soul-food waffle boxes. Customers may choose a pickup-area preference in Decatur, Madison or Huntsville; exact locations are communicated privately later and are NOT static addresses. The sample Thursday form said pickup starts around/after 6 PM and details are texted approximately two hours before designated pickup; individual events override that.
+**Sequence:** 1. Menu announced → 2. Customer sends request → 3. Haus reviews/approves → 4. Payment instructions sent by text → 5. Full payment secures order → 6. Designated time/location sent by text → 7. Handoff. An unapproved request is **not an order**, and payment before approval must be discouraged.
+Owner contact from supplied form: (938) 291-9999; Mon–Thu 10 AM–6 PM, Fri–Sat 10 AM–8 PM, Sun 12 PM–5 PM (response times vary while cooking).
+## UI requirements mapped to laws
+| Business requirement | Implemented UI | Design law / gate |
+| --- | --- | --- |
+| First-view comprehension | Hero plate, tagline, short operational copy and one gold primary CTA | Hick, Von Restorff, five-second test |
+| Make plate the focus | Existing 5-angle, 20s 3D-like food-photo turntable, real still fallback | Aesthetic-usability, Reduce Motion |
+| Rotating menu | Itemized plate-includes list and editorial photograph | Gestalt, hierarchy, semantic ul |
+| Approval first | Four explicit steps, status sample, request-not-reservation disclosure | Jakob, Peak-End, integrity |
+| Minimal contact | Name + phone required; pickup preference choices; optional email/note disclosure | Tesler, Fitts, >=44px controls |
+| Limit operator messaging | Exact pickup time/location provided later by official text | Chunking, clarity, correct expectation |
+| Accessible operations | Native inputs, aria status and focus, mobile nav | WCAG 2.2 AA intent, keyboard/zoom |
+| Prevent false success | Preview says nothing sent or paid; no functioning payment, SMS or QR | Doherty, data truth |
+## V2 component architecture
+- Live: `/`; reusable standalone previews: `/v2/components.html`; CSS: `v2/css/site.css`, `v2/css/tokens.css`; JS `v2/js/site.js`.
+- Semantically extractable and committed: `v2/components/*.html` covering site nav, hero, current drop, how it works, short request, gallery, pickup, FAQ, contact, join, status, sample card, button and SVG primitives.
+- Icons: `assets/v2/ui/icons.svg`. Existing original art: `assets/brand/`, `assets/food/`, `assets/turntable/`. All imagery stays in a canonical asset directory.
+- Generated boards contain illustrative $28, dates, testimonials and confirmation art. **None are verified business data** and none appear as real live offer. Production requests require a real server, privacy, anti-spam, approval queue and payment provider webhook verification.
+## Sources consulted
+- [Fonky Bakes / Cafe Da Fonk](https://cafedafonkoak.com/page/fonkybakes): small batch form, pickup choice, payment link later.
+- [Hotplate](https://www.hotplate.com/): drop scheduling, inventory, customer text communication, prep lists (operator inspiration, not their instant-pay logic).
+- [PopUp Bagels / Red Antler](https://www.redantler.com/work/popup): product-first brand discipline and preorder discovery.
+- [Lillie's Soulful Plate](https://lilliessoulfulplate.com/): Southern soul-food positioning and menu language.
+- Owned [Spread](../../reference/ux/SPREAD_FOUNDATIONAL_UX_SOURCE.md) + [Studigo](../../reference/ux/STUDIGO_FOUNDATIONAL_UX_SOURCE.md) foundational UI/UX docs. Principles: unity, balance, hierarchy, contrast, emphasis, scale and repetition; laws are heuristics, not outcome guarantees.
+## What remains unshipped
+Actual request persistence and moderation queue; approval/decline and capacity enforcement; verified SMS and consumer consent; merchant-owned payment links and webhook; exact pickup-location dispatch; paid pickup cards; staff roster; terms/privacy compliance. V2 intentionally does not capture or charge real customers.

@@ -1,0 +1,21 @@
+<section id="request" class="request-section v2-section" aria-labelledby="request-heading">
+  <div class="v2-shell request-layout">
+    <div class="request-intro"><span class="micro gold">03 / ORDER REQUEST</span><h2 id="request-heading">Just the details <em>we need.</em></h2><p>Submitting a request does not reserve a plate. Haus of Micah reviews requests first, then sends approved customers payment instructions by text.</p>
+    <div class="request-benefits"><div><svg class="ico" aria-hidden="true"><use href="assets/v2/ui/icons.svg#clock"></use></svg><span>No accounts or long forms</span></div><div><svg class="ico" aria-hidden="true"><use href="assets/v2/ui/icons.svg#message"></use></svg><span>Pickup details arrive by text</span></div><div><svg class="ico" aria-hidden="true"><use href="assets/v2/ui/icons.svg#shield"></use></svg><span>No payment until approved</span></div></div></div>
+    <form class="request-form" id="v2-request-form" novalidate aria-describedby="form-intro">
+      <p class="form-kicker" id="form-intro">EXAMPLE REQUEST · DEMO ONLY · NOTHING IS SENT</p>
+      <div class="form-grid">
+        <div class="form-field"><label for="request-name">Full name <span aria-hidden="true">*</span></label><input id="request-name" name="customer_name" type="text" autocomplete="name" maxlength="80" placeholder="Full name" required></div>
+        <div class="form-field"><label for="request-phone">Mobile phone <span aria-hidden="true">*</span></label><input id="request-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(938) 555-0123" required></div>
+      </div>
+      <div class="form-field"><label for="request-product">Select a plate <span aria-hidden="true">*</span></label><select id="request-product" name="plate" required><option value="sample">Haus Comfort Plate — sample</option></select></div>
+      <div class="quantity-area"><span class="form-label" id="quantity-title">How many plates?</span><div class="qty-stepper" role="group" aria-labelledby="quantity-title"><button type="button" aria-label="Decrease quantity" data-qty-down>−</button><output id="quantity-display" aria-live="polite">1</output><button type="button" aria-label="Increase quantity" data-qty-up>+</button></div></div>
+      <fieldset class="area-fieldset"><legend>Preferred pickup area <span aria-hidden="true">*</span></legend><p>Preference only. Exact pickup location and time are assigned by text.</p><div class="area-choices"><label><input type="radio" name="pickup_area" value="Decatur" required><span>Decatur</span></label><label><input type="radio" name="pickup_area" value="Madison"><span>Madison</span></label><label><input type="radio" name="pickup_area" value="Huntsville"><span>Huntsville</span></label></div></fieldset>
+      <details class="optional-fields"><summary>Optional details <span>email or kitchen note</span></summary><div class="form-field"><label for="request-email">Email (optional)</label><input type="email" id="request-email" name="email" autocomplete="email" placeholder="you@example.com"></div><div class="form-field"><label for="request-note">Order note (optional)</label><textarea id="request-note" rows="3" name="note" maxlength="240" placeholder="Only details relevant to preparation"></textarea></div></details>
+      <label class="request-ack"><input type="checkbox" id="request-ack" required><span>I understand this is a request, not a confirmed order. Payment instructions follow approval.</span></label>
+      <p id="request-feedback" role="status" aria-live="polite" class="request-feedback" hidden></p>
+      <button class="v2-button v2-button-gold full-button" type="submit">Preview my request <span aria-hidden="true">↗</span></button>
+      <p class="form-footer">Design demo: this form does not transmit, save, or charge customer information.</p>
+    </form>
+  </div>
+</section>
