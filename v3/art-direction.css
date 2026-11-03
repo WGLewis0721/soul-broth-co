@@ -19,8 +19,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .hero-v2:before{content:"";position:absolute;right:-16vw;top:-14vw;width:min(69vw,900px);height:min(69vw,900px);border:1px solid #DBE6D227;border-radius:50%;pointer-events:none}
 .hero-v2:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(98deg,transparent 0,transparent 8px,#F6FFE715 9px);opacity:.32;pointer-events:none}
 .hero-layout{min-height:clamp(660px,calc(100svh - 90px),945px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;position:relative}
-.hero-copy{padding:clamp(24px,4vw,59px) 0 78px;max-width:780px;z-index:10;align-self:start}
-.hero-copy .micro{color:#C7E0C5;font-size:.72rem}.hero-copy h1{font:500 clamp(6.7rem,10.6vw,13.2rem)/.78 var(--v3-serif);letter-spacing:-.075em;max-width:1030px;position:relative;z-index:10;margin:clamp(48px,6vw,104px) 0 28px}
+.hero-copy{padding:clamp(20px,2.8vw,42px) 0 78px;max-width:780px;z-index:10;align-self:start}
+.hero-copy .micro{color:#C7E0C5;font-size:.72rem}.hero-copy h1{font:500 clamp(6.7rem,10.6vw,13.2rem)/.78 var(--v3-serif);letter-spacing:-.075em;max-width:1030px;position:relative;z-index:10;margin:clamp(28px,3.5vw,57px) 0 28px}
 .hero-copy h1 em{display:block;font-style:italic;font-weight:400;color:#FFFDF4;line-height:.9;white-space:nowrap}
 .hero-lead{font-size:clamp(1rem,1.15vw,1.18rem);max-width:390px;color:#E6EFE5;line-height:1.65;margin-bottom:26px;position:relative;z-index:10}
 .hero-actions,.hero-honesty{position:relative;z-index:11}.hero-actions{gap:23px}.hero-honesty{max-width:430px;color:#C8DEC8;font-size:.77rem;margin-top:25px}.hero-honesty .ico{color:var(--v3-gold)}
@@ -126,7 +126,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 }
 @media(max-width:860px){
  .v2-shell{width:min(calc(100% - 42px),1500px)}.hero-layout{min-height:590px;grid-template-columns:1fr 1fr}
- .hero-copy{padding-top:55px}.hero-copy h1{font-size:clamp(5.3rem,10vw,7.5rem);margin-top:65px}
+ .hero-copy{padding-top:55px}.hero-copy h1{font-size:clamp(5.3rem,10vw,7.5rem);margin-top:38px}
  .hero-media{right:-11vw;top:0;width:69vw;height:100%}
  .v3-hero-index,.v3-hero-side,.v3-plate-annotation{display:none}
  .v3-manifesto-layout{grid-template-columns:1fr}.v3-manifesto p{white-space:normal}.v3-manifesto-note{grid-column:1}
