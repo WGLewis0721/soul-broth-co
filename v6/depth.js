@@ -119,3 +119,101 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+/* Gallery step arrows: move the loop by one photo. Falls back to scrolling the strip. */
+(() => {
+  'use strict';
+  const gallery = document.querySelector('[data-v5-gallery]');
+  const track = document.querySelector('[data-v5-track]');
+  const viewport = document.querySelector('[data-v5-viewport]');
+  const first = document.querySelector('[data-v5-original-set]');
+  const prev = document.querySelector('[data-hm-prev]');
+  const next = document.querySelector('[data-hm-next]');
+  if (!gallery || !track || !viewport || !first || !prev || !next) return;
+  const stepPx = () => {
+    const item = first.querySelector('.v5-food-item');
+    const gap = parseFloat(getComputedStyle(first).columnGap || getComputedStyle(first).gap) || 0;
+    return item ? item.offsetWidth + gap : 0;
+  };
+  const move = (direction) => {
+    const anim = track.getAnimations ? track.getAnimations()[0] : null;
+    const step = stepPx();
+    if (anim && anim.effect && anim.effect.getComputedTiming().duration) {
+      const duration = anim.effect.getComputedTiming().duration;
+      const setWidth = first.offsetWidth || 1;
+      const delta = (step / setWidth) * duration;
+      // Next moves the strip left (later in the loop); previous moves it right.
+      const t = anim.currentTime === null ? 0 : anim.currentTime;
+      anim.currentTime = (((t - direction * delta) % duration) + duration) % duration;
+      return;
+    }
+    viewport.scrollBy({ left: -direction * step, behavior: 'smooth' });
+  };
+  next.addEventListener('click', () => move(1));
+  prev.addEventListener('click', () => move(-1));
+})();
+
+/* Micro-promo reel: timed slides for images, play/pause for videos, manual steps.
+   Under reduced motion it does not advance on its own. */
+(() => {
+  'use strict';
+  const reel = document.querySelector('[data-hm-reel]');
+  if (!reel) return;
+  const slides = [...reel.querySelectorAll('[data-hm-slide]')];
+  const bars = [...reel.querySelectorAll('.hm-reel-progress span')];
+  const pause = reel.querySelector('[data-hm-reel-pause]');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD = 4500;
+  let index = 0, paused = reduce, timer = 0;
+  reel.style.setProperty('--hm-reel-ms', HOLD + 'ms');
+  const setVideos = (slide) => {
+    slide.querySelectorAll('video').forEach((v) => { v.muted = true; v.loop = true; v.playsInline = true; v.play().catch(() => {}); });
+    slides.filter((s) => s !== slide).forEach((s) => s.querySelectorAll('video').forEach((v) => v.pause()));
+  };
+  const show = (n) => {
+    index = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-current', i === index));
+    bars.forEach((b, i) => {
+      b.classList.remove('is-current', 'is-done');
+      if (i < index) b.classList.add('is-done');
+      if (i === index) { b.classList.add('is-current'); void b.offsetWidth; }
+    });
+    setVideos(slides[index]);
+    schedule();
+  };
+  const schedule = () => {
+    clearTimeout(timer);
+    const current = slides[index];
+    if (paused || current.querySelector('video')) return;
+    timer = setTimeout(() => show(index + 1), HOLD);
+  };
+  reel.querySelector('[data-hm-reel-next]').addEventListener('click', () => show(index + 1));
+  reel.querySelector('[data-hm-reel-prev]').addEventListener('click', () => show(index - 1));
+  const setPaused = (value) => {
+    paused = value;
+    reel.classList.toggle('is-paused', paused);
+    pause.setAttribute('aria-pressed', String(paused));
+    pause.textContent = paused ? 'Play' : 'Pause';
+    if (paused) clearTimeout(timer); else schedule();
+  };
+  pause.addEventListener('click', () => setPaused(!paused));
+  if (!reduce) {
+    reel.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') reel.classList.add('is-paused'); });
+    reel.addEventListener('pointerleave', () => { if (!paused) reel.classList.remove('is-paused'); });
+  }
+  reduce ? pause.setAttribute('aria-pressed', 'true') : null;
+  if (reduce) { pause.textContent = 'Play'; reel.classList.add('is-paused'); }
+  show(0);
+  if (reduce) setPaused(true);
+})();
+
+/* Hide the mobile sticky request button while the reel's own order button is on screen. */
+(() => {
+  'use strict';
+  const sticky = document.querySelector('.hm-sticky-cta');
+  const reelCta = document.querySelector('.hm-reel-meta a');
+  if (!sticky || !reelCta || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver((entries) => {
+    sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
+  }, { threshold: 0.6 }).observe(reelCta);
+})();
