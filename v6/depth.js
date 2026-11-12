@@ -34,3 +34,31 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   targets.forEach((el) => io.observe(el));
 })();
+
+/* Share a plate: Web Share when available, otherwise copy a link to that plate. */
+(() => {
+  'use strict';
+  const btn = document.querySelector('[data-hm-share]');
+  if (!btn) return;
+  const status = btn.parentElement.querySelector('.hm-share-status');
+  btn.addEventListener('click', async () => {
+    const selected = document.querySelector('.v5-food-item[aria-expanded="true"]');
+    const key = selected ? selected.dataset.v5Food : '';
+    const url = new URL(window.location.href);
+    url.search = key ? '?plate=' + encodeURIComponent(key) : '';
+    url.hash = '#gallery';
+    const name = document.querySelector('[data-v5-focus-name]');
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Haus of Micah · ' + (name ? name.textContent : ''), url: url.href });
+        status.textContent = '';
+        return;
+      }
+      await navigator.clipboard.writeText(url.href);
+      status.textContent = 'Link copied.';
+    } catch (err) {
+      if (err && err.name === 'AbortError') return;
+      status.textContent = 'Copy this link: ' + url.href;
+    }
+  });
+})();

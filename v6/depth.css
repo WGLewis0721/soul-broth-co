@@ -53,3 +53,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 
 /* One photo grade for every food image, so the gallery reads as one shoot. */
 .v5-food-photo img,.v5-food-focus-image img{filter:var(--hm-grade)}
+
+/* Share control: a text button with an amber underline, no box. */
+.hm-share-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:18px}
+.hm-share{min-height:44px;padding:0 2px;border:0;border-bottom:2px solid var(--hm-amber);background:none;color:var(--hm-ink);font:800 .78rem/1 var(--v4-sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.hm-share:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}
+.hm-share-status{font-size:.8rem;color:var(--hm-clay)}
