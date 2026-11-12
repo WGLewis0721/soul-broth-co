@@ -184,3 +184,6 @@
  .v5-food-focus{animation:none!important}
  .v5-food-item:hover{transform:none}
 }
+
+/* Safe fictional contact visible only on demo surfaces. */
+.v5-demo-phone{display:block;color:inherit;opacity:.73;font:600 .79rem/1.6 var(--v4-sans);margin:12px 0 0}

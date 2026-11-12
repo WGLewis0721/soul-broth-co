@@ -23,7 +23,7 @@ These are art-direction ratios, **not verified pixel measurements**. The origina
 6. **Request workspace:** white, quiet familiar inputs; name/phone, quantity, preferred pickup area, consent acknowledgement. Optional email/note progressive disclosure. Demo never sends, stores or charges.
 7. **Gallery:** real client video stills, irregular layouts, no invented testimonials.
 8. **Pickup:** green text-oriented instructions, official text communicates the exact time/location; customer must wait to arrive.
-9. **FAQ, contact, next drop:** clear answers, business phone (938) 291-9999 and Instagram link, follow for next menu.
+9. **FAQ, contact, next drop:** clear answers, business phone (256) 555-0147 (fictional; not monitored) and Instagram link, follow for next menu.
 
 ## Explicit business contract
 Haus of Micah is a one-woman, social-first, preorder-only Southern comfort food-drop service. Menu and preorder windows change by drop. Form submission does **not** secure a plate. The owner manually reviews requests. Only after approval are payment instructions sent **by text**. Full payment secures the order. Exact pickup location and designated pickup time are sent by text; do not infer a fixed location from Decatur/Madison/Huntsville area preference. A previously supplied Thursday drop mentioned pickup around/after 6 PM and details roughly 2 hours beforehand; that is not necessarily true for all drops.

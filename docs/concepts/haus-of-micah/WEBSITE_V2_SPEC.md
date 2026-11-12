@@ -8,7 +8,7 @@
 ## Actual business model
 Haus of Micah is a **one-woman, social-first, Southern soul-food food-drop operation**. Preorder requests are for a specific, changing menu, not an always-open restaurant. Instagram has announced pineapple bowls and Thursday soul-food waffle boxes. Customers may choose a pickup-area preference in Decatur, Madison or Huntsville; exact locations are communicated privately later and are NOT static addresses. The sample Thursday form said pickup starts around/after 6 PM and details are texted approximately two hours before designated pickup; individual events override that.
 **Sequence:** 1. Menu announced → 2. Customer sends request → 3. Haus reviews/approves → 4. Payment instructions sent by text → 5. Full payment secures order → 6. Designated time/location sent by text → 7. Handoff. An unapproved request is **not an order**, and payment before approval must be discouraged.
-Owner contact from supplied form: (938) 291-9999; Mon–Thu 10 AM–6 PM, Fri–Sat 10 AM–8 PM, Sun 12 PM–5 PM (response times vary while cooking).
+Public design preview placeholder: (256) 555-0147 (fictional; not monitored); Mon–Thu 10 AM–6 PM, Fri–Sat 10 AM–8 PM, Sun 12 PM–5 PM (response times vary while cooking).
 ## UI requirements mapped to laws
 | Business requirement | Implemented UI | Design law / gate |
 | --- | --- | --- |
