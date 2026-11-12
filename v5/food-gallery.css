@@ -68,10 +68,9 @@
 .v5-food-item-caption{display:block;font:800 .58rem/1.5 var(--v4-sans);letter-spacing:.15em;color:var(--v5-amber)}
 .v5-food-item:hover{transform:translateY(-4px)}
 .v5-food-item:focus-visible{outline:3px solid var(--v5-amber);outline-offset:7px;border-radius:16px}
-.v5-food-track.is-running{animation:v5-scroll-right 51s linear infinite}
+.v5-food-track.is-running{animation:v5-scroll-right 40.8s linear infinite}
 @keyframes v5-scroll-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
-.v5-kitchen:hover .v5-food-track,
-.v5-kitchen:focus-within .v5-food-track,
+.v5-kitchen.is-image-hover .v5-food-track,
 .v5-kitchen.is-paused .v5-food-track{animation-play-state:paused!important}
 .v5-food-viewport.is-focused{opacity:.14;filter:saturate(.5);pointer-events:none}
 .v5-food-focus{
