@@ -46,3 +46,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 /* Brand ornament: the gold spatula from the mark, drawn without its box. */
 .hm-ornament{display:flex;justify-content:center;background:var(--hm-base);padding:clamp(28px,3.5vw,44px) 0 0}
 .hm-ornament svg{width:34px;height:34px;opacity:.9}
+
+/* Pull quotes: large serif italic lines between sections, no box. */
+.hm-pull{background:var(--hm-base);padding:clamp(48px,6vw,84px) 0 0}
+.hm-pull p{margin:0;max-width:24ch;font:italic 500 clamp(1.9rem,3.6vw,3.4rem)/1.16 var(--v4-serif);letter-spacing:-.02em;color:var(--hm-ink)}
