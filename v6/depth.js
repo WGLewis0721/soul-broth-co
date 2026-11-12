@@ -62,3 +62,28 @@
     }
   });
 })();
+
+/* Gallery keyboard and pause controls. Arrow keys move between photos. */
+(() => {
+  'use strict';
+  const gallery = document.querySelector('[data-v5-gallery]');
+  const viewport = document.querySelector('[data-v5-viewport]');
+  const pause = document.querySelector('[data-hm-pause]');
+  if (!gallery || !viewport) return;
+  const items = [...document.querySelectorAll('[data-v5-original-set] .v5-food-item')];
+  viewport.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+    const index = items.indexOf(event.target);
+    if (index === -1) return;
+    event.preventDefault();
+    const step = event.key === 'ArrowRight' ? 1 : -1;
+    items[(index + step + items.length) % items.length].focus();
+  });
+  if (pause) {
+    pause.addEventListener('click', () => {
+      const paused = gallery.classList.toggle('is-user-paused');
+      pause.setAttribute('aria-pressed', String(paused));
+      pause.textContent = paused ? 'Play gallery' : 'Pause gallery';
+    });
+  }
+})();
