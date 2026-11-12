@@ -100,3 +100,27 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 
 .hm-sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
 .hm-sticky-cta{transition:opacity .3s,transform .3s}
+
+/* Section 01: heading and intro stay left; the vertical reel moves right; the menu sits underneath the intro. */
+@media (min-width:861px){
+  #menu .drop-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,380px)!important;column-gap:clamp(40px,5vw,84px)!important;row-gap:0!important;align-items:start!important}
+  #menu .drop-heading{grid-column:1!important;grid-row:1!important}
+  #menu .drop-details{grid-column:1!important;grid-row:2!important;align-self:start!important;margin-top:44px!important}
+  #menu .hm-reel{grid-column:2!important;grid-row:1 / span 2!important;justify-self:stretch!important;max-width:none!important;width:100%!important;margin-top:8px!important}
+}
+@media (max-width:860px){
+  #menu .drop-layout{display:flex!important;flex-direction:column!important;gap:28px!important}
+  #menu .drop-heading{order:1}
+  #menu .hm-reel{order:2;width:100%!important;max-width:360px!important}
+  #menu .drop-details{order:3}
+}
+#menu .hm-reel-stage{aspect-ratio:9/16!important}
+#menu .hm-reel-slide picture{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+#menu .hm-reel-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important}
+#menu .hm-reel-slide img{max-height:none!important;min-height:0!important}
+
+/* Centered content column: equal side margins on every page, so the eye stays on one center line. */
+.v2-shell{width:min(1120px,calc(100% - 2*clamp(24px,8vw,160px)))!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important}
+@media (min-width:861px){
+  #menu .drop-layout{grid-template-columns:minmax(0,1fr) minmax(0,420px)!important;column-gap:56px!important}
+}
