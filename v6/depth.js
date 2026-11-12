@@ -152,3 +152,57 @@
   next.addEventListener('click', () => move(1));
   prev.addEventListener('click', () => move(-1));
 })();
+
+/* Micro-promo reel: timed slides for images, play/pause for videos, manual steps.
+   Under reduced motion it does not advance on its own. */
+(() => {
+  'use strict';
+  const reel = document.querySelector('[data-hm-reel]');
+  if (!reel) return;
+  const slides = [...reel.querySelectorAll('[data-hm-slide]')];
+  const bars = [...reel.querySelectorAll('.hm-reel-progress span')];
+  const pause = reel.querySelector('[data-hm-reel-pause]');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD = 4500;
+  let index = 0, paused = reduce, timer = 0;
+  reel.style.setProperty('--hm-reel-ms', HOLD + 'ms');
+  const setVideos = (slide) => {
+    slide.querySelectorAll('video').forEach((v) => { v.muted = true; v.loop = true; v.playsInline = true; v.play().catch(() => {}); });
+    slides.filter((s) => s !== slide).forEach((s) => s.querySelectorAll('video').forEach((v) => v.pause()));
+  };
+  const show = (n) => {
+    index = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-current', i === index));
+    bars.forEach((b, i) => {
+      b.classList.remove('is-current', 'is-done');
+      if (i < index) b.classList.add('is-done');
+      if (i === index) { b.classList.add('is-current'); void b.offsetWidth; }
+    });
+    setVideos(slides[index]);
+    schedule();
+  };
+  const schedule = () => {
+    clearTimeout(timer);
+    const current = slides[index];
+    if (paused || current.querySelector('video')) return;
+    timer = setTimeout(() => show(index + 1), HOLD);
+  };
+  reel.querySelector('[data-hm-reel-next]').addEventListener('click', () => show(index + 1));
+  reel.querySelector('[data-hm-reel-prev]').addEventListener('click', () => show(index - 1));
+  const setPaused = (value) => {
+    paused = value;
+    reel.classList.toggle('is-paused', paused);
+    pause.setAttribute('aria-pressed', String(paused));
+    pause.textContent = paused ? 'Play' : 'Pause';
+    if (paused) clearTimeout(timer); else schedule();
+  };
+  pause.addEventListener('click', () => setPaused(!paused));
+  if (!reduce) {
+    reel.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') reel.classList.add('is-paused'); });
+    reel.addEventListener('pointerleave', () => { if (!paused) reel.classList.remove('is-paused'); });
+  }
+  reduce ? pause.setAttribute('aria-pressed', 'true') : null;
+  if (reduce) { pause.textContent = 'Play'; reel.classList.add('is-paused'); }
+  show(0);
+  if (reduce) setPaused(true);
+})();

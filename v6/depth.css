@@ -74,3 +74,26 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .hm-gallery-nav{display:flex;gap:6px}
 .hm-gallery-step{min-width:44px;min-height:44px;border:0;border-bottom:2px solid var(--hm-amber);background:none;color:var(--hm-ink);font:700 1.2rem/1 var(--v4-sans);cursor:pointer}
 .hm-gallery-step:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}
+
+/* Micro-promo reel: slides with progress bars, a menu and price line, and an order button. */
+.hm-reel{margin:0;width:100%;max-width:520px;justify-self:end}
+.hm-reel-progress{display:flex;gap:6px;margin-bottom:12px}
+.hm-reel-progress span{flex:1;height:2px;background:var(--hm-line);position:relative;overflow:hidden}
+.hm-reel-progress span::after{content:"";position:absolute;inset:0;background:var(--hm-amber);transform:scaleX(0);transform-origin:0 50%}
+.hm-reel-progress span.is-done::after{transform:scaleX(1)}
+.hm-reel-progress span.is-current::after{animation:hm-reel-fill var(--hm-reel-ms,4500ms) linear forwards}
+.hm-reel.is-paused .hm-reel-progress span.is-current::after{animation-play-state:paused}
+@keyframes hm-reel-fill{to{transform:scaleX(1)}}
+.hm-reel-stage{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:none}
+.hm-reel-slide picture{display:block;width:100%;height:100%}
+.hm-reel-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s var(--hm-ease-out)}
+.hm-reel-slide.is-current{opacity:1}
+.hm-reel-slide img,.hm-reel-slide video{width:100%;height:100%;object-fit:cover;filter:var(--hm-grade);display:block}
+.hm-reel-controls{display:flex;align-items:center;gap:6px;margin-top:12px}
+.hm-reel-step,.hm-reel-pause{min-width:44px;min-height:44px;border:0;border-bottom:2px solid var(--hm-amber);background:none;color:var(--hm-ink);font:700 .78rem/1 var(--v4-sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.hm-reel-step{font-size:1.2rem;text-transform:none}
+.hm-reel-step:focus-visible,.hm-reel-pause:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}
+.hm-reel-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-top:16px}
+.hm-reel-meta>div{display:grid;gap:4px}
+.hm-reel-meta strong{font:500 clamp(1.4rem,2vw,1.8rem)/1.1 var(--v4-serif);color:var(--hm-ink)}
+.hm-reel-price{font-size:.9rem;color:var(--hm-clay)}
