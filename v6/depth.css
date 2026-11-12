@@ -132,3 +132,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .hm-has-video .v4-plate-stage.v4-is-moving{animation:none!important}
 .hm-has-video .v4-plate-stage.is-ready-hidden .v4-plate-image{opacity:0}
 .hm-has-video .v4-plate-stage:has(.hm-hero-video.is-ready) .v4-plate-image{opacity:0}
+
+/* Section 01 fit: both order buttons share a bottom line; the reel fits the viewport height. */
+@media (min-width:861px){
+  #menu .drop-layout{grid-template-rows:auto 1fr!important;align-items:stretch!important}
+  #menu .drop-details{display:flex!important;flex-direction:column!important}
+  #menu .drop-details .v2-button{margin-top:auto!important;align-self:flex-start!important}
+  #menu .hm-reel{display:flex!important;flex-direction:column!important}
+  #menu .hm-reel-stage{width:min(100%,calc(min(60vh,620px)*4/5))!important;aspect-ratio:4/5!important;height:auto!important;align-self:flex-start!important}
+  #menu .hm-reel-meta{margin-top:auto!important;align-items:flex-end!important}
+}
+@media (max-width:860px){
+  #menu .drop-small,#menu .hm-reel-price{font-size:1rem!important;line-height:1.6!important}
+  #menu .drop-details h3 small{font-size:.95rem!important}
+  #menu .hm-reel-stage{aspect-ratio:4/5!important;height:auto!important}
+}
