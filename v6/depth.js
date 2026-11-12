@@ -211,11 +211,11 @@
 (() => {
   'use strict';
   const sticky = document.querySelector('.hm-sticky-cta');
-  const reelCta = document.querySelector('.hm-reel-meta a');
-  if (!sticky || !reelCta || !('IntersectionObserver' in window)) return;
+  const menu = document.querySelector('#menu');
+  if (!sticky || !menu || !('IntersectionObserver' in window)) return;
   new IntersectionObserver((entries) => {
     sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
-  }, { threshold: 0.6 }).observe(reelCta);
+  }, { threshold: 0.15 }).observe(menu);
 })();
 
 /* Hero video: plays muted and loops; follows the hero's Pause motion control; still under reduced motion. */
