@@ -12,6 +12,8 @@
    const next=sources.shift();
    if(next){image.src=next;image.alt='Illustrative plate from the Haus of Micah visual menu collection'}
  });
+ // If the first asset failed before deferred JS ran, recover immediately.
+ if(image.complete && image.naturalWidth === 0 && sources.length){image.dispatchEvent(new Event('error'))}
  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
  const saveData=Boolean(navigator.connection?.saveData);
  let manuallyPaused=false,offscreen=false;

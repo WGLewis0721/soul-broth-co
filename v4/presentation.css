@@ -11,7 +11,7 @@
 }
 html{scroll-padding-top:94px}
 body{background:var(--v4-paper)}
-.v2-shell{width:min(100% - 2 * var(--v4-gutter),1360px);max-width:1360px}
+.v2-shell{width:calc(100% - var(--v4-gutter) - var(--v4-gutter));max-width:1360px}
 #hero,#drop,#how,#request,#pickup,#faq,#gallery,#contact{scroll-margin-top:94px}
 /* Navigation uses the same product identity as the hero. */
 .v2-header{background:var(--v4-evergreen)!important;border-bottom:1px solid rgba(255,255,255,.13);box-shadow:none}
@@ -218,3 +218,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .v4-motion-toggle{display:none!important}
  .gallery-grid figure img{transform:none!important}
 }
+
+/* Clarity wins over stretching a low-resolution source into a viewport-sized backdrop. */
+.v4-hero-figure{perspective:1100px}
+.v4-plate-stage{width:min(100%,600px)}
+@media(max-width:600px){.v4-plate-stage{width:100%}}
