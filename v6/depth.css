@@ -156,3 +156,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .hm-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px;opacity:0;transition:opacity .12s linear;filter:var(--hm-grade) drop-shadow(0 30px 34px rgba(11,53,40,.28));pointer-events:none}
 .hm-shot.is-current{opacity:1}
 .hm-series-live .v4-plate-image{opacity:0}
+
+
+/* Button and link fixes from the layout audit. */
+/* Instagram link: ink on ivory (it was ivory on ivory). Hover in leaf green. */
+.v5-kitchen-instagram{color:var(--hm-ink)!important;text-decoration-color:var(--hm-amber)!important;min-height:44px;align-items:center}
+.v5-kitchen-instagram:hover{color:var(--hm-leaf)!important}
+/* Hero: one amber primary (request); the menu link becomes an outlined secondary. */
+.v4-action-outline{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border:2px solid var(--hm-ink);border-radius:999px;background:transparent;color:var(--hm-ink);font:700 1rem/1 var(--v4-sans);text-decoration:none}
+.v4-action-outline:hover{background:var(--hm-ink);color:var(--hm-base)}
+.v4-action-outline:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}
+/* Tap targets: at least 44px tall and wide for nav, contact, and footer links. */
+.site-nav a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px}
+.contact-hours a{display:inline-flex;align-items:center;min-height:44px}
+.v2-footer a{display:inline-flex;align-items:center;min-height:44px}
