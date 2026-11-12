@@ -206,3 +206,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .v5-food-close:focus-visible{outline:none!important;color:#F5D38F!important;text-decoration:underline;text-decoration-thickness:4px!important;text-decoration-color:var(--hm-base)!important}
 .v5-food-focus .hm-share:focus{outline:none}
 .v5-food-focus .hm-share:focus-visible{outline:none!important;color:#F5D38F!important;border-bottom:4px solid var(--hm-base)}
+
+/* The header is fixed: 70px tall up to 600px and 79px above that. The hero copy starts below it
+   with about 24px of air, instead of tucking the top of the heading under the header edge. */
+@media (max-width:600px){.v4-hero{padding-top:44px}}
+@media (min-width:601px) and (max-width:860px){.v4-hero{padding-top:41px}}
