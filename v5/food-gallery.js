@@ -30,6 +30,7 @@
  const saveData=Boolean(navigator.connection?.saveData);
  const refresh=()=>{
   const moving=!reduced.matches&&!saveData;
+  root.classList.toggle('is-ready',moving);
   track.classList.toggle('is-running',moving);
   root.classList.toggle('is-paused',Boolean(currentButton));
   if(!moving){const clone=track.querySelector('[data-v5-duplicate]');if(clone)clone.remove()}
@@ -44,6 +45,11 @@
  const select=(button)=>{
   const dish=data[button?.dataset.v5Food];
   if(!dish)return;
+  // An accessible original button owns focus/expanded state, even if a
+  // duplicated visual frame receives a pointer tap during the loop.
+  if(button.hasAttribute('data-v5-copy')){
+    button=first.querySelector('[data-v5-food="'+button.dataset.v5Food+'"]')||button;
+  }
   if(currentButton&&currentButton!==button)currentButton.setAttribute('aria-expanded','false');
   currentButton=button;
   button.setAttribute('aria-expanded','true');
@@ -71,7 +77,7 @@
  };
  root.addEventListener('click',e=>{
    const b=e.target.closest('[data-v5-food]');
-   if(b&&!b.hasAttribute('data-v5-copy')){select(b);return}
+   if(b){select(b);return}
    if(e.target.closest('[data-v5-close]'))dismiss();
  });
  root.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')hovered=true});

@@ -47,7 +47,10 @@
 .v5-kitchen-heading-side .v5-overline{font-size:.62rem;color:#EAC784}
 .v5-kitchen-heading-side p{font:500 1rem/1.65 var(--v4-sans);color:#CBDACB;max-width:290px;margin:13px 0 0}
 .v5-food-stage{position:relative;min-height:clamp(370px,36vw,450px);max-width:100%;isolation:isolate}
-.v5-food-viewport{position:relative;overflow:hidden;padding:18px 0 22px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.v5-food-viewport{position:relative;overflow-x:auto;overflow-y:hidden;padding:18px 0 22px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.v5-kitchen.is-ready .v5-food-viewport{overflow:hidden}
+.v5-food-viewport:not(.is-focused)::-webkit-scrollbar{height:4px}
+.v5-food-viewport:not(.is-focused){scrollbar-color:var(--v5-amber) transparent}
 .v5-food-track{display:flex;width:max-content;transform:translate3d(0,0,0)}
 .v5-food-set{display:flex;gap:clamp(16px,1.8vw,25px);flex:none;padding-right:clamp(16px,1.8vw,25px)}
 .v5-food-item{
