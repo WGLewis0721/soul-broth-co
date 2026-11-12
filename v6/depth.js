@@ -207,12 +207,12 @@
   if (reduce) setPaused(true);
 })();
 
-/* Hide the mobile sticky request button while the menu or gallery is on screen, or while a gallery
-   detail panel is open. It would otherwise cover the panel and the gallery footer. */
+/* Hide the mobile sticky request button while the menu, gallery or request form is on screen, or while a
+   gallery detail panel is open. It would otherwise cover the panel, the gallery footer and the form fields. */
 (() => {
   'use strict';
   const sticky = document.querySelector('.hm-sticky-cta');
-  const targets = [document.querySelector('#menu'), document.querySelector('#gallery')].filter(Boolean);
+  const targets = [document.querySelector('#menu'), document.querySelector('#gallery'), document.querySelector('#request')].filter(Boolean);
   const panel = document.querySelector('[data-v5-focus]');
   if (!sticky || !targets.length || !('IntersectionObserver' in window)) return;
   const visible = new Set();
