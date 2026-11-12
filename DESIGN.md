@@ -1,7 +1,14 @@
-# Haus of Micah — Active Website Design System V2
+# Haus of Micah — Active Website Design System
 Official identity source: [original client board](assets/brand/official-brand-board.jpg). [V2 workflow brand board](assets/v2/boards/brand-board-v2.svg) interprets, not overwrites, that identity. Design tokens live in `v2/css/tokens.css` with warm Roux, Gold, Cream, Collard and Glaze. Food photography drives the hero; five already-committed turntable angles supply a left/right admiration loop. All UI components have their sources under `v2/components/`. 
 **Critical product truth:** not an immediate-payment restaurant. Every request needs manual approval before payment by text, and exact pickup info arrives in a later message. Current site is a design preview, not a live order system; do not infer order fulfillment from a draft form. 
 See [full V2 specification](docs/concepts/haus-of-micah/WEBSITE_V2_SPEC.md) and [UX checklist](docs/V2_UX_AUDIT.md). The prior design documents are preserved in Git history.
 
 ## V3 Forest / Food Film (November 2026)
 The current website shifts decisively away from brown-heavy styling: approximately **60% forest green, 30% warm white, 5% gold/orange, 5% brown**. It carries the client-approved logo, photographic rotating plate, manual approval-first business flow and native form behavior forward. The campaign now includes an oversized editorial hero, typographic manifesto, full-bleed food-photo chapter, staggered gallery, and open four-step timeline; the request form stays visually quiet on white. These are compositional proportions, not exactly counted pixels. See [the V3 product spec](docs/concepts/haus-of-micah/WEBSITE_V3_FOREST_SPEC.md).
+
+## Presentation Edition V4 (November 12, 2026)
+Visual hierarchy is no longer inherited from stacked V2/V3 hero systems. The V4 hero is a normal-flow editorial composition with one guaranteed-visible photographic focal object and source-controlled fallbacks. The former full-screen food backdrop is replaced by a bounded editorial film still so native photo resolution is respected.
+
+Maintain **60% forest green / 30% warm white / 5% warm gold-orange / 5% roux/rust accents** as art direction rather than a literal DOM pixel histogram. Logo is unchanged. Use the local SVG icon sprite for actions and process details; do not use emoji art or clip-art. Use `clamp()` and breakpoint-specific composition for 320/390/768/1024/1440 widths. All core controls remain 44px or larger, focusable and distinct; selected state must not depend on hue alone. Dynamic controls and status copy never imply order acceptance, payment, or pickup without a server-backed workflow.
+
+Documentation and acceptance criteria: [V4 spec](docs/concepts/haus-of-micah/PRESENTATION_V4.md), [Gray Matter product design](https://github.com/WGLewis0721/Graymattertechllc-/blob/main/app-design/DESIGN_SYSTEM.md), [Spread foundational UX principles](https://github.com/WGLewis0721/spread-app/blob/main/docs/design/FOUNDATIONAL_UX_PRINCIPLES.md).
