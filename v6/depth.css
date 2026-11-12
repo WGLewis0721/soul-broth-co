@@ -69,3 +69,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .steps-line{position:relative}
 .steps-line::after{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--hm-amber);transform:scaleX(var(--hm-draw,0));transform-origin:0 50%;pointer-events:none;z-index:2}
 @media (prefers-reduced-motion:reduce){.steps-line::after{transform:none}}
+
+/* Gallery step arrows: text-sized targets with an amber underline, no box. */
+.hm-gallery-nav{display:flex;gap:6px}
+.hm-gallery-step{min-width:44px;min-height:44px;border:0;border-bottom:2px solid var(--hm-amber);background:none;color:var(--hm-ink);font:700 1.2rem/1 var(--v4-sans);cursor:pointer}
+.hm-gallery-step:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}

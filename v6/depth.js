@@ -119,3 +119,36 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+/* Gallery step arrows: move the loop by one photo. Falls back to scrolling the strip. */
+(() => {
+  'use strict';
+  const gallery = document.querySelector('[data-v5-gallery]');
+  const track = document.querySelector('[data-v5-track]');
+  const viewport = document.querySelector('[data-v5-viewport]');
+  const first = document.querySelector('[data-v5-original-set]');
+  const prev = document.querySelector('[data-hm-prev]');
+  const next = document.querySelector('[data-hm-next]');
+  if (!gallery || !track || !viewport || !first || !prev || !next) return;
+  const stepPx = () => {
+    const item = first.querySelector('.v5-food-item');
+    const gap = parseFloat(getComputedStyle(first).columnGap || getComputedStyle(first).gap) || 0;
+    return item ? item.offsetWidth + gap : 0;
+  };
+  const move = (direction) => {
+    const anim = track.getAnimations ? track.getAnimations()[0] : null;
+    const step = stepPx();
+    if (anim && anim.effect && anim.effect.getComputedTiming().duration) {
+      const duration = anim.effect.getComputedTiming().duration;
+      const setWidth = first.offsetWidth || 1;
+      const delta = (step / setWidth) * duration;
+      // Next moves the strip left (later in the loop); previous moves it right.
+      const t = anim.currentTime === null ? 0 : anim.currentTime;
+      anim.currentTime = (((t - direction * delta) % duration) + duration) % duration;
+      return;
+    }
+    viewport.scrollBy({ left: -direction * step, behavior: 'smooth' });
+  };
+  next.addEventListener('click', () => move(1));
+  prev.addEventListener('click', () => move(-1));
+})();
