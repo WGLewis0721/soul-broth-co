@@ -81,7 +81,8 @@
    if(e.target.closest('[data-v5-close]'))dismiss();
  });
  root.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')hovered=true});
- root.addEventListener('pointerleave',()=>{hovered=false});
+ root.addEventListener('pointerleave',()=>{hovered=false;root.classList.remove('is-image-hover')});
+ root.addEventListener('pointerover',e=>{root.classList.toggle('is-image-hover',Boolean(e.target.closest('.v5-food-item')))});
  root.addEventListener('focusin',()=>{keyboardFocus=true});
  root.addEventListener('focusout',e=>{if(!root.contains(e.relatedTarget))keyboardFocus=false});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentButton){e.preventDefault();dismiss()}});

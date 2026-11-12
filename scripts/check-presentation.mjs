@@ -44,7 +44,7 @@ check(html.includes('04 / THE KITCHEN'),'Renumbered Section 04 missing');
 check(html.includes('02 / HOW IT WORKS')&&html.includes('03 / ORDER REQUEST')&&html.includes('05 / PICKUP'),'Section numbering shifted incorrectly');
 check((html.match(/class="v5-food-item"/g)||[]).length===3,'Expected three original photo buttons');
 check(v5css.includes('translate3d(-50%,0,0)')&&v5css.includes('translate3d(0,0,0)'),'Left-to-right loop missing');
-check(v5css.includes('.v5-kitchen:hover')&&v5css.includes('.v5-kitchen:focus-within'),'Hover/focus pause missing');
+check(v5css.includes('.v5-kitchen.is-image-hover')&&v5js.includes('is-image-hover')&&!v5css.includes('.v5-kitchen:focus-within'),'Image-only hover pause missing');
 check(v5css.includes('calc(var(--v5-thumb-width) * 1.25)'),'125 percent expansion missing');
 check(v5css.includes('prefers-reduced-motion:reduce')&&v5js.includes('saveData'),'Motion/data saver fallback missing');
 check(v5js.includes('data-v5-copy')&&v5js.includes('if(b){select(b);return}'),'Repeated images are not tappable');
