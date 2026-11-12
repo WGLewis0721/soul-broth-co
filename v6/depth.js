@@ -87,3 +87,15 @@
     });
   }
 })();
+
+/* Deep links: ?plate=<key> opens that gallery photo on load. Unknown keys are ignored. */
+(() => {
+  'use strict';
+  const key = new URLSearchParams(window.location.search).get('plate');
+  if (!key) return;
+  const item = document.querySelector('[data-v5-original-set] [data-v5-food="' + CSS.escape(key) + '"]');
+  if (!item) return;
+  const open = () => item.click();
+  if (document.readyState === 'complete') open();
+  else window.addEventListener('load', open, { once: true });
+})();
