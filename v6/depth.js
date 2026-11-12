@@ -211,9 +211,32 @@
 (() => {
   'use strict';
   const sticky = document.querySelector('.hm-sticky-cta');
-  const reelCta = document.querySelector('.hm-reel-meta a');
-  if (!sticky || !reelCta || !('IntersectionObserver' in window)) return;
+  const menu = document.querySelector('#menu');
+  if (!sticky || !menu || !('IntersectionObserver' in window)) return;
   new IntersectionObserver((entries) => {
     sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
-  }, { threshold: 0.6 }).observe(reelCta);
+  }, { threshold: 0.15 }).observe(menu);
+})();
+
+/* Hero video: plays muted and loops; follows the hero's Pause motion control; still under reduced motion. */
+(() => {
+  'use strict';
+  const hero = document.querySelector('[data-v4-plate]');
+  const stage = hero && hero.querySelector('.v4-plate-stage');
+  const video = hero && hero.querySelector('.hm-hero-video');
+  if (!hero || !stage || !video) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  hero.classList.add('hm-has-video');
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  if (reduce) return;
+  const sync = () => {
+    if (stage.classList.contains('v4-paused') || document.hidden) video.pause();
+    else video.play().catch(() => {});
+  };
+  new MutationObserver(sync).observe(stage, { attributes: true, attributeFilter: ['class'] });
+  const ready = () => { video.classList.add('is-ready'); sync(); };
+  if (video.readyState >= 2) ready(); else video.addEventListener('loadeddata', ready, { once: true });
+  document.addEventListener('visibilitychange', sync);
 })();

@@ -124,3 +124,32 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 @media (min-width:861px){
   #menu .drop-layout{grid-template-columns:minmax(0,1fr) minmax(0,420px)!important;column-gap:56px!important}
 }
+
+/* Hero video: the still stays as the fallback until the clip can play. */
+.v4-plate-stage{position:relative}
+.hm-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px;opacity:0;transition:opacity .8s var(--hm-ease-out);filter:var(--hm-grade) drop-shadow(0 30px 34px rgba(11,53,40,.28));pointer-events:none}
+.hm-hero-video.is-ready{opacity:1}
+.hm-has-video .v4-plate-stage.v4-is-moving{animation:none!important}
+.hm-has-video .v4-plate-stage.is-ready-hidden .v4-plate-image{opacity:0}
+.hm-has-video .v4-plate-stage:has(.hm-hero-video.is-ready) .v4-plate-image{opacity:0}
+
+/* Section 01 fit: both order buttons share a bottom line; the reel fits the viewport height. */
+@media (min-width:861px){
+  #menu .drop-layout{grid-template-rows:auto 1fr!important;align-items:stretch!important}
+  #menu .drop-details{display:flex!important;flex-direction:column!important}
+  #menu .drop-details .v2-button{margin-top:auto!important;align-self:flex-start!important}
+  #menu .hm-reel{display:flex!important;flex-direction:column!important}
+  #menu .hm-reel-stage{width:min(100%,calc(min(60vh,620px)*4/5))!important;aspect-ratio:4/5!important;height:auto!important;align-self:flex-start!important}
+  #menu .hm-reel-meta{margin-top:auto!important;align-items:flex-end!important}
+}
+@media (max-width:860px){
+  #menu .drop-small,#menu .hm-reel-price{font-size:1rem!important;line-height:1.6!important}
+  #menu .drop-details h3 small{font-size:.95rem!important}
+  #menu .hm-reel-stage{aspect-ratio:4/5!important;height:auto!important}
+}
+@media (min-width:861px){
+  #menu{padding-top:clamp(28px,3vw,44px)!important}
+  #menu .drop-details{margin-top:24px!important}
+  #menu .dish-list li{margin:0 0 2px!important}
+  #menu .dish-list ul{gap:6px}
+}
