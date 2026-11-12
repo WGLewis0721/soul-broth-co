@@ -64,3 +64,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .hm-gallery-pause{min-height:44px;padding:0 2px;border:0;border-bottom:2px solid var(--hm-amber);background:none;color:var(--hm-ink);font:800 .78rem/1 var(--v4-sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .hm-gallery-pause:focus-visible{outline:3px solid var(--hm-amber);outline-offset:4px}
 .v5-kitchen.is-user-paused .v5-food-track{animation-play-state:paused!important}
+
+/* Process line: an amber rule that draws across the four steps as they scroll in. */
+.steps-line{position:relative}
+.steps-line::after{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--hm-amber);transform:scaleX(var(--hm-draw,0));transform-origin:0 50%;pointer-events:none;z-index:2}
+@media (prefers-reduced-motion:reduce){.steps-line::after{transform:none}}

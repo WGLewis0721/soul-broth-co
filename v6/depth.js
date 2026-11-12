@@ -99,3 +99,23 @@
   if (document.readyState === 'complete') open();
   else window.addEventListener('load', open, { once: true });
 })();
+
+/* Process line progress: tied to scroll position, full width under reduced motion. */
+(() => {
+  'use strict';
+  const lines = [...document.querySelectorAll('.steps-line')];
+  if (!lines.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const update = () => {
+    for (const line of lines) {
+      if (reduce) { line.style.setProperty('--hm-draw', '1'); continue; }
+      const r = line.getBoundingClientRect();
+      const span = window.innerHeight * 0.7;
+      const progress = Math.min(1, Math.max(0, (window.innerHeight - r.top) / span));
+      line.style.setProperty('--hm-draw', progress.toFixed(3));
+    }
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
