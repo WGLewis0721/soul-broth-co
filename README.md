@@ -19,3 +19,11 @@ The active homepage uses a **60/30/5/5 green/white/gold-orange/brown** visual di
 - **Accessibility:** the hero image exists in the DOM without JS; reduced motion disables orbit, and all existing form states and labels remain.
 
 The previous V2/V3 design documents and demo components are retained for traceability, but the V4 specification takes precedence for the active presentation page.
+
+## Section 04 · The Haus Table (V5, November 12, 2026)
+
+The former V3 cinematic food chapter and V4 static gallery are now **one section** (`#gallery`) placed after Section 03 Request and before Section 05 Pickup. Its photos move continuously from left to right, pause on hover or focus, and expand 125% with ingredients to the right when selected (underneath on small phones).
+
+Sources: [V5 component styles](v5/food-gallery.css), [interaction](v5/food-gallery.js), [design and accessibility specification](docs/concepts/haus-of-micah/HAUS_TABLE_V5.md), and [color guide](assets/v5/palette-guide.svg). The existing request form still does not collect actual orders or payments.
+
+**For QA:** `node scripts/check-presentation.mjs`. Check the focus/hover/tap path and reduced-motion manual scrolling on iPhone before public client signoff.

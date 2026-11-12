@@ -12,3 +12,9 @@ Visual hierarchy is no longer inherited from stacked V2/V3 hero systems. The V4 
 Maintain **60% forest green / 30% warm white / 5% warm gold-orange / 5% roux/rust accents** as art direction rather than a literal DOM pixel histogram. Logo is unchanged. Use the local SVG icon sprite for actions and process details; do not use emoji art or clip-art. Use `clamp()` and breakpoint-specific composition for 320/390/768/1024/1440 widths. All core controls remain 44px or larger, focusable and distinct; selected state must not depend on hue alone. Dynamic controls and status copy never imply order acceptance, payment, or pickup without a server-backed workflow.
 
 Documentation and acceptance criteria: [V4 spec](docs/concepts/haus-of-micah/PRESENTATION_V4.md), [Gray Matter product design](https://github.com/WGLewis0721/Graymattertechllc-/blob/main/app-design/DESIGN_SYSTEM.md), [Spread foundational UX principles](https://github.com/WGLewis0721/spread-app/blob/main/docs/design/FOUNDATIONAL_UX_PRINCIPLES.md).
+
+## The Haus Table V5 / Palette refinement
+
+**Green 60 / Ivory 30 / Amber 5 / Clay 5** is the intended visual-area direction, not a per-component constraint. The new semantic color roles are central to `v5/food-gallery.css` (pine `#0B3528`, leaf `#144A35`, ivory `#F7F2E7`, amber `#E7B355`, clay `#9D5739`). Read the [editable palette guide](assets/v5/palette-guide.svg) and [spec](docs/concepts/haus-of-micah/HAUS_TABLE_V5.md).
+
+The gallery is one editorial photographic storytelling component. A single image becomes 25% larger and reveals itemized **visual descriptions**, not an approved live menu; all actions retain keyboard and touch behavior and stop automatically on Reduce Motion or Save-Data. Do not reintroduce multiple overlapping cinema/gallery chapters, fake sold-out statuses, or unverified ingredients as real product listings.

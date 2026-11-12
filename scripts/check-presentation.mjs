@@ -35,5 +35,20 @@ for(const [name,value] of [['CSS',css],['JavaScript',js]]){
  for(const c of value){if(c==='{')open++;else if(c==='}')open--}
  check(open===0,name+' braces are not balanced');
 }
+// The Haus Table V5: structural and motion/safe-data source contracts.
+const v5css=source('v5/food-gallery.css');
+const v5js=source('v5/food-gallery.js');
+check(!html.includes('<section class="v3-cinema"'),'Old separate food film still present');
+check((html.match(/id="gallery"/g)||[]).length===1,'Section 04 duplicated');
+check(html.includes('04 / FROM THE HAUS'),'Renumbered Section 04 missing');
+check(html.includes('02 / SIMPLE BY DESIGN')&&html.includes('03 / ORDER REQUEST')&&html.includes('05 / PICKUP'),'Section numbering shifted incorrectly');
+check((html.match(/class="v5-food-item"/g)||[]).length===3,'Expected three original photo buttons');
+check(v5css.includes('translate3d(-50%,0,0)')&&v5css.includes('translate3d(0,0,0)'),'Left-to-right loop missing');
+check(v5css.includes('.v5-kitchen:hover')&&v5css.includes('.v5-kitchen:focus-within'),'Hover/focus pause missing');
+check(v5css.includes('calc(var(--v5-thumb-width) * 1.25)'),'125 percent expansion missing');
+check(v5css.includes('prefers-reduced-motion:reduce')&&v5js.includes('saveData'),'Motion/data saver fallback missing');
+check(v5js.includes('data-v5-copy')&&v5js.includes('if(b){select(b);return}'),'Repeated images are not tappable');
+check(v5js.includes('close.focus')&&v5js.includes('selected.focus'),'Focus management missing');
+for(const [name,value] of [['V5 CSS',v5css],['V5 JavaScript',v5js]]){let depth=0;for(const c of value){if(c==='{')depth++;if(c==='}')depth--}check(depth===0,name+' brace mismatch')}
 if(failures.length){for(const err of failures)console.error('FAIL '+err);process.exit(1)}
 console.log('PASS: presentation source, anchors, assets, icons, demo safeguards, responsive and reduced-motion contracts');

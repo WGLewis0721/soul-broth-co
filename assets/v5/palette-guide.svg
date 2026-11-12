@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+<title id="title">Haus of Micah Section 04 — Color Direction</title>
+<desc id="desc">Forest pine green 60%, warm ivory 30%, honey amber 5%, clay 5%, plus dark leaf green.</desc>
+<rect width="1200" height="600" fill="#F7F2E7"/>
+<text x="60" y="79" font-family="Georgia,serif" font-size="52" fill="#0B3528">The Haus Table</text>
+<text x="60" y="112" font-family="Arial,sans-serif" font-size="14" letter-spacing="3" fill="#9D5739">HAUS OF MICAH  /  COLOR DIRECTION V5</text>
+<text x="60" y="165" font-family="Arial,sans-serif" font-size="19" fill="#144A35">Green-led, ingredient-warm, editorial. The color frames the food; it never competes.</text>
+<rect x="60" y="210" width="648" height="162" rx="16" fill="#0B3528"/>
+<rect x="720" y="210" width="318" height="162" rx="16" fill="#EEEDE2"/>
+<rect x="1050" y="210" width="60" height="162" rx="12" fill="#E7B355"/>
+<rect x="1120" y="210" width="60" height="162" rx="12" fill="#9D5739"/>
+<text x="80" y="285" fill="#F7F2E7" font-family="Georgia,serif" font-size="34">THE PLATE IS THE EVENT</text>
+<text x="80" y="333" fill="#E7B355" font-family="Arial,sans-serif" font-size="17" letter-spacing="2">FOREST / 60%</text>
+<text x="745" y="283" fill="#0B3528" font-family="Georgia,serif" font-size="29">A quiet place</text>
+<text x="745" y="316" fill="#0B3528" font-family="Georgia,serif" font-size="29">to read.</text>
+<text x="60" y="428" fill="#0B3528" font-family="Arial,sans-serif" font-size="18" font-weight="bold">PINE</text>
+<text x="60" y="459" fill="#144A35" font-family="Arial,sans-serif" font-size="18">#0B3528</text>
+<text x="300" y="428" fill="#0B3528" font-family="Arial,sans-serif" font-size="18" font-weight="bold">IVORY</text>
+<text x="300" y="459" fill="#144A35" font-family="Arial,sans-serif" font-size="18">#F7F2E7</text>
+<text x="560" y="428" fill="#0B3528" font-family="Arial,sans-serif" font-size="18" font-weight="bold">AMBER</text>
+<text x="560" y="459" fill="#144A35" font-family="Arial,sans-serif" font-size="18">#E7B355</text>
+<text x="810" y="428" fill="#0B3528" font-family="Arial,sans-serif" font-size="18" font-weight="bold">CLAY</text>
+<text x="810" y="459" fill="#144A35" font-family="Arial,sans-serif" font-size="18">#9D5739</text>
+<text x="60" y="536" fill="#486753" font-family="Arial,sans-serif" font-size="16">HARMONY: pine + butterscotch + almond, inspired by independent culinary identity work.</text>
+<text x="60" y="564" fill="#486753" font-family="Arial,sans-serif" font-size="16">LIGHT TEXT ON PINE: 12.1:1   ·   AMBER ON PINE: 7.06:1   ·   CLAY ON IVORY: 4.88:1</text>
+</svg>
