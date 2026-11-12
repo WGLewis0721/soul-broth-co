@@ -217,3 +217,19 @@ body{background:var(--hm-base)!important}
 .request-form .area-choices input[type=radio]{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
 .request-form .area-choices label{position:relative}
 .request-form .area-choices input:checked+span{background:var(--hm-leaf)!important;color:var(--hm-base)!important}
+/* Section rhythm: one spacing scale, hairline breaks, no boxes. */
+:root{--hm-gap:clamp(56px,6vw,88px)}
+.v3-manifesto,.drop-section,.how-section,.request-section,.v5-kitchen,.pickup-section,.faq-section,.contact-section,.join-section{padding-top:var(--hm-gap)!important;padding-bottom:var(--hm-gap)!important;box-shadow:inset 0 1px 0 var(--hm-line)}
+.drop-section:before,.how-section:before,.request-section:before,.faq-section:before,.contact-section:before,.join-section:before{display:none!important;content:none!important}
+.drop-details{background:none!important;box-shadow:none!important;padding:0!important;margin:0!important;border:0!important;transform:none!important}
+.drop-image{box-shadow:none!important;transform:none!important;margin:0!important;width:100%!important}
+.drop-image:before,.drop-image::before{display:none!important}
+.drop-image img{border-radius:6px}
+.request-form{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;max-width:none!important}
+.request-form .qty-stepper{background:none!important;box-shadow:none!important;border-bottom:2px solid var(--hm-line)}
+.request-form .area-choices span{background:none!important;box-shadow:none!important;border:0!important;border-bottom:2px solid var(--hm-line)!important;border-radius:0!important;padding:10px 4px!important;min-height:44px!important;color:var(--hm-ink)!important}
+.request-form .area-choices input:checked+span{border-bottom-color:var(--hm-leaf)!important;color:var(--hm-leaf)!important;font-weight:800;box-shadow:inset 0 -3px var(--hm-amber)!important}
+.request-form .request-feedback{background:none!important;padding:0!important}
+.v5-food-photo,.v5-food-focus,.v5-food-focus-image{box-shadow:none!important}
+.v5-food-focus{background:transparent!important;border:0!important}
+.request-form .area-choices input[type=radio]{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;opacity:1!important;appearance:none!important;border:0!important}
