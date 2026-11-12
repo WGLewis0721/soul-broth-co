@@ -97,3 +97,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .hm-reel-meta>div{display:grid;gap:4px}
 .hm-reel-meta strong{font:500 clamp(1.4rem,2vw,1.8rem)/1.1 var(--v4-serif);color:var(--hm-ink)}
 .hm-reel-price{font-size:.9rem;color:var(--hm-clay)}
+
+.hm-sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+.hm-sticky-cta{transition:opacity .3s,transform .3s}

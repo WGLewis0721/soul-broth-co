@@ -206,3 +206,14 @@
   show(0);
   if (reduce) setPaused(true);
 })();
+
+/* Hide the mobile sticky request button while the reel's own order button is on screen. */
+(() => {
+  'use strict';
+  const sticky = document.querySelector('.hm-sticky-cta');
+  const reelCta = document.querySelector('.hm-reel-meta a');
+  if (!sticky || !reelCta || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver((entries) => {
+    sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
+  }, { threshold: 0.6 }).observe(reelCta);
+})();
