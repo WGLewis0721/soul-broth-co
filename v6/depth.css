@@ -170,3 +170,39 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 .site-nav a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px}
 .contact-hours a{display:inline-flex;align-items:center;min-height:44px}
 .v2-footer a{display:inline-flex;align-items:center;min-height:44px}
+
+
+/* Gallery detail panel: frosted pine glass over the carousel, with ivory text and amber accents.
+   The pine tint keeps text readable over any photo; the blur softens what sits behind it. */
+.v5-food-focus{
+  background:rgba(11,53,40,.8)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.25);
+  backdrop-filter:blur(22px) saturate(1.25);
+  border:1px solid rgba(247,242,231,.16)!important;
+  box-shadow:0 35px 85px rgba(0,19,9,.35)!important;
+  color:var(--hm-base)!important;
+}
+/* Overline: a lighter amber so it clears 4.5:1 on the pine glass. */
+.v5-food-focus-body .v5-focus-overline{color:#F5D38F!important;font-size:.72rem!important}
+.v5-food-focus-body h3{color:var(--hm-base)!important}
+.v5-food-list-label{color:rgba(247,242,231,.78)!important}
+.v5-food-focus-body li{color:var(--hm-base)!important}
+.v5-food-focus-body li::before{background:var(--v5-amber)!important}
+.v5-food-notice{color:rgba(247,242,231,.8)!important}
+.v5-food-close{color:var(--hm-base)!important}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .v5-food-focus{background:rgba(11,53,40,.96)!important}
+}
+@media (prefers-reduced-transparency:reduce){
+  .v5-food-focus{background:rgba(11,53,40,.96)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+/* Panel text: stronger selectors so the page-wide paragraph rules cannot turn it pine. */
+.v5-food-focus .v5-food-list-label,.v5-food-focus .v5-food-notice{color:rgba(247,242,231,.82)!important}
+.v5-food-focus .v5-food-notice{font-size:.72rem!important}
+.v5-food-focus .hm-share{color:var(--hm-base)!important}
+/* Keyboard focus without a box: the text turns light amber and the underline thickens and turns ivory.
+   The v4 layer forces a boxed outline with !important on focus-visible controls, so it is removed here too. */
+.v5-food-close:focus{outline:none}
+.v5-food-close:focus-visible{outline:none!important;color:#F5D38F!important;text-decoration:underline;text-decoration-thickness:4px!important;text-decoration-color:var(--hm-base)!important}
+.v5-food-focus .hm-share:focus{outline:none}
+.v5-food-focus .hm-share:focus-visible{outline:none!important;color:#F5D38F!important;border-bottom:4px solid var(--hm-base)}

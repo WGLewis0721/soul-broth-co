@@ -207,15 +207,28 @@
   if (reduce) setPaused(true);
 })();
 
-/* Hide the mobile sticky request button while the reel's own order button is on screen. */
+/* Hide the mobile sticky request button while the menu or gallery is on screen, or while a gallery
+   detail panel is open. It would otherwise cover the panel and the gallery footer. */
 (() => {
   'use strict';
   const sticky = document.querySelector('.hm-sticky-cta');
-  const menu = document.querySelector('#menu');
-  if (!sticky || !menu || !('IntersectionObserver' in window)) return;
-  new IntersectionObserver((entries) => {
-    sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
-  }, { threshold: 0.15 }).observe(menu);
+  const targets = [document.querySelector('#menu'), document.querySelector('#gallery')].filter(Boolean);
+  const panel = document.querySelector('[data-v5-focus]');
+  if (!sticky || !targets.length || !('IntersectionObserver' in window)) return;
+  const visible = new Set();
+  const sync = () => {
+    const panelOpen = !!panel && !panel.hidden;
+    sticky.classList.toggle('is-hidden', visible.size > 0 || panelOpen);
+  };
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) visible.add(entry.target); else visible.delete(entry.target);
+    }
+    sync();
+  }, { threshold: 0.15 });
+  targets.forEach((el) => io.observe(el));
+  if (panel) new MutationObserver(sync).observe(panel, { attributes: true, attributeFilter: ['hidden'] });
+  sync();
 })();
 
 /* Hero series: twelve short shots (four plates, three items each), 1.67s per shot = 20s loop.
