@@ -27,3 +27,6 @@ The former V3 cinematic food chapter and V4 static gallery are now **one section
 Sources: [V5 component styles](v5/food-gallery.css), [interaction](v5/food-gallery.js), [design and accessibility specification](docs/concepts/haus-of-micah/HAUS_TABLE_V5.md), and [color guide](assets/v5/palette-guide.svg). The existing request form still does not collect actual orders or payments.
 
 **For QA:** `node scripts/check-presentation.mjs`. Check the focus/hover/tap path and reduced-motion manual scrolling on iPhone before public client signoff.
+
+## Operations roadmap — approval-first check-in
+The production website still **does not collect real orders or take payment**. A researched, implementation-ready operational blueprint for a food-drop approval queue, payment verification, kitchen counts, QR check-in, pickup handoff, and SMS can be found at [Operations & Pickup Check-in](docs/concepts/haus-of-micah/OPERATIONS_CHECKIN_MVP.md). The fictional demo phone is (256) 555-0147 and must never be used as a real SMS destination.
