@@ -211,3 +211,5 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
    with about 24px of air, instead of tucking the top of the heading under the header edge. */
 @media (max-width:600px){.v4-hero{padding-top:44px}}
 @media (min-width:601px) and (max-width:860px){.v4-hero{padding-top:41px}}
+/* A selected pickup area is underlined, not boxed: the label must stay readable on the ivory form. */
+.request-form .area-choices input:checked+span{background:none!important;color:var(--hm-leaf)!important}
