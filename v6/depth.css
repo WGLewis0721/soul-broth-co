@@ -147,3 +147,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
   #menu .drop-details h3 small{font-size:.95rem!important}
   #menu .hm-reel-stage{aspect-ratio:4/5!important;height:auto!important}
 }
+@media (min-width:861px){
+  #menu{padding-top:clamp(28px,3vw,44px)!important}
+  #menu .drop-details{margin-top:24px!important}
+  #menu .dish-list li{margin:0 0 2px!important}
+  #menu .dish-list ul{gap:6px}
+}
