@@ -1,0 +1,183 @@
+/* Haus of Micah / Section 04: The Haus Table.
+   Color art direction: 60 forest / 30 paper / 5 amber / 5 clay.
+   Tokens: high-contrast editorial palette informed by Coolors + MÚC visual identity.
+   No ornamental boxes around individual thumbnails. */
+:root{
+ --v5-pine:#0B3528;
+ --v5-leaf:#144A35;
+ --v5-ivory:#F7F2E7;
+ --v5-amber:#E7B355;
+ --v5-clay:#9D5739;
+ --v5-muted:#BDD0BF;
+ --v5-ease:cubic-bezier(.2,.72,.22,1);
+ --v5-thumb-width:clamp(184px,19vw,246px);
+}
+/* Correct a previous "04" background graphic behind section 02. */
+.v5-how-section::before{content:"02"!important;font-size:clamp(14rem,37vw,39rem)!important;top:-.21em!important;right:-.05em!important;color:rgba(255,255,255,.035)!important}
+.v5-how-section .section-topline h2{
+ font-family:var(--v4-serif)!important;
+ font-size:clamp(3.1rem,5.3vw,6.2rem)!important;
+ line-height:1.07!important;
+ letter-spacing:-.06em!important;
+ max-width:800px;
+ text-wrap:balance;
+}
+.v5-how-section .section-topline h2 em{display:inline-block}
+.v5-kitchen{
+ position:relative;isolation:isolate;background:var(--v5-pine);color:var(--v5-ivory);
+ padding:clamp(74px,8vw,120px) 0 clamp(65px,6.5vw,100px);
+ overflow:hidden;
+}
+.v5-kitchen::before{content:"";pointer-events:none;position:absolute;inset:0 0 auto;height:100%;opacity:.38;background:radial-gradient(circle at 76% 10%,rgba(33,97,65,.48),transparent 40%);}
+.v5-kitchen-heading{
+ display:grid;grid-template-columns:minmax(0,1.3fr) minmax(235px,.7fr);
+ align-items:end;gap:clamp(24px,4.5vw,85px);position:relative;margin-bottom:clamp(32px,4vw,58px);
+}
+.v5-overline{color:var(--v5-amber);font:800 .72rem/1.5 var(--v4-sans);letter-spacing:.2em;text-transform:uppercase;display:block}
+.v5-kitchen-heading h2{
+ font:500 clamp(3.8rem,7vw,8.6rem)/.98 var(--v4-serif);
+ letter-spacing:-.073em;margin:clamp(20px,3vw,38px) 0 clamp(17px,2vw,27px);
+ max-width:900px;text-wrap:balance;
+}
+.v5-kitchen-heading h2 em{color:var(--v5-amber);font-weight:400}
+.v5-kitchen-heading-copy>p{
+ max-width:670px;color:#DFEBDD;font:500 clamp(1rem,1.2vw,1.18rem)/1.7 var(--v4-sans);
+}
+.v5-kitchen-heading-side{border-left:2px solid var(--v5-amber);padding-left:clamp(17px,2vw,31px);padding-bottom:10px}
+.v5-kitchen-heading-side .v5-overline{font-size:.62rem;color:#EAC784}
+.v5-kitchen-heading-side p{font:500 1rem/1.65 var(--v4-sans);color:#CBDACB;max-width:290px;margin:13px 0 0}
+.v5-food-stage{position:relative;min-height:clamp(370px,36vw,450px);max-width:100%;isolation:isolate}
+.v5-food-viewport{position:relative;overflow:hidden;padding:18px 0 22px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.v5-food-track{display:flex;width:max-content;transform:translate3d(0,0,0)}
+.v5-food-set{display:flex;gap:clamp(16px,1.8vw,25px);flex:none;padding-right:clamp(16px,1.8vw,25px)}
+.v5-food-item{
+ --v5-photo-r:16px;
+ flex:none;display:block;text-align:left;width:var(--v5-thumb-width);padding:0;margin:0;
+ border:0;background:transparent;color:var(--v5-ivory);cursor:pointer;appearance:none;
+ transition:transform .28s var(--v5-ease),filter .28s;
+}
+.v5-food-photo{display:block;overflow:hidden;width:100%;aspect-ratio:4/5;border-radius:var(--v5-photo-r);box-shadow:0 15px 33px rgba(0,17,8,.23)}
+.v5-food-photo img{
+ display:block;width:100%;height:100%;object-fit:cover;filter:none!important;
+ opacity:1!important;transform:none!important;
+}
+.v5-food-item-title{display:block;font:500 clamp(1.12rem,1.55vw,1.45rem)/1.25 var(--v4-serif);margin:14px 0 4px;color:var(--v5-ivory)}
+.v5-food-item-caption{display:block;font:800 .58rem/1.5 var(--v4-sans);letter-spacing:.15em;color:var(--v5-amber)}
+.v5-food-item:hover{transform:translateY(-4px)}
+.v5-food-item:focus-visible{outline:3px solid var(--v5-amber);outline-offset:7px;border-radius:16px}
+.v5-food-track.is-running{animation:v5-scroll-right 51s linear infinite}
+@keyframes v5-scroll-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.v5-kitchen:hover .v5-food-track,
+.v5-kitchen:focus-within .v5-food-track,
+.v5-kitchen.is-paused .v5-food-track{animation-play-state:paused!important}
+.v5-food-viewport.is-focused{opacity:.14;filter:saturate(.5);pointer-events:none}
+.v5-food-focus{
+ position:absolute;z-index:4;inset:0 max(18px,calc((100vw - 1040px)/2));
+ display:grid;grid-template-columns:minmax(0,calc(var(--v5-thumb-width) * 1.25)) minmax(0,1fr);
+ align-items:center;gap:clamp(25px,3vw,52px);
+ background:var(--v5-ivory);color:var(--v5-pine);
+ padding:clamp(18px,2.4vw,35px);border-radius:clamp(18px,2.5vw,29px);
+ box-shadow:0 35px 85px rgba(0,19,9,.28);
+ animation:v5-expand .32s var(--v5-ease) both;
+}
+.v5-food-focus[hidden]{display:none!important}
+@keyframes v5-expand{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.v5-food-focus-image{
+ width:100%;max-width:calc(var(--v5-thumb-width) * 1.25);
+ aspect-ratio:4/5;overflow:hidden;border-radius:15px;
+ box-shadow:0 18px 43px rgba(14,52,31,.18)
+}
+.v5-food-focus-image img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important;opacity:1!important}
+.v5-food-focus-body{align-self:center;min-width:0;position:relative;padding-top:26px}
+.v5-food-focus-body .v5-focus-overline{color:var(--v5-clay);font-size:.62rem}
+.v5-food-focus-body h3{font:500 clamp(1.9rem,3.2vw,3.6rem)/1.08 var(--v4-serif);letter-spacing:-.053em;margin:16px 0 20px;color:var(--v5-pine)}
+.v5-food-list-label{font:800 .72rem/1.5 var(--v4-sans);letter-spacing:.13em;color:#795034;text-transform:uppercase;margin:0 0 9px}
+.v5-food-focus-body ul{
+ list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:10px 15px;margin:0;padding:0
+}
+.v5-food-focus-body li{
+ display:flex;align-items:baseline;gap:9px;min-width:0;
+ color:var(--v5-pine);font:600 clamp(.85rem,1.12vw,1rem)/1.5 var(--v4-sans)
+}
+.v5-food-focus-body li::before{
+ content:"";display:block;flex:none;width:6px;height:6px;border-radius:50%;background:var(--v5-clay);align-self:center
+}
+.v5-food-notice{font:500 .72rem/1.58 var(--v4-sans);color:#4D6A57;margin-top:20px;max-width:460px}
+.v5-food-close{
+ position:absolute;right:0;top:-18px;display:inline-flex;gap:9px;align-items:center;
+ padding:8px 0;background:transparent;border:0;color:var(--v5-pine);
+ cursor:pointer;font:800 .72rem var(--v4-sans);text-decoration:underline;text-underline-offset:4px;
+ min-height:44px;
+}
+.v5-food-close svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.v5-kitchen-footer{
+ position:relative;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+ gap:13px 23px;padding-top:clamp(26px,3vw,45px);border-top:1px solid rgba(246,242,231,.21)
+}
+.v5-food-hint{display:flex;align-items:center;gap:10px;color:#C8DAC9;font:500 .84rem/1.5 var(--v4-sans)}
+.v5-food-hint svg{width:20px;height:20px;fill:none;stroke:var(--v5-amber);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+.v5-kitchen-instagram{display:inline-flex;align-items:center;gap:11px;color:var(--v5-ivory);font:800 .78rem var(--v4-sans);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--v5-amber);min-height:44px}
+.v5-kitchen-instagram svg{width:18px;height:18px;fill:none;stroke:var(--v5-amber);stroke-width:1.8;stroke-linecap:round}
+.v5-kitchen-instagram:hover{color:var(--v5-amber)}
+/* Color distribution polish: green environments, cream reading surfaces, sparing gold. */
+.v4-hero{background:radial-gradient(ellipse at 78% 50%,rgba(35,102,65,.45),transparent 49%),linear-gradient(142deg,#08271E,#0B3528 58%,#144A35)!important}
+.v4-hero h1 em{color:var(--v5-amber)}
+.v4-action-primary,.request-section .v2-button-gold,.v2-header .nav-contact{background:var(--v5-amber)!important;color:#0B3528!important}
+.v4-action-primary:hover,.request-section .v2-button-gold:hover,.v2-header .nav-contact:hover{background:#F3C977!important}
+.drop-section,.request-section{background:var(--v5-ivory)!important}
+.drop-heading h2 em,.request-intro h2 em{color:var(--v5-leaf)!important}
+.pickup-section{background:linear-gradient(145deg,#144A35,#0B3528 75%)!important}
+.pickup-section::before,.pickup-section::after{display:none!important;content:none!important;background:none!important}
+.pickup-section .pickup-steps{position:relative;z-index:2}
+.v5-how-section .steps-line{position:relative;z-index:2}
+@media(max-width:1050px){
+ .v5-kitchen-heading{grid-template-columns:minmax(0,1fr) minmax(0,.55fr);gap:30px}
+ .v5-food-focus{inset:0 25px}
+ .v5-food-focus-body ul{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+ .v5-kitchen-heading{grid-template-columns:1fr;gap:20px}
+ .v5-kitchen-heading h2{font-size:clamp(3.5rem,10vw,6rem);margin:20px 0}
+ .v5-kitchen-heading-side{max-width:600px}
+ .v5-kitchen-heading-side p{max-width:100%}
+ .v5-food-focus{grid-template-columns:minmax(0,calc(var(--v5-thumb-width) * 1.25)) minmax(0,1fr);gap:20px;inset:0 14px;padding:16px}
+ .v5-food-focus-body ul{grid-template-columns:1fr;gap:5px}
+ .v5-food-focus-body h3{font-size:clamp(1.7rem,4.4vw,2.7rem);margin:10px 0}
+ .v5-food-notice{font-size:.67rem;margin:12px 0 0}
+ .v5-how-section .section-topline h2{font-size:clamp(2.9rem,9vw,4.8rem)!important;line-height:1.1!important}
+}
+@media(max-width:520px){
+ :root{--v5-thumb-width:clamp(170px,51vw,215px)}
+ .v5-kitchen{padding:76px 0 69px}
+ .v5-kitchen-heading{margin-bottom:28px}
+ .v5-kitchen-heading h2{font-size:clamp(3.25rem,12vw,4.85rem);line-height:1.01;margin:19px 0 16px}
+ .v5-kitchen-heading h2 em{display:block}
+ .v5-kitchen-heading-copy>p{font-size:.96rem;line-height:1.65}
+ .v5-kitchen-heading-side{padding-left:14px}
+ .v5-food-stage{min-height:390px}
+ .v5-food-viewport{padding:10px 0 18px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+ .v5-food-focus{
+  inset:0 16px;grid-template-columns:minmax(0,1fr);align-items:start;align-content:start;
+  justify-items:center;gap:11px;padding:14px 18px;overflow-y:auto
+ }
+ .v5-food-focus-image{width:min(100%,calc(var(--v5-thumb-width) * 1.25));height:175px;aspect-ratio:auto}
+ .v5-food-focus-body{align-self:start;width:100%;padding-top:7px}
+ .v5-food-close{top:-1px}
+ .v5-food-focus-body h3{font-size:1.85rem;margin:7px 0 10px}
+ .v5-food-focus-body ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 11px}
+ .v5-food-focus-body li{font-size:.77rem}
+ .v5-food-notice{margin-top:9px;font-size:.65rem}
+ .v5-overline{font-size:.64rem}
+ .v5-food-focus-body .v5-focus-overline{padding-right:80px}
+ .v5-kitchen-footer{flex-direction:column;align-items:start}
+ .v5-how-section .section-topline h2{font-size:clamp(2.75rem,10.8vw,4.3rem)!important;line-height:1.12!important}
+ .v5-how-section .section-topline h2 em{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+ .v5-food-track{animation:none!important;transform:none!important}
+ .v5-food-viewport{overflow-x:auto;mask-image:none;scroll-snap-type:x mandatory}
+ .v5-food-item{scroll-snap-align:start}
+ .v5-food-focus{animation:none!important}
+ .v5-food-item:hover{transform:none}
+}
