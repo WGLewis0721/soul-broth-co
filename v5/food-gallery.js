@@ -1,4 +1,4 @@
-/* Haus of Micah · continuous left-to-right gallery; accessible click-to-expand.
+/* Haus of Micah kitchen gallery; continuous left-to-right motion, accessible click-to-expand.
    The page remains a design demo: descriptions reflect visible photo elements,
    not validated/current product ingredients or a guaranteed menu. */
 (()=>{'use strict';
@@ -14,13 +14,13 @@
  const close=focus?.querySelector('[data-v5-close]');
  if(!track||!first||!viewport||!focus||!image||!heading||!list||!close)return;
  const data={
-  wings:{name:'Crispy & glazed',image:'assets/food/wings.webp',
+  wings:{name:'Crispy and glazed',image:'assets/food/wings.webp',
    alt:'Photograph of crispy fried chicken with glazed food and a creamy side',
    items:['Crispy chicken','Sweet glazed accompaniment','Creamy side']},
-  braised:{name:'Slow-cooked comfort',image:'assets/food/braised.webp',
+  braised:{name:'Slow-cooked',image:'assets/food/braised.webp',
    alt:'Photograph of braised meat with collard greens, carrots and potatoes',
    items:['Braised beef','Collard greens','Carrots','Potatoes']},
-  mac:{name:'Golden & generous',image:'assets/food/mac-and-glaze.webp',
+  mac:{name:'Baked and golden',image:'assets/food/mac-and-glaze.webp',
    alt:'Photograph featuring macaroni and cheese alongside glazed prepared food',
    items:['Macaroni & cheese','Glazed preparation','Savory sides']}
  };
