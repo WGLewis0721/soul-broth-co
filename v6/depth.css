@@ -42,3 +42,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 /* Anchor offset for the Special Orders section under the sticky header. */
 #special-orders{scroll-margin-top:94px}
 @media (max-width:760px){#special-orders{scroll-margin-top:78px}}
+
+/* Brand ornament: the gold spatula from the mark, drawn without its box. */
+.hm-ornament{display:flex;justify-content:center;background:var(--hm-base);padding:clamp(28px,3.5vw,44px) 0 0}
+.hm-ornament svg{width:34px;height:34px;opacity:.9}
