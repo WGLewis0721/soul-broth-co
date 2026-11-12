@@ -117,3 +117,4 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 #menu .hm-reel-stage{aspect-ratio:9/16!important}
 #menu .hm-reel-slide picture{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
 #menu .hm-reel-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important}
+#menu .hm-reel-slide img{max-height:none!important;min-height:0!important}
