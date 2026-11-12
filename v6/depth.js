@@ -218,25 +218,47 @@
   }, { threshold: 0.15 }).observe(menu);
 })();
 
-/* Hero video: plays muted and loops; follows the hero's Pause motion control; still under reduced motion. */
+/* Hero series: twelve short shots (four plates, three items each), 1.67s per shot = 20s loop.
+   Follows the hero's Pause motion control; still image under reduced motion. */
 (() => {
   'use strict';
   const hero = document.querySelector('[data-v4-plate]');
   const stage = hero && hero.querySelector('.v4-plate-stage');
-  const video = hero && hero.querySelector('.hm-hero-video');
-  if (!hero || !stage || !video) return;
+  const shots = hero ? [...hero.querySelectorAll('.hm-shot')] : [];
+  const label = hero && hero.querySelector('.hm-shot-label');
+  if (!stage || !shots.length) return;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD = 1667;
+  let index = -1, timer = 0;
   hero.classList.add('hm-has-video');
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
-  if (reduce) return;
-  const sync = () => {
-    if (stage.classList.contains('v4-paused') || document.hidden) video.pause();
-    else video.play().catch(() => {});
+  shots.forEach((s) => { s.muted = true; s.playsInline = true; });
+  const halted = () => stage.classList.contains('v4-paused') || document.hidden;
+  const play = (s) => { const p = s.play(); if (p && p.catch) p.catch(() => {}); };
+  const show = (n) => {
+    index = (n + shots.length) % shots.length;
+    shots.forEach((s, i) => {
+      const on = i === index;
+      s.classList.toggle('is-current', on);
+      if (on) { s.currentTime = 0; if (!halted() && !reduce) play(s); }
+      else s.pause();
+    });
+    const cur = shots[index];
+    if (label) label.textContent = 'Illustrative · Plate ' + cur.dataset.plate + ' of 4 · ' + cur.dataset.item;
+    if (!reduce) hero.classList.add('hm-series-live');
+    schedule();
   };
-  new MutationObserver(sync).observe(stage, { attributes: true, attributeFilter: ['class'] });
-  const ready = () => { video.classList.add('is-ready'); sync(); };
-  if (video.readyState >= 2) ready(); else video.addEventListener('loadeddata', ready, { once: true });
-  document.addEventListener('visibilitychange', sync);
+  const schedule = () => {
+    clearTimeout(timer);
+    if (reduce || halted()) return;
+    timer = setTimeout(() => show(index + 1), HOLD);
+  };
+  new MutationObserver(() => {
+    if (halted()) { clearTimeout(timer); const c = shots[index]; if (c) c.pause(); }
+    else if (index >= 0) { const c = shots[index]; if (c && !reduce) play(c); schedule(); }
+  }).observe(stage, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('visibilitychange', () => {
+    if (halted()) { clearTimeout(timer); const c = shots[index]; if (c) c.pause(); }
+    else if (index >= 0) { const c = shots[index]; if (c && !reduce) play(c); schedule(); }
+  });
+  if (!reduce) show(0);
 })();

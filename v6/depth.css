@@ -127,8 +127,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 
 /* Hero video: the still stays as the fallback until the clip can play. */
 .v4-plate-stage{position:relative}
-.hm-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px;opacity:0;transition:opacity .8s var(--hm-ease-out);filter:var(--hm-grade) drop-shadow(0 30px 34px rgba(11,53,40,.28));pointer-events:none}
-.hm-hero-video.is-ready{opacity:1}
 .hm-has-video .v4-plate-stage.v4-is-moving{animation:none!important}
 .hm-has-video .v4-plate-stage.is-ready-hidden .v4-plate-image{opacity:0}
 .hm-has-video .v4-plate-stage:has(.hm-hero-video.is-ready) .v4-plate-image{opacity:0}
@@ -153,3 +151,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
   #menu .dish-list li{margin:0 0 2px!important}
   #menu .dish-list ul{gap:6px}
 }
+
+/* Hero series: short shots crossfade inside the hero frame. */
+.hm-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:6px;opacity:0;transition:opacity .12s linear;filter:var(--hm-grade) drop-shadow(0 30px 34px rgba(11,53,40,.28));pointer-events:none}
+.hm-shot.is-current{opacity:1}
+.hm-series-live .v4-plate-image{opacity:0}
