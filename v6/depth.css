@@ -121,3 +121,6 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
 
 /* Centered content column: equal side margins on every page, so the eye stays on one center line. */
 .v2-shell{width:min(1120px,calc(100% - 2*clamp(24px,8vw,160px)))!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important}
+@media (min-width:861px){
+  #menu .drop-layout{grid-template-columns:minmax(0,1fr) minmax(0,420px)!important;column-gap:56px!important}
+}
