@@ -38,3 +38,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opac
   .v4-hero-figure{transform:none!important}
   body::after{display:none}
 }
+
+/* Anchor offset for the Special Orders section under the sticky header. */
+#special-orders{scroll-margin-top:94px}
+@media (max-width:760px){#special-orders{scroll-margin-top:78px}}
